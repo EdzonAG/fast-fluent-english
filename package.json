@@ -1,0 +1,10 @@
+{
+  "name": "fast-fluent-english",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FAST fluent English — website (static, no build step)",
+  "scripts": {
+    "dev": "npx --yes serve@14.2.4 public -l 3000",
+    "start": "npx --yes serve@14.2.4 public -l ${PORT:-3000}"
+  }
+}

@@ -1,0 +1,46 @@
+# Render Blueprint — free static sites, no build step.
+# https://render.com/docs/blueprint-spec
+#
+# Service 1 serves everything:
+#   /                           FAST fluent English
+#   /tours/                     SpectaCulTours (hub)
+#   /tours/chiapas/             Chiapas expedition
+#   /tours/baja-california-sur/ Baja California Sur expedition
+services:
+  - type: web
+    name: fast-fluent-english
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: ./public
+    pullRequestPreviewsEnabled: true
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*.jpg
+        name: Cache-Control
+        value: public, max-age=604800
+      - path: /*.css
+        name: Cache-Control
+        value: public, max-age=3600
+      - path: /*.js
+        name: Cache-Control
+        value: public, max-age=3600
+
+  # Optional — SpectaCulTours on its own subdomain (e.g. tours.yourdomain.com).
+  # Uncomment, then in public/tours/assets/js/tours-config.js set
+  # fastUrl to the FAST English URL, and in public/assets/js/config.js set
+  # toursUrl to the subdomain URL. Add the custom domain in Render's dashboard.
+  #
+  # - type: web
+  #   name: spectacultours
+  #   runtime: static
+  #   buildCommand: ""
+  #   staticPublishPath: ./public/tours
+  #   (copy the headers block above if you want the same headers)
