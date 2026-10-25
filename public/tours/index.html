@@ -24,6 +24,7 @@
 
 <header class="t-nav" id="nav">
   <div class="container t-nav__inner">
+    <a class="t-back" href="/" data-fast aria-label="FAST English"><svg class="i"><use href="assets/img/icons.svg#arrow"/></svg><span data-i18n="t.back.fast">FAST English</span></a>
     <a href="./" class="t-logo" aria-label="SpectaCulTours"><img src="assets/img/logo-spectacultours.jpg" alt="SpectaCulTours" width="135" height="26"></a>
     <nav class="t-nav__links" aria-label="Main">
       <a href="chiapas/">Chiapas</a>
@@ -32,17 +33,16 @@
       <a href="#compare" data-i18n="h.nav.compare">Compare</a>
     </nav>
     <div class="t-nav__actions">
-      <button class="lang" id="langToggle" type="button" aria-label="Cambiar idioma / Change language"><span data-lang="en">EN</span><span data-lang="es">ES</span></button>
       <a class="btn btn--wa btn--sm t-nav__cta" href="https://wa.me/525530071808" data-wa="h.wa.hello" target="_blank" rel="noopener"><svg class="i"><use href="assets/img/icons.svg#whatsapp"/></svg><span data-i18n="t.cta.waShort">WhatsApp us</span></a>
       <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mMenu"><svg class="i"><use href="assets/img/icons.svg#menu"/></svg></button>
     </div>
   </div>
   <div class="m-menu" id="mMenu" hidden>
+    <a class="m-menu__back" href="/" data-fast>← FAST fluent English</a>
     <a href="chiapas/">Chiapas</a>
     <a href="baja-california-sur/">Baja California Sur</a>
     <a href="#how" data-i18n="h.nav.how">How it works</a>
     <a href="#compare" data-i18n="h.nav.compare">Compare</a>
-    <a href="/" data-fast>FAST fluent English ↗</a>
     <a class="btn btn--wa" href="https://wa.me/525530071808" data-wa="h.wa.hello" target="_blank" rel="noopener"><svg class="i"><use href="assets/img/icons.svg#whatsapp"/></svg><span data-i18n="t.cta.plan">Plan my expedition</span></a>
   </div>
 </header>
@@ -207,7 +207,7 @@
       </ul>
     </div>
   </div>
-  <div class="container t-footer__bottom"><span>© <span data-year>2026</span> SpectaCulTours</span><span data-i18n="t.foot.authentic">All photos &amp; videos are from our tours</span></div>
+  <div class="container t-footer__bottom"><span class="footer__legal">© <span data-year>2026</span> SpectaCulTours <button class="lang-mini" id="langToggle" type="button"><svg class="i"><use href="assets/img/icons.svg#globe"/></svg><span data-lang="en">Ver en español</span><span data-lang="es">View in English</span></button></span><span data-i18n="t.foot.authentic">All photos &amp; videos are from our tours</span></div>
 </footer>
 
 <div class="wa-fab"><span class="wa-fab__tip" data-i18n="t.fab">Plan your expedition 👋</span><a class="wa-fab__btn" href="https://wa.me/525530071808" data-wa="h.wa.hello" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="i"><use href="assets/img/icons.svg#whatsapp"/></svg></a></div>

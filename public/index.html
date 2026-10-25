@@ -71,25 +71,21 @@
 <header class="nav" id="nav">
   <div class="container nav__inner">
     <a href="#top" class="logo" aria-label="FAST fluent English — home">
-      <span class="logo__mark" aria-hidden="true">
-        <svg viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="currentColor"/><path d="M8 15h12M5 20h14M8 25h10" stroke="#ff3b4e" stroke-width="2.6" stroke-linecap="round"/><path d="M23 12h11l-1.4 4.2H27.4l-.9 2.7h4.9l-1.3 4H25.2L23.6 28H19z" fill="#fff"/></svg>
-      </span>
-      <span class="logo__text"><b>FAST</b> <span>fluent English</span></span>
+      <span class="logo__chip"><img src="assets/img/logo-fast.png" alt="FAST" width="481" height="85"></span>
+      <span class="logo__text">fluent English</span>
     </a>
 
     <nav class="nav__links" aria-label="Main">
       <a href="#why" data-i18n="nav.why">Why FAST</a>
       <a href="#method" data-i18n="nav.method">Method</a>
       <a href="#how" data-i18n="nav.how">How it works</a>
-      <a href="#prices" data-i18n="nav.prices">Prices</a>
+      <a href="#video" data-i18n="nav.video">Videos</a>
       <a href="#level" data-i18n="nav.test">Level test</a>
-      <a href="tours/" data-tours="" data-i18n="nav.tours">Tours ✈︎</a>
+      <a href="#prices" data-i18n="nav.prices">Prices</a>
+      <a href="#faq">FAQ</a>
     </nav>
 
     <div class="nav__actions">
-      <button class="lang" id="langToggle" type="button" aria-label="Cambiar idioma / Change language">
-        <span data-lang="en">EN</span><span data-lang="es">ES</span>
-      </button>
       <a class="btn btn--primary btn--sm nav__cta" href="https://calendly.com/alaiyomoreno/new-meeting" data-calendly target="_blank" rel="noopener">
         <svg class="i"><use href="#i-calendar"/></svg><span data-i18n="cta.evalShort">Free evaluation</span>
       </a>
@@ -104,11 +100,12 @@
     <a href="#method" data-i18n="nav.method">Method</a>
     <a href="#who" data-i18n="nav.who">Who it's for</a>
     <a href="#how" data-i18n="nav.how">How it works</a>
+    <a href="#services" data-i18n="nav.services">Services</a>
     <a href="#video" data-i18n="nav.video">Videos</a>
-    <a href="#prices" data-i18n="nav.prices">Prices</a>
     <a href="#level" data-i18n="nav.test">Level test</a>
+    <a href="#prices" data-i18n="nav.prices">Prices</a>
+    <a href="#about" data-i18n="nav.teacher">Your teacher</a>
     <a href="#faq">FAQ</a>
-    <a href="tours/" data-tours="" data-i18n="nav.tours">Tours ✈︎</a>
     <a class="btn btn--primary" href="https://calendly.com/alaiyomoreno/new-meeting" data-calendly target="_blank" rel="noopener"><svg class="i"><use href="#i-calendar"/></svg><span data-i18n="cta.eval">Book your free evaluation</span></a>
   </div>
 </header>
@@ -132,7 +129,7 @@
         <span class="hero__for" data-i18n="hero.for">for your next</span>
         <span class="rotator" aria-live="polite"><span class="rotator__word" id="rotator">meeting</span></span>
       </h1>
-      <p class="hero__lead reveal" data-i18n="hero.lead">Lost opportunities because your English is basic? Cassettes, CDs and apps helped very little. FAST is a method with real results: <strong>you speak 80% of the class</strong> — your teacher guides, explains and corrects.</p>
+      <p class="hero__lead reveal" data-i18n="hero.lead">Lost opportunities because your English is basic? Cassettes, CDs and apps helped very little. FAST is a method with real results: <strong>you speak 80% of the class</strong> — your teacher explains, guides and corrects.</p>
 
       <div class="hero__ctas reveal">
         <a class="btn btn--primary btn--lg" href="https://calendly.com/alaiyomoreno/new-meeting" data-calendly target="_blank" rel="noopener">
@@ -150,30 +147,24 @@
       </ul>
     </div>
 
-    <!-- Live class mock -->
-    <div class="hero__visual reveal" aria-hidden="true">
-      <div class="classcard">
-        <div class="classcard__top">
-          <span class="rec"><i></i> <span data-i18n="mock.live">Live class</span></span>
-          <span class="classcard__title"><svg class="i"><use href="#i-video"/></svg> Zoom · FAST English B2</span>
-          <span class="classcard__time" id="mockTimer">00:00</span>
-        </div>
-        <div class="classcard__body" id="mockChat"></div>
-        <div class="classcard__meter">
-          <div class="meter__labels">
-            <span><b data-i18n="mock.you">You</b> <em id="talkYou">0%</em></span>
-            <span><b data-i18n="mock.teacher">Teacher</b> <em id="talkTeacher">0%</em></span>
-          </div>
-          <div class="meter"><span class="meter__you" id="meterYou"></span><span class="meter__teacher" id="meterTeacher"></span></div>
-        </div>
+    <!-- Photo collage (Unsplash License photos) -->
+    <div class="hero__visual reveal">
+      <div class="collage">
+        <figure class="collage__main"><img src="assets/img/hero/learn-headphones.jpg" alt="Smiling student with headphones in an online English class" width="1100" height="733"></figure>
+        <figure class="collage__a"><img src="assets/img/hero/video-call.jpg" alt="Professional practicing English on a video call" width="800" height="533" loading="lazy"></figure>
+        <figure class="collage__b"><img src="assets/img/hero/hello-class.jpg" alt="Student waving hello at the start of a live class" width="800" height="533" loading="lazy"></figure>
       </div>
       <div class="floatcard floatcard--a">
-        <svg class="i"><use href="#i-book"/></svg>
+        <img class="floatcard__thumb" src="assets/img/hero/notes.jpg" alt="" loading="lazy">
         <div><b data-i18n="mock.ebook">Your personal e-book</b><span>FAST English B2.docx</span></div>
       </div>
       <div class="floatcard floatcard--b">
         <span class="floatcard__big">80%</span>
         <span data-i18n="mock.talk">of the time, you talk</span>
+      </div>
+      <div class="floatcard floatcard--c">
+        <span class="rec"><i></i> <span data-i18n="mock.live">Live class</span></span>
+        <b data-i18n="mock.zoom">Online on Zoom</b>
       </div>
     </div>
   </div>
@@ -236,8 +227,8 @@
   <div class="container method">
     <div class="method__copy reveal">
       <p class="eyebrow eyebrow--light" data-i18n="method.eyebrow">The FAST method</p>
-      <h2 data-i18n="method.title">You talk. <em>We guide, explain and correct.</em></h2>
-      <p class="section__sub" data-i18n="method.sub">In a FAST class the student talks most of the time about real life and real work. Every correction goes into your own personalized e-book — a quick reference that grows with you.</p>
+      <h2 data-i18n="method.title">You talk. <em>We explain, guide and correct.</em></h2>
+      <p class="section__sub" data-i18n="method.sub">20% simplified structure explanations, 80% you talking about real life and real work. Every correction goes into your own personalized e-book — a quick reference that grows with you.</p>
 
       <div class="tabs" role="tablist" aria-label="Class activities">
         <button class="tab is-active" role="tab" aria-selected="true" data-tab="0"><svg class="i"><use href="#i-chat"/></svg><span data-i18n="method.tab1">Real life</span></button>
@@ -264,7 +255,7 @@
       </div>
       <ul class="legend">
         <li><i class="legend__you"></i><span data-i18n="method.leg1"><b>80%</b> you — speaking, practicing, thinking in English</span></li>
-        <li><i class="legend__teacher"></i><span data-i18n="method.leg2"><b>20%</b> teacher — guiding, explaining, correcting</span></li>
+        <li><i class="legend__teacher"></i><span data-i18n="method.leg2"><b>20%</b> teacher — simplified structure explanations, guidance and corrections</span></li>
       </ul>
     </div>
   </div>
@@ -284,6 +275,10 @@
       <article class="who__item reveal"><svg class="i"><use href="#i-grad"/></svg><h3 data-i18n="who.4t">College students</h3><p data-i18n="who.4p">Exams, scholarships, postgraduate studies and interviews.</p></article>
       <article class="who__item reveal"><svg class="i"><use href="#i-plane"/></svg><h3 data-i18n="who.5t">International travelers</h3><p data-i18n="who.5p">Airports, hotels, culture and confident conversation abroad.</p></article>
     </div>
+    <button class="who__testimonial reveal" type="button" data-play-video="1OD9G-BJtQ0">
+      <span class="who__thumb"><img src="https://i.ytimg.com/vi/1OD9G-BJtQ0/hqdefault.jpg" alt="" loading="lazy"><span class="who__play"><svg class="i"><use href="#i-play"/></svg></span></span>
+      <span><small data-i18n="who.testiEyebrow">Testimonial</small><b data-i18n="who.testiTitle">A physician recommends FAST English</b><span data-i18n="who.testiText">Hear a physician's recommendation of FAST English.</span></span>
+    </button>
   </div>
 </section>
 
@@ -293,7 +288,7 @@
     <div class="section__head reveal">
       <p class="eyebrow" data-i18n="how.eyebrow">How it works</p>
       <h2 data-i18n="how.title">Live on Zoom. <em>Booked one day ahead</em> on Calendly.</h2>
-      <p class="section__sub" data-i18n="how.sub">Simple, flexible and designed for busy professionals.</p>
+      <p class="section__sub" data-i18n="how.sub">Communicate fluently in a few months with 2 or 3 weekly classes — simple, flexible and designed for busy professionals.</p>
     </div>
     <ol class="steps">
       <li class="step reveal">
@@ -368,19 +363,35 @@
       <h2 data-i18n="video.title">See how a FAST class <em>really</em> works.</h2>
       <p class="section__sub" data-i18n="video.sub">A results-driven methodology: how the FAST system achieves real conversational fluency and professional confidence.</p>
       <div class="vlist" role="tablist">
-        <button class="vlist__item is-active" type="button" data-video="lX2gAHl-6cw">
+        <button class="vlist__item is-active" type="button" data-video="uuOIa1UfVPg">
+          <img src="https://i.ytimg.com/vi/uuOIa1UfVPg/mqdefault.jpg" alt="" loading="lazy" width="120" height="68">
+          <span><b data-i18n="video.v1t">Talking &amp; taking notes</b><small data-i18n="video.v1s">English can give you a better lifestyle</small></span>
+        </button>
+        <button class="vlist__item" type="button" data-video="lX2gAHl-6cw">
           <img src="https://i.ytimg.com/vi/lX2gAHl-6cw/mqdefault.jpg" alt="" loading="lazy" width="120" height="68">
-          <span><b data-i18n="video.v1t">The FAST method</b><small data-i18n="video.v1s">Results-driven methodology</small></span>
+          <span><b data-i18n="video.v2t">The FAST method</b><small data-i18n="video.v2s">Results-driven methodology</small></span>
         </button>
         <button class="vlist__item" type="button" data-video="adFyhxaN_Ic">
           <img src="https://i.ytimg.com/vi/adFyhxaN_Ic/mqdefault.jpg" alt="" loading="lazy" width="120" height="68">
-          <span><b data-i18n="video.v2t">A real FAST class</b><small data-i18n="video.v2s">See a session in action</small></span>
+          <span><b data-i18n="video.v3t">A real FAST class</b><small data-i18n="video.v3s">See a session in action</small></span>
+        </button>
+        <button class="vlist__item" type="button" data-video="1OD9G-BJtQ0">
+          <img src="https://i.ytimg.com/vi/1OD9G-BJtQ0/mqdefault.jpg" alt="" loading="lazy" width="120" height="68">
+          <span><b data-i18n="video.v4t">A physician recommends FAST</b><small data-i18n="video.v4s">Why professionals choose us</small></span>
+        </button>
+        <button class="vlist__item" type="button" data-video="fupt-Eew4Do">
+          <img src="https://i.ytimg.com/vi/fupt-Eew4Do/mqdefault.jpg" alt="" loading="lazy" width="120" height="68">
+          <span><b data-i18n="video.v5t">Shopping abroad</b><small data-i18n="video.v5s">English for real-life situations</small></span>
+        </button>
+        <button class="vlist__item" type="button" data-video="w0dtkh3Dz1k">
+          <img src="https://i.ytimg.com/vi/w0dtkh3Dz1k/mqdefault.jpg" alt="" loading="lazy" width="120" height="68">
+          <span><b data-i18n="video.v6t">Learn from home</b><small data-i18n="video.v6s">Understand the songs you love</small></span>
         </button>
       </div>
       <a class="linkbtn" href="https://www.youtube.com/@alaiyom3967" target="_blank" rel="noopener" data-social="youtube"><svg class="i"><use href="#i-youtube"/></svg><span data-i18n="video.channel">More on our YouTube channel</span></a>
     </div>
-    <div class="player reveal" id="player" data-id="lX2gAHl-6cw">
-      <img class="player__thumb" src="https://i.ytimg.com/vi/lX2gAHl-6cw/hqdefault.jpg" alt="FAST English video" loading="lazy">
+    <div class="player reveal" id="player" data-id="uuOIa1UfVPg">
+      <img class="player__thumb" src="https://i.ytimg.com/vi/uuOIa1UfVPg/hqdefault.jpg" alt="FAST English video" loading="lazy">
       <button class="player__play" type="button" aria-label="Play video"><svg class="i"><use href="#i-play"/></svg></button>
     </div>
   </div>
@@ -393,9 +404,7 @@
       <p class="eyebrow" data-i18n="quiz.eyebrow">Free level check</p>
       <h2 data-i18n="quiz.title">What's your English level? <em>Find out in 60 seconds.</em></h2>
       <p class="section__sub" data-i18n="quiz.sub">A quick self-assessment based on the Common European Framework of Reference (A1–C2). Then confirm it with a free evaluation call with your teacher.</p>
-      <div class="cefr" aria-hidden="true">
-        <span>A1</span><span>A2</span><span>B1</span><span>B2</span><span>C1</span><span>C2</span>
-      </div>
+      <figure class="cefr-chart"><img src="assets/img/cefr-chart.jpg" alt="Common European Framework of Reference levels A1 to C2" width="620" height="354" loading="lazy"></figure>
     </div>
     <div class="quiz reveal" id="quiz" aria-live="polite"></div>
   </div>
@@ -471,35 +480,13 @@
       <p class="eyebrow" data-i18n="about.eyebrow">Your teacher</p>
       <h2 data-i18n="about.title">Learn with someone who has trained <em>executives and teachers</em> for decades.</h2>
       <p data-i18n="about.p1">FAST English has improved its language services over the years, teaching executives and leaders in many companies, training teachers and using the latest techniques and technology.</p>
-      <blockquote class="quote" data-i18n="about.quote">“The student talks most of the time — the teacher only guides, explains and makes corrections.”</blockquote>
+      <blockquote class="quote" data-i18n="about.quote">“The student talks most of the time — the teacher only explains, guides and makes corrections.”</blockquote>
       <p class="about__sign"><b data-teacher>Prof. Alaiyo Moreno</b><span>FAST fluent English</span></p>
       <div class="certs">
         <div class="cert"><svg class="i"><use href="#i-shield"/></svg><span data-i18n="about.sep"><b>SEP</b> Registered with the Education Secretariat</span></div>
         <div class="cert"><svg class="i"><use href="#i-shield"/></svg><span data-i18n="about.stps"><b>STPS</b> Registered with the Labor Secretariat</span></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TOURS TEASER ============ -->
-<section class="tours-band" id="tours">
-  <div class="container">
-    <div class="tours-band__head reveal">
-      <div>
-        <p class="eyebrow" data-i18n="tours.eyebrow">Also from our team · SpectaCulTours</p>
-        <h2 data-i18n="tours.title">Ready to use your English <em>in paradise?</em></h2>
-      </div>
-      <p class="section__sub" data-i18n="tours.sub">Custom-guided eco-expeditions in Mexico with a trilingual guide. No hotels, no tourist crowds.</p>
-    </div>
-    <div class="tours-band__grid">
-      <a class="tourcard reveal" href="tours/chiapas/" data-tours="chiapas/">
-        <img src="tours/assets/img/chiapas/img15.jpg" alt="" loading="lazy">
-        <span class="tourcard__body"><small>Chiapas</small><b data-i18n="tours.chi">Jungle, waterfalls &amp; Mayan ruins</b><span class="tourcard__go"><span data-i18n="tours.go">Explore</span> <svg class="i"><use href="#i-arrow"/></svg></span></span>
-      </a>
-      <a class="tourcard reveal" href="tours/baja-california-sur/" data-tours="baja-california-sur/">
-        <img src="tours/assets/img/bcs/hero-dolphins.jpg" alt="" loading="lazy">
-        <span class="tourcard__body"><small>Baja California Sur</small><b data-i18n="tours.bcs">White-beach islands &amp; dolphins</b><span class="tourcard__go"><span data-i18n="tours.go">Explore</span> <svg class="i"><use href="#i-arrow"/></svg></span></span>
-      </a>
+      <figure class="about__cert"><img src="assets/img/certificate.jpg" alt="FAST English certificate of completion" width="560" height="425" loading="lazy"><figcaption data-i18n="about.cert">Certificates of completion that document your training hours for HR.</figcaption></figure>
     </div>
   </div>
 </section>
@@ -539,6 +526,26 @@
   </div>
 </section>
 
+<!-- ============ TOURS PORTAL ============ -->
+<section class="tours-band" id="tours">
+  <div class="container">
+    <a class="tours-portal reveal" href="tours/" data-tours="">
+      <span class="tours-portal__copy">
+        <span class="tours-portal__logo"><img src="tours/assets/img/logo-spectacultours.jpg" alt="SpectaCulTours" width="135" height="26" loading="lazy"></span>
+        <span class="eyebrow eyebrow--light" data-i18n="tours.eyebrow">Also from our team</span>
+        <span class="tours-portal__title" data-i18n="tours.title">Ready to use your English <em>in paradise?</em></span>
+        <span class="tours-portal__sub" data-i18n="tours.sub">Custom-guided eco-expeditions in Mexico with a trilingual guide. No hotels, no tourist crowds. See every destination in one place.</span>
+        <span class="tours-portal__dests"><span>🌿 Chiapas</span><span>🌊 Baja California Sur</span></span>
+        <span class="btn btn--light tours-portal__btn"><span data-i18n="tours.go">Visit the SpectaCulTours portal</span><svg class="i"><use href="#i-arrow"/></svg></span>
+      </span>
+      <span class="tours-portal__media" aria-hidden="true">
+        <span class="tours-portal__img"><img src="tours/assets/img/chiapas/img15.jpg" alt="" loading="lazy"><small>Chiapas</small></span>
+        <span class="tours-portal__img"><img src="tours/assets/img/bcs/hero-dolphins.jpg" alt="" loading="lazy"><small>Baja California Sur</small></span>
+      </span>
+    </a>
+  </div>
+</section>
+
 </main>
 
 <!-- ============ FOOTER ============ -->
@@ -546,8 +553,8 @@
   <div class="container footer__grid">
     <div class="footer__brand">
       <a href="#top" class="logo logo--light" aria-label="FAST fluent English">
-        <span class="logo__mark" aria-hidden="true"><svg viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="currentColor"/><path d="M8 15h12M5 20h14M8 25h10" stroke="#ff3b4e" stroke-width="2.6" stroke-linecap="round"/><path d="M23 12h11l-1.4 4.2H27.4l-.9 2.7h4.9l-1.3 4H25.2L23.6 28H19z" fill="#fff"/></svg></span>
-        <span class="logo__text"><b>FAST</b> <span>fluent English</span></span>
+        <span class="logo__chip"><img src="assets/img/logo-fast.png" alt="FAST" width="481" height="85" loading="lazy"></span>
+        <span class="logo__text">fluent English</span>
       </a>
       <p data-i18n="footer.tag">Fluent English courses for professionals &amp; executives. Real conversation, real results.</p>
       <div class="social" id="social">
@@ -567,8 +574,10 @@
         <li><a href="#method" data-i18n="nav.method">Method</a></li>
         <li><a href="#how" data-i18n="nav.how">How it works</a></li>
         <li><a href="#services" data-i18n="nav.services">Services</a></li>
-        <li><a href="#prices" data-i18n="nav.prices">Prices</a></li>
+        <li><a href="#video" data-i18n="nav.video">Videos</a></li>
         <li><a href="#level" data-i18n="nav.test">Level test</a></li>
+        <li><a href="#prices" data-i18n="nav.prices">Prices</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
     </div>
     <div>
@@ -589,7 +598,7 @@
     </div>
   </div>
   <div class="container footer__bottom">
-    <span>© <span id="year">2026</span> FAST fluent English</span>
+    <span class="footer__legal">© <span id="year">2026</span> FAST fluent English <button class="lang-mini" id="langToggle" type="button"><svg class="i"><use href="#i-globe"/></svg><span data-lang="en">Ver en español</span><span data-lang="es">View in English</span></button></span>
     <span data-i18n="footer.reg">Registered with SEP &amp; STPS</span>
   </div>
 </footer>

@@ -24,6 +24,7 @@
 
 <header class="t-nav" id="nav">
   <div class="container t-nav__inner">
+    <a class="t-back" href="../" aria-label="All tours"><svg class="i"><use href="../assets/img/icons.svg#arrow"/></svg><span data-i18n="t.back.tours">All tours</span></a>
     <a href="../" class="t-logo" aria-label="SpectaCulTours — all expeditions">
       <img src="../assets/img/logo-spectacultours.jpg" alt="SpectaCulTours" width="135" height="26">
       <span class="t-logo__place">Chiapas</span>
@@ -36,12 +37,13 @@
       <a href="#gallery" data-i18n="t.nav.gallery">Gallery</a>
     </nav>
     <div class="t-nav__actions">
-      <button class="lang" id="langToggle" type="button" aria-label="Cambiar idioma / Change language"><span data-lang="en">EN</span><span data-lang="es">ES</span></button>
       <a class="btn btn--wa btn--sm t-nav__cta" href="https://wa.me/525530071808" data-wa="c.wa.hello" target="_blank" rel="noopener"><svg class="i"><use href="../assets/img/icons.svg#whatsapp"/></svg><span data-i18n="t.cta.waShort">WhatsApp us</span></a>
       <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mMenu"><svg class="i"><use href="../assets/img/icons.svg#menu"/></svg></button>
     </div>
   </div>
   <div class="m-menu" id="mMenu" hidden>
+    <a class="m-menu__back" href="../">← <span data-i18n="t.back.tours">All tours</span></a>
+    <a class="m-menu__back" href="/" data-fast>← FAST fluent English</a>
     <a href="#experience" data-i18n="c.nav.exp">The experience</a>
     <a href="#destinations" data-i18n="c.nav.dest">Destinations</a>
     <a href="#lodging" data-i18n="c.nav.lodging">Lodging &amp; food</a>
@@ -59,6 +61,7 @@
 <section class="t-hero">
   <div class="container t-hero__inner">
     <div>
+      <nav class="crumbs reveal" aria-label="Breadcrumb"><a href="/" data-fast>FAST English</a><span aria-hidden="true">/</span><a href="../">SpectaCulTours</a><span aria-hidden="true">/</span><span aria-current="page">Chiapas</span></nav>
       <p class="kicker reveal"><span class="kicker__dot"></span><span data-i18n="c.hero.kicker">Eco-expeditions · Chiapas, Mexico</span></p>
       <h1 class="reveal" data-i18n="c.hero.title">Jungle paradise, <em>waterfalls</em> &amp; living Mayan history.</h1>
       <p class="t-hero__lead reveal" data-i18n="c.hero.lead">No hotels and no tourist crowds. <strong>Custom-guided eco-expeditions</strong> in the paradise jungle, with native hosts, cabin lodges and cultural explanations.</p>
@@ -372,7 +375,7 @@
       </ul>
     </div>
   </div>
-  <div class="container t-footer__bottom"><span>© <span data-year>2026</span> SpectaCulTours</span><span data-i18n="t.foot.authentic">All photos &amp; videos are from our tours</span></div>
+  <div class="container t-footer__bottom"><span class="footer__legal">© <span data-year>2026</span> SpectaCulTours <button class="lang-mini" id="langToggle" type="button"><svg class="i"><use href="../assets/img/icons.svg#globe"/></svg><span data-lang="en">Ver en español</span><span data-lang="es">View in English</span></button></span><span data-i18n="t.foot.authentic">All photos &amp; videos are from our tours</span></div>
 </footer>
 
 <div class="wa-fab"><span class="wa-fab__tip" data-i18n="t.fab">Plan your expedition 👋</span><a class="wa-fab__btn" href="https://wa.me/525530071808" data-wa="c.wa.hello" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="i"><use href="../assets/img/icons.svg#whatsapp"/></svg></a></div>

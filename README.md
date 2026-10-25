@@ -63,8 +63,10 @@ La carpeta `public/tours/` usa solo rutas relativas, así que puede servirse sol
 
 ## Funcionalidades
 
-- Bilingüe EN/ES (detecta el idioma del navegador, recuerda la elección, `?lang=es` en la URL).
-- Simulación animada de una clase en vivo con correcciones y medidor de tiempo de habla 80/20.
+- Bilingüe EN/ES: **siempre abre en inglés**. El cambio a español está discreto al pie de página
+  ("Ver en español") y se recuerda solo durante la visita en esa pestaña; también funciona `?lang=es`.
+- Hero con collage de fotos de aprendizaje en línea (licencia Unsplash) y tarjetas flotantes.
+- 6 videos del canal (incluye el testimonio de un médico, enlazado desde "Who it's for").
 - Test de nivel MCER (A1–C2) de 6 preguntas que envía el resultado por WhatsApp.
 - Agenda de Calendly en ventana emergente (sin salir del sitio).
 - Widget de WhatsApp con mensajes rápidos prellenados; botones de planes con mensaje por plan.
@@ -74,3 +76,15 @@ La carpeta `public/tours/` usa solo rutas relativas, así que puede servirse sol
   calendario de pagos, calculadora de días VIP que arma el mensaje de WhatsApp, galería con visor,
   comparativa lado a lado y el idioma compartido con el sitio de FAST.
 - Responsive, accesible (teclado, `prefers-reduced-motion`) y sin dependencias externas salvo Google Fonts.
+
+## Créditos de imágenes
+
+Fotos del hero (`public/assets/img/hero/`), bajo la [Licencia Unsplash](https://unsplash.com/license)
+(uso comercial gratuito, sin atribución obligatoria):
+
+- `learn-headphones.jpg` — Soundtrap · https://unsplash.com/photos/C-2Wky-LT7k
+- `video-call.jpg` — LinkedIn Sales Solutions · https://unsplash.com/photos/Be5aVKFv9ho
+- `hello-class.jpg` — Windows · https://unsplash.com/photos/6G6akT8biLg
+- `notes.jpg` — veera Batlu · https://unsplash.com/photos/rqJfN6F-j8s
+
+El resto de imágenes y videos provienen de los sitios de Carrd y el canal de YouTube del cliente.
