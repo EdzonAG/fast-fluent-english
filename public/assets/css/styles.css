@@ -569,21 +569,31 @@ h2 em, h1 em { font-family: var(--serif); font-style: italic; font-weight: 400; 
 /* Hide floating widgets while the Calendly popup is open */
 body:has(.calendly-overlay) .wa { display: none; }
 
-/* ---------- Tours teaser ---------- */
+/* ---------- Tours portal (bottom of page) ---------- */
 .tours-band { padding: 104px 0 112px; background: var(--bg); border-top: 1px solid var(--line); }
-.tours-band__head { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: end; margin-bottom: 36px; }
-.tours-band__head h2 { font-size: clamp(1.9rem, 3.6vw, 2.8rem); }
-.tours-band__head .section__sub { margin: 0; }
-.tours-band__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.tourcard { position: relative; min-height: 320px; border-radius: 26px; overflow: hidden; color: #fff; display: flex; align-items: flex-end; isolation: isolate; box-shadow: var(--shadow); }
-.tourcard img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform .8s var(--ease); }
-.tourcard::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent 30%, rgba(5, 13, 46, .85)); }
-.tourcard:hover img { transform: scale(1.06); }
-.tourcard__body { padding: 28px; display: grid; gap: 4px; }
-.tourcard small { font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; opacity: .85; }
-.tourcard b { font-family: var(--display); font-size: 1.5rem; line-height: 1.2; }
-.tourcard__go { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; margin-top: 6px; color: var(--cyan-300); }
-@media (max-width: 760px) { .tours-band__head, .tours-band__grid { grid-template-columns: 1fr; } .tours-band { padding: 72px 0 80px; } .tourcard { min-height: 260px; } }
+.tours-portal { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; padding: 44px; border-radius: 32px; color: #fff; overflow: hidden; position: relative;
+  background: radial-gradient(500px 300px at 100% 100%, rgba(6, 182, 212, .35), transparent 60%), radial-gradient(500px 300px at 0% 0%, rgba(16, 185, 129, .3), transparent 60%), linear-gradient(135deg, #062b20, #032a3f);
+  box-shadow: var(--shadow-lg); transition: transform .4s var(--ease); }
+.tours-portal:hover { transform: translateY(-4px); }
+.tours-portal__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+.tours-portal__logo { background: #fff; border-radius: 12px; padding: 7px 12px; box-shadow: 0 6px 18px -8px rgba(0, 0, 0, .35); }
+.tours-portal__logo img { height: 24px; width: auto; display: block; }
+.tours-portal .eyebrow { margin: 6px 0 0; color: #fbbf24; }
+.tours-portal__title { font-family: var(--display); font-weight: 700; font-size: clamp(1.9rem, 3.6vw, 2.8rem); line-height: 1.1; letter-spacing: -.02em; }
+.tours-portal__title em { font-family: var(--serif); font-style: italic; font-weight: 400; color: #fbbf24; }
+.tours-portal__sub { color: #c9e2e0; font-size: 1.05rem; max-width: 480px; }
+.tours-portal__dests { display: flex; flex-wrap: wrap; gap: 8px; }
+.tours-portal__dests span { font-size: .86rem; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: rgba(255, 255, 255, .12); }
+.tours-portal__btn { margin-top: 6px; }
+.tours-portal:hover .tours-portal__btn { transform: translateY(-2px); }
+.tours-portal__media { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; height: 100%; min-height: 320px; }
+.tours-portal__img { position: relative; border-radius: 20px; overflow: hidden; display: block; }
+.tours-portal__img:nth-child(2) { margin-top: 36px; }
+.tours-portal__img:nth-child(1) { margin-bottom: 36px; }
+.tours-portal__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+.tours-portal:hover .tours-portal__img img { transform: scale(1.06); }
+.tours-portal__img small { position: absolute; left: 12px; bottom: 12px; font-size: .78rem; font-weight: 700; background: rgba(0, 0, 0, .45); padding: 5px 10px; border-radius: 999px; }
+@media (max-width: 860px) { .tours-portal { grid-template-columns: 1fr; padding: 30px 22px; } .tours-portal__media { min-height: 220px; } .tours-band { padding: 72px 0 80px; } }
 
 /* ---------- Content from the updated Carrd site ---------- */
 .vlist { grid-template-columns: 1fr 1fr; }
