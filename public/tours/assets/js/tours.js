@@ -20,7 +20,15 @@
   var EN = {};
   $$("[data-i18n]").forEach(function (el) { EN[el.dataset.i18n] = el.innerHTML; });
   var urlLang = (location.search.match(/[?&]lang=(en|es)\b/) || [])[1];
-  var lang = urlLang || store("fast-lang") || ((navigator.language || "en").toLowerCase().indexOf("es") === 0 ? "es" : "en");
+  // English is always the default; Spanish only via the footer switch (or ?lang=es).
+  // The choice lasts for this tab's visit and is shared with the FAST English pages.
+  function session(key, val) {
+    try {
+      if (val === undefined) return sessionStorage.getItem(key);
+      sessionStorage.setItem(key, val);
+    } catch (e) { return null; }
+  }
+  var lang = urlLang || session("fast-lang") || "en";
   function t(key) { var d = I18N.dynamic[lang]; return d[key] != null ? d[key] : I18N.dynamic.en[key]; }
 
   function applyLang() {
@@ -38,7 +46,7 @@
   var langBtn = $("#langToggle");
   if (langBtn) langBtn.addEventListener("click", function () {
     lang = lang === "en" ? "es" : "en";
-    store("fast-lang", lang);
+    session("fast-lang", lang);
     applyLang();
   });
 

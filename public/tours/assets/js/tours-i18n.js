@@ -7,6 +7,8 @@ window.TOURS_I18N = {
   es: {
     /* ---- shared ---- */
     "t.nav.packages": "Paquetes y precios",
+    "t.back.tours": "Todos los tours",
+    "t.back.fast": "FAST English",
     "t.nav.gallery": "Galería",
     "t.nav.otherBcs": "Expediciones en Baja California Sur →",
     "t.nav.otherChi": "Expediciones en la selva de Chiapas →",

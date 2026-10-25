@@ -12,6 +12,20 @@ window.FAST_I18N = {
     "nav.prices": "Precios",
     "nav.test": "Test de nivel",
     "nav.services": "Servicios",
+    "about.cert": "Constancias de terminación que documentan tus horas de capacitación para Recursos Humanos.",
+    "who.testiText": "Escucha la recomendación de un médico sobre FAST English.",
+    "who.testiTitle": "Un médico recomienda FAST English",
+    "who.testiEyebrow": "Testimonio",
+    "video.v6s": "Entiende las canciones que te gustan",
+    "video.v6t": "Aprende desde casa",
+    "video.v5s": "Inglés para situaciones reales",
+    "video.v5t": "De compras en el extranjero",
+    "video.v4s": "Por qué nos eligen los profesionales",
+    "video.v4t": "Un médico recomienda FAST",
+    "video.v3s": "Mira una sesión en acción",
+    "video.v3t": "Una clase FAST real",
+    "mock.zoom": "En línea por Zoom",
+    "nav.teacher": "Tu profesor",
 
     "cta.evalShort": "Evaluación gratis",
     "cta.eval": "Agenda tu evaluación gratis",
@@ -22,14 +36,12 @@ window.FAST_I18N = {
     "hero.t1": "Conversación real.",
     "hero.t2": "Fluidez real",
     "hero.for": "para tu próxima",
-    "hero.lead": "¿Has perdido oportunidades porque tu inglés es básico? Casetes, CDs y apps ayudaron muy poco. FAST es un método con resultados reales: <strong>tú hablas el 80% de la clase</strong> — tu profesor guía, explica y corrige.",
+    "hero.lead": "¿Has perdido oportunidades porque tu inglés es básico? Casetes, CDs y apps ayudaron muy poco. FAST es un método con resultados reales: <strong>tú hablas el 80% de la clase</strong> — tu profesor explica, guía y corrige.",
     "hero.trust1": "Registrados ante SEP y STPS",
     "hero.trust2": "Niveles MCER A1–C2",
     "hero.trust3": "Facturación oficial",
 
     "mock.live": "En vivo",
-    "mock.you": "Tú",
-    "mock.teacher": "Profesor",
     "mock.ebook": "Tu e-book personal",
     "mock.talk": "del tiempo hablas tú",
 
@@ -52,8 +64,8 @@ window.FAST_I18N = {
     "why.c4p": "Seguridad al conversar en juntas internacionales, entrevistas de trabajo, negocios y viajes al extranjero.",
 
     "method.eyebrow": "El método FAST",
-    "method.title": "Tú hablas. <em>Nosotros guiamos, explicamos y corregimos.</em>",
-    "method.sub": "En una clase FAST el alumno habla la mayor parte del tiempo sobre su vida y su trabajo reales. Cada corrección va a tu propio e-book personalizado — una referencia rápida que crece contigo.",
+    "method.title": "Tú hablas. <em>Nosotros explicamos, guiamos y corregimos.</em>",
+    "method.sub": "20% explicaciones de estructura simplificadas, 80% tú hablando de tu vida y tu trabajo reales. Cada corrección va a tu propio e-book personalizado — una referencia rápida que crece contigo.",
     "method.tab1": "Vida real",
     "method.tab2": "Negocios",
     "method.tab3": "Entrevistas",
@@ -71,7 +83,7 @@ window.FAST_I18N = {
     "method.p5p": "Durante la clase escribes notas y correcciones en tu propio archivo — por ejemplo “FAST English A1”. Se convierte en un libro de consulta hecho solo para ti.",
     "method.donut": "Tiempo que habla el alumno",
     "method.leg1": "<b>80%</b> tú — hablando, practicando, pensando en inglés",
-    "method.leg2": "<b>20%</b> profesor — guiando, explicando, corrigiendo",
+    "method.leg2": "<b>20%</b> profesor — explicaciones de estructura simplificadas, guía y correcciones",
 
     "who.eyebrow": "Para quién es",
     "who.title": "Para quien necesita <em>fluidez en el mundo real.</em>",
@@ -88,7 +100,7 @@ window.FAST_I18N = {
 
     "how.eyebrow": "Cómo funciona",
     "how.title": "En vivo por Zoom. <em>Reserva con un día de anticipación</em> en Calendly.",
-    "how.sub": "Simple, flexible y pensado para profesionales ocupados.",
+    "how.sub": "Comunícate con fluidez en pocos meses con 2 o 3 clases por semana — simple, flexible y pensado para profesionales ocupados.",
     "how.1t": "Elige tu horario",
     "how.1p": "Mañana, tarde, noche o fin de semana — lo que mejor se acomode a tu agenda.",
     "how.2t": "Usa laptop o computadora",
@@ -114,10 +126,10 @@ window.FAST_I18N = {
     "video.eyebrow": "Mira un video corto",
     "video.title": "Descubre cómo funciona <em>de verdad</em> una clase FAST.",
     "video.sub": "Una metodología orientada a resultados: así logra el sistema FAST una fluidez conversacional real y seguridad profesional.",
-    "video.v1t": "El método FAST",
-    "video.v1s": "Metodología orientada a resultados",
-    "video.v2t": "Una clase FAST real",
-    "video.v2s": "Mira una sesión en acción",
+    "video.v1t": "Hablar y tomar notas",
+    "video.v1s": "El inglés te puede dar un mejor estilo de vida",
+    "video.v2t": "El método FAST",
+    "video.v2s": "Metodología orientada a resultados",
     "video.channel": "Más en nuestro canal de YouTube",
 
     "quiz.eyebrow": "Test de nivel gratis",
@@ -151,7 +163,7 @@ window.FAST_I18N = {
     "about.eyebrow": "Tu profesor",
     "about.title": "Aprende con alguien que ha formado <em>ejecutivos y profesores</em> durante décadas.",
     "about.p1": "FAST English ha perfeccionado sus servicios a lo largo de los años, enseñando a ejecutivos y líderes de muchas empresas, formando profesores y usando las técnicas y tecnología más recientes.",
-    "about.quote": "“El alumno habla la mayor parte del tiempo — el profesor solo guía, explica y corrige.”",
+    "about.quote": "“El alumno habla la mayor parte del tiempo — el profesor solo explica, guía y corrige.”",
     "about.badge": "años enseñando",
     "about.sep": "<b>SEP</b> Registro ante la Secretaría de Educación Pública",
     "about.stps": "<b>STPS</b> Registro ante la Secretaría del Trabajo",
@@ -182,7 +194,6 @@ window.FAST_I18N = {
     "footer.chiapas": "Expediciones en Chiapas",
     "footer.bcs": "Expediciones en Baja California Sur",
     "footer.allTours": "SpectaCulTours",
-    "nav.tours": "Tours ✈︎",
     "tours.eyebrow": "También de nuestro equipo · SpectaCulTours",
     "tours.title": "¿Listo para usar tu inglés <em>en el paraíso?</em>",
     "tours.sub": "Eco-expediciones guiadas a tu medida en México, con guía trilingüe. Sin hoteles, sin multitudes.",
@@ -213,9 +224,6 @@ window.FAST_I18N = {
       "wa.corp": "Hi! I'd like information about English classes for my company (invoicing / direct billing).",
       "wa.level": "Hi! I took the level test on your website and my estimated level is {level}. I'd like a free evaluation to confirm it.",
       lightboxClose: "Close",
-      mock: {
-        teacher: "Teacher", you: "You"
-      },
       quiz: {
         startTitle: "Quick English level check",
         startText: "6 questions · about 1 minute. No email required.",
@@ -244,15 +252,7 @@ window.FAST_I18N = {
           { q: "Can you write a professional email in English?", o: ["No", "A short, simple one", "Yes, with some help", "Yes, easily"] },
           { q: "Could you give a presentation or negotiate in English?", o: ["Not at all", "With a script", "Yes, with preparation", "Yes, spontaneously"] }
         ]
-      },
-      chat: [
-        { who: "teacher", text: "So, tell me about your week. What did you do on Monday?" },
-        { who: "student", text: "On Monday I have a meeting with my boss about the budget." },
-        { who: "teacher", text: "Great! Past tense: <s>I have</s> <ins>I had</ins> a meeting. 📘 Added to your e-book." },
-        { who: "student", text: "I had a meeting. We discussed about the new project." },
-        { who: "teacher", text: "Almost! <s>discussed about</s> <ins>discussed</ins> the new project. Keep going!" },
-        { who: "student", text: "We discussed the new project, and I presented the numbers in English!" }
-      ]
+      }
     },
     es: {
       rotator: ["junta", "entrevista de trabajo", "presentación", "viaje al extranjero", "promoción"],
@@ -266,9 +266,6 @@ window.FAST_I18N = {
       "wa.corp": "¡Hola! Quisiera información sobre clases de inglés para mi empresa (facturación / cobro directo).",
       "wa.level": "¡Hola! Hice el test de nivel en su sitio y mi nivel estimado es {level}. Me gustaría una evaluación gratuita para confirmarlo.",
       lightboxClose: "Cerrar",
-      mock: {
-        teacher: "Profesor", you: "Tú"
-      },
       quiz: {
         startTitle: "Test rápido de nivel de inglés",
         startText: "6 preguntas · alrededor de 1 minuto. Sin correo electrónico.",
