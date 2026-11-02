@@ -18,7 +18,8 @@ spectacultours.mx  ──►  /chiapas/  ·  /baja-california-sur/   (← "All e
         └── "English classes" (menú, sección "Extra" y pie)  ──►  /english/   (← "SpectaCulTours" para volver)
 ```
 
-Las rutas antiguas `/tours/...` redirigen a las nuevas (reglas en `render.yaml`).
+Las rutas antiguas `/tours/...` redirigen a las nuevas mediante páginas de redirección en `public/tours/`
+(funcionan aunque Render no aplique `render.yaml`; las reglas de `render.yaml` hacen lo mismo con un 301 si el servicio usa el Blueprint).
 
 ## Estructura
 
@@ -52,7 +53,6 @@ Para ver la versión en español directamente: `http://localhost:3000/?lang=es`.
 
 1. En Render: **New → Blueprint** con este repositorio (lee `render.yaml`, con encabezados y redirecciones).
    - Alternativa manual: **New → Static Site**, *Build command* vacío, *Publish directory* `public`.
-     En ese caso, agrega las redirecciones de `/tours/...` a mano en *Redirects/Rewrites*.
 2. Cada `git push` a `main` vuelve a desplegar automáticamente.
 3. **Dominio:** en *Settings → Custom Domains* agrega `spectacultours.mx` y `www.spectacultours.mx`
    y crea en tu proveedor de DNS los registros que Render indique. Render emite el certificado HTTPS solo.
