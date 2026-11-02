@@ -26,6 +26,7 @@ window.FAST_I18N = {
     "video.v3t": "Una clase FAST real",
     "mock.zoom": "En línea por Zoom",
     "nav.teacher": "Tu profesor",
+    "nav.backTours": "Expediciones SpectaCulTours",
 
     "cta.evalShort": "Evaluación gratis",
     "cta.eval": "Agenda tu evaluación gratis",
@@ -194,10 +195,10 @@ window.FAST_I18N = {
     "footer.chiapas": "Expediciones en Chiapas",
     "footer.bcs": "Expediciones en Baja California Sur",
     "footer.allTours": "SpectaCulTours",
-    "tours.eyebrow": "También de nuestro equipo",
+    "tours.eyebrow": "SpectaCulTours · Nuestras expediciones",
     "tours.title": "¿Listo para usar tu inglés <em>en el paraíso?</em>",
     "tours.sub": "Eco-expediciones guiadas a tu medida en México, con guía trilingüe. Sin hoteles, sin multitudes. Conoce todos los destinos en un solo lugar.",
-    "tours.go": "Visitar el portal de SpectaCulTours",
+    "tours.go": "Explorar las expediciones",
     "footer.reg": "Registrados ante SEP y STPS",
 
     "wa.status": "Normalmente responde en unas horas",

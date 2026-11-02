@@ -100,7 +100,7 @@ h1 em, h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; 
 .m-menu a:not(.btn):hover { background: var(--bg-2); }
 .m-menu .btn { margin-top: 8px; }
 @keyframes drop { from { opacity: 0; transform: translateY(-8px); } }
-@media (max-width: 1040px) { .t-nav__links { display: none; } .t-nav__actions { margin-left: auto; } .burger { display: inline-flex; } }
+@media (max-width: 1200px) { .t-nav__links { display: none; } .t-nav__actions { margin-left: auto; } .burger { display: inline-flex; } }
 @media (max-width: 560px) { .t-nav__cta { display: none; } .t-logo__place { display: none; } }
 
 /* ---------- Tour hero ---------- */
@@ -471,3 +471,32 @@ html[lang="en"] .lang-mini [data-lang="es"], html[lang="es"] .lang-mini [data-la
 .footer__legal { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 4px 12px; }
 .t-logo, .t-back { flex: none; }
 @media (max-width: 1280px) { .t-logo__place { display: none; } }
+
+/* ---------- spectacultours.mx home ---------- */
+.split__kicker { display: inline-block; font-size: .8rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #ffd166; margin-bottom: 10px; text-shadow: 0 2px 12px rgba(0, 0, 0, .5); }
+.t-nav__extra { border: 1px solid rgba(140, 150, 160, .45); margin-left: 6px; }
+.t-nav__extra::before { content: "🎓"; margin-right: 6px; }
+.m-menu__extra { border-top: 1px solid var(--line); margin-top: 6px; padding-top: 16px !important; color: var(--ink-2); }
+.bento--moments { grid-auto-rows: 210px; }
+.tile__badge--chi { background: #a3e635; color: #0b2e1f; }
+.tile__badge--bcs { background: #22d3ee; color: #032a3f; }
+.moments__more { text-align: center; margin-top: 28px; }
+
+.english-extra__inner { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
+.english-extra__media { position: relative; }
+.english-extra__media > img { width: 100%; aspect-ratio: 4 / 3.2; object-fit: cover; object-position: 62% center; border-radius: 28px; box-shadow: var(--shadow); }
+.english-extra__logo { position: absolute; left: 18px; bottom: 18px; background: #fff; border-radius: 14px; padding: 10px 14px; box-shadow: var(--shadow); }
+.english-extra__logo img { height: 26px; width: auto; display: block; }
+.english-extra .eyebrow { color: #b42318; }
+.english-extra h2 { font-size: clamp(1.9rem, 3.6vw, 2.8rem); }
+.english-extra h2 em { color: #1d4ed8; }
+.english-extra__list { list-style: none; padding: 0; margin: 24px 0 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; }
+.english-extra__list li { display: flex; gap: 10px; align-items: flex-start; color: var(--ink-2); }
+.english-extra__list .i { width: 20px; height: 20px; color: #1d4ed8; margin-top: 2px; }
+.english-extra .btn--dark { background: #0a1a4f; }
+@media (max-width: 900px) { .english-extra__inner { grid-template-columns: 1fr; gap: 36px; } }
+@media (max-width: 520px) { .english-extra__list { grid-template-columns: 1fr; } }
+/* Destination pages have more links: there "English classes" lives in the mobile menu, footer and cross-sell,
+   and the breadcrumb (not the logo) names the destination. */
+body:not(.theme-hub) .t-nav__extra, body:not(.theme-hub) .t-logo__place { display: none; }
+.t-nav__links a { padding: 8px 11px; }

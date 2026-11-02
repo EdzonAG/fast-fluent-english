@@ -10,7 +10,7 @@ window.FAST_CONFIG = {
   calendly: "https://calendly.com/alaiyomoreno/new-meeting",
   email: "",                             // e.g. "info@fastfluentenglish.com"
   teacher: "Prof. Alaiyo Moreno",
-  toursUrl: "tours/",                    // or e.g. "https://tours.yourdomain.com/" if served on a subdomain
+  toursUrl: "/",                         // SpectaCulTours home (spectacultours.mx); this site lives at /english/
 
   prices: {
     currency: "€",

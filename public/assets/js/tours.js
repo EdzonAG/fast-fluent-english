@@ -122,7 +122,7 @@
   $$("[data-tel]").forEach(function (a) { a.href = "tel:" + CFG.phone; });
   $$("[data-phone]").forEach(function (el) { el.textContent = CFG.phoneDisplay; });
   $$("[data-host]").forEach(function (el) { el.textContent = CFG.host; });
-  $$("[data-fast]").forEach(function (a) { a.href = CFG.fastUrl; });
+  $$("[data-fast]").forEach(function (a) { a.href = CFG.fastUrl + (a.dataset.fastHash || ""); });
   $$("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
   $$("[data-social]").forEach(function (a) {
     var key = a.dataset.social;
