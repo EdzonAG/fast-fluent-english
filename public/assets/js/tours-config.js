@@ -2,17 +2,16 @@
  * SpectaCulTours — configuration.
  * Edit contact data, prices and links here. Leave a social URL empty ("") to hide it.
  *
- * fastUrl: where the "FAST fluent English" links point.
- *   - "/"  when the tours live inside the main site (e.g. example.com/tours/)
- *   - a full URL when the tours are served on their own subdomain
- *     (e.g. "https://fastfluentenglish.com").
+ * fastUrl: where the "English classes" (FAST fluent English) links point.
+ *   - "/english/" — the English site lives inside spectacultours.mx (default)
+ *   - a full URL if it ever moves to its own domain.
  */
 window.TOURS_CONFIG = {
   whatsapp: "525530071808",
   phone: "+525530071808",
   phoneDisplay: "+52 55 3007 1808",
   host: "Prof. Alaiyo Moreno",
-  fastUrl: "/",
+  fastUrl: "/english/",
   currency: "€",
 
   tours: {

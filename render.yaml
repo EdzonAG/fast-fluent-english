@@ -1,11 +1,14 @@
 # Render Blueprint — free static sites, no build step.
 # https://render.com/docs/blueprint-spec
 #
-# Service 1 serves everything:
-#   /                           FAST fluent English
-#   /tours/                     SpectaCulTours (hub)
-#   /tours/chiapas/             Chiapas expedition
-#   /tours/baja-california-sur/ Baja California Sur expedition
+# One static site for spectacultours.mx:
+#   /                      SpectaCulTours home (all expeditions)
+#   /chiapas/              Chiapas expedition
+#   /baja-california-sur/  Baja California Sur expedition
+#   /english/              FAST fluent English (English classes, secondary)
+#
+# Custom domain: add spectacultours.mx and www.spectacultours.mx in the
+# service's Settings → Custom Domains and create the DNS records Render shows.
 services:
   - type: web
     name: fast-fluent-english
@@ -32,15 +35,17 @@ services:
       - path: /*.js
         name: Cache-Control
         value: public, max-age=3600
-
-  # Optional — SpectaCulTours on its own subdomain (e.g. tours.yourdomain.com).
-  # Uncomment, then in public/tours/assets/js/tours-config.js set
-  # fastUrl to the FAST English URL, and in public/assets/js/config.js set
-  # toursUrl to the subdomain URL. Add the custom domain in Render's dashboard.
-  #
-  # - type: web
-  #   name: spectacultours
-  #   runtime: static
-  #   buildCommand: ""
-  #   staticPublishPath: ./public/tours
-  #   (copy the headers block above if you want the same headers)
+    # Old URLs from the first version (tours lived under /tours/).
+    routes:
+      - type: redirect
+        source: /tours/chiapas/*
+        destination: /chiapas/
+      - type: redirect
+        source: /tours/baja-california-sur/*
+        destination: /baja-california-sur/
+      - type: redirect
+        source: /tours/*
+        destination: /
+      - type: redirect
+        source: /tours
+        destination: /

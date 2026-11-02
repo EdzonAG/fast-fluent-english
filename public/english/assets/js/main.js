@@ -14,14 +14,22 @@
       localStorage.setItem(key, val);
     } catch (e) { return null; }
   }
+  // Per-tab memory: a language switch survives navigation within the visit only.
+  function session(key, val) {
+    try {
+      if (val === undefined) return sessionStorage.getItem(key);
+      sessionStorage.setItem(key, val);
+    } catch (e) { return null; }
+  }
 
   /* ---------------- Language ---------------- */
   var EN = {};
   $$("[data-i18n]").forEach(function (el) { EN[el.dataset.i18n] = el.innerHTML; });
   $$("[data-i18n-placeholder]").forEach(function (el) { EN[el.dataset.i18nPlaceholder] = el.placeholder; });
 
+  // English is always the default; Spanish only via the footer switch (or ?lang=es).
   var urlLang = (location.search.match(/[?&]lang=(en|es)\b/) || [])[1];
-  var lang = urlLang || store("fast-lang") ||((navigator.language || "en").toLowerCase().indexOf("es") === 0 ? "es" : "en");
+  var lang = urlLang || session("fast-lang") || "en";
 
   function t(key) { return I18N.dynamic[lang][key] != null ? I18N.dynamic[lang][key] : I18N.dynamic.en[key]; }
 
@@ -45,7 +53,7 @@
 
   $("#langToggle").addEventListener("click", function () {
     lang = lang === "en" ? "es" : "en";
-    store("fast-lang", lang);
+    session("fast-lang", lang);
     applyLang();
   });
 
@@ -206,58 +214,6 @@
     }, 2400);
   }
 
-  /* ---------------- Live class mock ---------------- */
-  var chatBox = $("#mockChat");
-  var chat = I18N.dynamic.en.chat;
-  var chatI = 0, secs = 0;
-  var youPct = 0;
-  function label(who) { return who === "teacher" ? t("mock").teacher : t("mock").you; }
-  function addMsg(m) {
-    var div = document.createElement("div");
-    div.className = "msg msg--" + m.who;
-    div.innerHTML = "<small>" + label(m.who) + "</small>" + m.text;
-    chatBox.appendChild(div);
-    while (chatBox.children.length > 4) chatBox.removeChild(chatBox.firstChild);
-  }
-  function setMeter(p) {
-    youPct = p;
-    $("#meterYou").style.width = p + "%";
-    $("#meterTeacher").style.width = (100 - p) + "%";
-    $("#talkYou").textContent = p + "%";
-    $("#talkTeacher").textContent = (100 - p) + "%";
-  }
-  var meterSteps = [35, 52, 61, 70, 76, 80];
-  function nextMsg() {
-    var m = chat[chatI];
-    if (m.who === "student") {
-      var typing = document.createElement("div");
-      typing.className = "msg msg--typing";
-      typing.innerHTML = "<i></i><i></i><i></i>";
-      chatBox.appendChild(typing);
-      setTimeout(function () { typing.remove(); addMsg(m); setMeter(meterSteps[chatI]); advance(); }, 1100);
-    } else {
-      addMsg(m); setMeter(meterSteps[chatI]); advance();
-    }
-  }
-  function advance() {
-    chatI++;
-    if (chatI >= chat.length) {
-      setTimeout(function () { chatBox.innerHTML = ""; chatI = 0; nextMsg(); }, 4200);
-    } else {
-      setTimeout(nextMsg, 2300);
-    }
-  }
-  if (reduceMotion) {
-    chat.slice(-4).forEach(addMsg); setMeter(80);
-  } else {
-    setTimeout(nextMsg, 700);
-  }
-  setInterval(function () {
-    secs++;
-    var m = Math.floor(secs / 60), s = secs % 60;
-    $("#mockTimer").textContent = (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
-  }, 1000);
-
   /* ---------------- Method tabs ---------------- */
   var tabs = $$(".tab");
   tabs.forEach(function (tab) {
@@ -287,6 +243,15 @@
       $$(".vlist__item").forEach(function (x) { x.classList.toggle("is-active", x === b); });
       loadVideo(b.dataset.video, true);
       if (window.innerWidth < 980) player.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+    });
+  });
+  // Buttons elsewhere on the page (e.g. the testimonial) that open a video in the player
+  $$("[data-play-video]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var id = b.dataset.playVideo;
+      $$(".vlist__item").forEach(function (x) { x.classList.toggle("is-active", x.dataset.video === id); });
+      loadVideo(id, true);
+      player.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
     });
   });
 
