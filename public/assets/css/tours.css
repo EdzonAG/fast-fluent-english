@@ -431,6 +431,8 @@ h1 em, h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; 
 .overlay__nav--next { right: 18px; }
 .overlay__nav--prev .i { transform: rotate(180deg); }
 @media (max-width: 560px) { .overlay__nav { top: auto; bottom: 18px; transform: none; } }
+.zoomable { cursor: zoom-in; }
+.zoomable:focus-visible { outline: 3px solid #fff; outline-offset: -3px; }
 
 /* WhatsApp fab */
 .wa-fab { position: fixed; right: 20px; bottom: 20px; z-index: 60; display: flex; align-items: center; gap: 10px; }
