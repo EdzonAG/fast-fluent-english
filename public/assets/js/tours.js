@@ -242,6 +242,32 @@
       });
     });
   });
+  // Every other photo opens full size too (links, video tiles and logos keep their own action).
+  // Arrows/swipe browse the photos of the same section.
+  var zoomable = $$("main img").filter(function (im) { return !im.closest("a, button, [class*='logo']"); });
+  zoomable.forEach(function (im) {
+    im.classList.add("zoomable");
+    im.tabIndex = 0;
+    im.setAttribute("role", "button");
+    if (!im.alt) im.setAttribute("aria-label", "Open photo");
+    function open() {
+      var group = zoomable.filter(function (x) { return x.closest("section") === im.closest("section"); });
+      gallery = group.map(function (x) { return { src: x.currentSrc || x.src, alt: x.alt }; });
+      showPhoto(group.indexOf(im));
+    }
+    im.addEventListener("click", open);
+    im.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
+    });
+  });
+  var touchX = null;
+  overlay.addEventListener("touchstart", function (e) { touchX = e.touches.length === 1 ? e.touches[0].clientX : null; }, { passive: true });
+  overlay.addEventListener("touchend", function (e) {
+    if (touchX === null || gallery.length < 2 || !overlay.querySelector(".overlay__img")) return;
+    var dx = e.changedTouches[0].clientX - touchX;
+    touchX = null;
+    if (Math.abs(dx) > 50) showPhoto(gIndex + (dx < 0 ? 1 : -1));
+  });
 
   /* ---------------- WhatsApp tip ---------------- */
   var fab = $(".wa-fab");

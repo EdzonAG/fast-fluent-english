@@ -366,13 +366,64 @@
     $("#waInput").value = "";
   });
 
-  /* ---------------- Lightbox ---------------- */
-  var lb = $("#lightbox");
-  function setLb(open) { lb.hidden = !open; document.body.style.overflow = open ? "hidden" : ""; }
-  $("#openBrochure").addEventListener("click", function () { setLb(true); });
-  lb.addEventListener("click", function (e) { if (e.target === lb || e.target.closest(".lightbox__close")) setLb(false); });
+  /* ---------------- Lightbox: company profile & photos ---------------- */
+  var lb = $("#lightbox"), lbImg = $("#lbImg"), lbCap = $("#lbCap");
+  var lbList = [], lbIndex = 0, lbLast = null;
+  function showLb(i) {
+    lbIndex = (i + lbList.length) % lbList.length;
+    var it = lbList[lbIndex];
+    lbImg.src = it.src;
+    lbImg.alt = it.alt;
+    lbCap.textContent = it.cap || "";
+    lbCap.hidden = !it.cap;
+    lb.classList.toggle("lightbox--single", lbList.length < 2);
+  }
+  function setLb(open) {
+    lb.hidden = !open;
+    document.body.style.overflow = open ? "hidden" : "";
+    if (open) $(".lightbox__close", lb).focus();
+    else if (lbLast) lbLast.focus();
+  }
+  function openLb(list, i) { lbLast = document.activeElement; lbList = list; showLb(i); setLb(true); }
+  $("#openBrochure").addEventListener("click", function () {
+    openLb([{ src: "assets/img/image03.jpg", alt: "FAST English company profile" }], 0);
+  });
+  lb.addEventListener("click", function (e) {
+    if (e.target === lb || e.target.closest(".lightbox__close")) setLb(false);
+    else if (e.target.closest(".lightbox__nav--prev")) showLb(lbIndex - 1);
+    else if (e.target.closest(".lightbox__nav--next")) showLb(lbIndex + 1);
+  });
+  var touchX = null;
+  lb.addEventListener("touchstart", function (e) { touchX = e.touches.length === 1 ? e.touches[0].clientX : null; }, { passive: true });
+  lb.addEventListener("touchend", function (e) {
+    if (touchX === null || lbList.length < 2) return;
+    var dx = e.changedTouches[0].clientX - touchX;
+    touchX = null;
+    if (Math.abs(dx) > 50) showLb(lbIndex + (dx < 0 ? 1 : -1));
+  });
+  // Every photo on the page opens full size (links, buttons, the video player and logos keep their own action).
+  // Arrows/swipe browse the photos of the same section.
+  var zoomable = $$("main img").filter(function (im) { return !im.closest("a, button, .player, [class*='logo']"); });
+  zoomable.forEach(function (im) {
+    im.classList.add("zoomable");
+    im.tabIndex = 0;
+    im.setAttribute("role", "button");
+    if (!im.alt) im.setAttribute("aria-label", "Open photo");
+    function open() {
+      var group = zoomable.filter(function (x) { return x.closest("section") === im.closest("section"); });
+      openLb(group.map(function (x) { return { src: x.currentSrc || x.src, alt: x.alt, cap: x.alt }; }), group.indexOf(im));
+    }
+    im.addEventListener("click", open);
+    im.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
+    });
+  });
 
   document.addEventListener("keydown", function (e) {
+    if (!lb.hidden && lbList.length > 1) {
+      if (e.key === "ArrowLeft") showLb(lbIndex - 1);
+      if (e.key === "ArrowRight") showLb(lbIndex + 1);
+    }
     if (e.key !== "Escape") return;
     if (!lb.hidden) setLb(false);
     if (!waPanel.hidden) setWa(false);
