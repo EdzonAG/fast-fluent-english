@@ -17,7 +17,7 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
+<body data-pswp-js="../assets/js/photoswipe.esm.min.js" data-pswp-css="../assets/css/photoswipe.css">
 
 <!-- ============ ICON SPRITE ============ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -352,7 +352,7 @@
       </article>
     </div>
     <div class="services__foot reveal">
-      <button class="linkbtn" type="button" id="openBrochure" data-full-src="assets/img/image03.jpg"><svg class="i"><use href="#i-expand"/></svg><span data-i18n="svc.brochure">View company profile</span></button>
+      <button class="linkbtn" type="button" id="openBrochure"><svg class="i"><use href="#i-expand"/></svg><span data-i18n="svc.brochure">View company profile</span></button>
     </div>
   </div>
 </section>
@@ -466,6 +466,76 @@
       </article>
     </div>
     <p class="plans__note reveal" data-i18n="price.note">English instruction for professional advancement qualifies in many jurisdictions as a legitimate development expense and investment.</p>
+  </div>
+</section>
+
+<!-- ============ CV ============ -->
+<section class="section section--tint" id="cv">
+  <div class="container">
+    <article class="cv" lang="en" aria-labelledby="cv-titulo">
+      <header class="cv__cabeza">
+        <img class="cv__logo cv-logo" src="../assets/img/logos/fast_color.svg" alt="FAST" width="199" height="40">
+        <div class="cv__marca">
+          <h2 id="cv-titulo">FAST <span>ENGLISH</span></h2>
+          <p>REAL CONVERSATION</p>
+        </div>
+        <a class="cv__web" href="https://fastenglish.edu.mx" target="_blank" rel="noopener">fastenglish.edu.mx</a>
+      </header>
+      <div class="cv__cuerpo">
+        <div class="cv__principal">
+          <p>Corporations and individuals must communicate efficiently and professionally. Our <b>adaptable</b> services enhance the language skills with our FAST high-level online courses, translation, Business Consulting and support.</p>
+          <p>FAST English has improved its language services over the years, teaching executives and leaders in many companies, training teachers, using the latest techniques and technology.</p>
+          <p class="cv__barra">Our support has consisted of:</p>
+          <h3>COURSES</h3>
+          <p><b>Conversational</b> classes where the participants practice their professional areas in amazingly interactive virtual Rooms, with Teachers from different countries, as students of diverse nationalities achieve magnificent <b>Listening, Reading, Speaking, Thinking</b>, and <b>Writing Skills</b>, which are registered and tracked through our highly efficient Platform.</p>
+          <h3>CONVERSATION CLUB</h3>
+          <p>Either we suggest an interesting and convenient topic, or the participants choose it as we make structure or pronunciation corrections, along with the corresponding explanations.</p>
+          <h3>BUSINESS CONSULTING</h3>
+          <p>Most of our support has been regarding Presentation organization and rehearsal; as well as participation practice for meetings, interviews, lectures, courses, trainings, and so on.</p>
+          <h3>TRANSLATION from English to Spanish and vice versa:</h3>
+          <ul class="cv__lineas">
+            <li>Technical and professional document translation</li>
+            <li>Consecutive Interpretation</li>
+            <li>Simultaneous Interpretation</li>
+          </ul>
+        </div>
+        <aside class="cv__franja">
+          <div>
+            <h3>OTHER PROFESSIONAL ACTIVITIES</h3>
+            <p>We also foster art, business, finances, culture, ecology, tourism, traveling, and science.</p>
+          </div>
+          <div>
+            <p>We have been a <b>professional language support</b> for</p>
+            <ul class="cv__empresas">
+            <li>Banorte</li>
+            <li>Bayer</li>
+            <li>Cámara de Diputados</li>
+            <li>Condelmex</li>
+            <li>Delta Airlines</li>
+            <li>DHL</li>
+            <li>Hitachi</li>
+            <li>Holiday Inn</li>
+            <li>Hubbell</li>
+            <li>Instituto del Petróleo</li>
+            <li>Medica Sur</li>
+            <li>Sitio 300</li>
+            <li>Syntech</li>
+            <li>Tritec</li>
+            </ul>
+            <p>just to consider a few, along with many university and postgraduate students.</p>
+          </div>
+          <div>
+            <h3>OFFICIAL CERTIFICATIONS</h3>
+            <p>FAST English is registered before:</p>
+            <p><b>Education Secretariat (SEP)</b><br><b>Labor Secretariat (STPS).</b></p>
+          </div>
+        </aside>
+      </div>
+    </article>
+    <div class="cv__acciones">
+      <button class="btn btn--primary" id="cvVer" type="button" data-cv-png="assets/cv/fast-english-cv.png" data-cv-w="0" data-cv-h="0"><svg class="i"><use href="#i-expand"/></svg><span data-i18n="cv.ver">View full CV</span></button>
+      <a class="linkbtn" id="cvPdf" href="assets/cv/fast-english-cv.pdf" download="FAST-English-CV.pdf"><svg class="i"><use href="#i-file"/></svg><span data-i18n="cv.pdf">Download PDF</span></a>
+    </div>
   </div>
 </section>
 

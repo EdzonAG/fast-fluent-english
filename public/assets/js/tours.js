@@ -262,62 +262,20 @@
     });
   });
 
-  /* ---------------- Visor de fotos: PhotoSwipe, se descarga al abrir la primera foto ---------------- */
-  var visor = null;
-  function cargarVisor() {
-    if (!visor) {
-      var hoja = new Promise(function (ok, mal) {
-        var css = document.createElement("link");
-        css.rel = "stylesheet";
-        css.href = document.body.dataset.pswpCss;
-        css.onload = ok;
-        css.onerror = mal;
-        document.head.appendChild(css);
-      });
-      visor = Promise.all([import(document.body.dataset.pswpJs), hoja]).then(function (r) { return r[0].default; });
-    }
-    return visor;
-  }
-  function abrirVisor(items, i) {
-    cargarVisor().then(function (PhotoSwipe) {
-      var v = t("viewer");
-      var pswp = new PhotoSwipe({
-        dataSource: items,
-        index: i,
-        bgOpacity: 0.92,
-        showHideAnimationType: reduceMotion ? "none" : "fade",
-        secondaryZoomLevel: 2,
-        maxZoomLevel: 4,
-        closeTitle: t("close"),
-        zoomTitle: v.zoom,
-        arrowPrevTitle: v.prev,
-        arrowNextTitle: v.next,
-        errorMsg: v.error
-      });
-      pswp.on("uiRegister", function () {
-        pswp.ui.registerElement({
-          name: "pie",
-          className: "pswp__pie",
-          appendTo: "root",
-          onInit: function (el) { pswp.on("change", function () { el.textContent = pswp.currSlide.data.alt || ""; }); }
-        });
-      });
-      pswp.init();
-    }).catch(function () { visor = null; window.open(items[i].src, "_blank", "noopener"); });
-  }
+  /* ---------------- Visor de fotos ---------------- */
   function itemDe(im) {
     return { src: im.dataset.full || im.currentSrc || im.src, width: +im.dataset.fullW || im.naturalWidth, height: +im.dataset.fullH || im.naturalHeight, alt: im.alt };
   }
   $$("[data-photo]").forEach(function (b) {
     b.addEventListener("click", function () {
-      abrirVisor([{ src: b.dataset.photo, width: +b.dataset.fullW, height: +b.dataset.fullH, alt: (b.querySelector(".tile__cap b") || {}).textContent || "" }], 0);
+      SITIO.abrirVisor([{ src: b.dataset.photo, width: +b.dataset.fullW, height: +b.dataset.fullH, alt: (b.querySelector(".tile__cap b") || {}).textContent || "" }], 0);
     });
   });
   $$("[data-gallery]").forEach(function (g) {
     var items = $$("button", g);
     items.forEach(function (b, i) {
       b.addEventListener("click", function () {
-        abrirVisor(items.map(function (x) { return itemDe(x.querySelector("img")); }), i);
+        SITIO.abrirVisor(items.map(function (x) { return itemDe(x.querySelector("img")); }), i);
       });
     });
   });
@@ -331,7 +289,7 @@
     if (!im.alt) im.setAttribute("aria-label", "Open photo");
     function open() {
       var group = zoomable.filter(function (x) { return x.closest("section") === im.closest("section"); });
-      abrirVisor(group.map(itemDe), group.indexOf(im));
+      SITIO.abrirVisor(group.map(itemDe), group.indexOf(im));
     }
     im.addEventListener("click", open);
     im.addEventListener("keydown", function (e) {

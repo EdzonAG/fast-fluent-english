@@ -69,6 +69,72 @@ window.SITIO = (function () {
   }
   iniciarBotonIdioma();
 
+  /* ---------------- Visor de imágenes: PhotoSwipe, se descarga al abrir la primera ---------------- */
+  var VISOR = {
+    en: { cerrar: "Close", zoom: "Zoom", anterior: "Previous", siguiente: "Next", error: "This image could not be loaded." },
+    es: { cerrar: "Cerrar", zoom: "Acercar", anterior: "Anterior", siguiente: "Siguiente", error: "No se pudo cargar esta imagen." }
+  };
+  var visor = null;
+  function cargarVisor() {
+    if (!visor) {
+      var hoja = new Promise(function (ok, mal) {
+        var css = document.createElement("link");
+        css.rel = "stylesheet";
+        css.href = document.body.dataset.pswpCss;
+        css.onload = ok;
+        css.onerror = mal;
+        document.head.appendChild(css);
+      });
+      visor = Promise.all([import(document.body.dataset.pswpJs), hoja]).then(function (r) { return r[0].default; });
+    }
+    return visor;
+  }
+  // items: [{ src, width, height, alt }]. opciones.descarga: { href, nombre, texto } agrega un botón de descarga.
+  function abrirVisor(items, i, opciones) {
+    var descarga = opciones && opciones.descarga;
+    cargarVisor().then(function (PhotoSwipe) {
+      var v = VISOR[document.documentElement.lang === "es" ? "es" : "en"];
+      var sinMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var pswp = new PhotoSwipe({
+        dataSource: items,
+        index: i,
+        bgOpacity: 0.92,
+        showHideAnimationType: sinMovimiento ? "none" : "fade",
+        secondaryZoomLevel: 2,
+        maxZoomLevel: 4,
+        closeTitle: v.cerrar,
+        zoomTitle: v.zoom,
+        arrowPrevTitle: v.anterior,
+        arrowNextTitle: v.siguiente,
+        errorMsg: v.error
+      });
+      pswp.on("uiRegister", function () {
+        pswp.ui.registerElement({
+          name: "pie",
+          className: "pswp__pie",
+          appendTo: "root",
+          onInit: function (el) { pswp.on("change", function () { el.textContent = pswp.currSlide.data.alt || ""; }); }
+        });
+        if (descarga) {
+          pswp.ui.registerElement({
+            name: "descarga",
+            order: 8,
+            isButton: true,
+            tagName: "a",
+            html: '<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin:4px"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>',
+            onInit: function (el) {
+              el.href = descarga.href;
+              el.setAttribute("download", descarga.nombre);
+              el.setAttribute("aria-label", descarga.texto);
+              el.title = descarga.texto;
+            }
+          });
+        }
+      });
+      pswp.init();
+    }).catch(function () { visor = null; window.open(items[i].src, "_blank", "noopener"); });
+  }
+
   /* ---------------- WhatsApp ---------------- */
   // Español si el visitante eligió español o si su navegador empieza con "es".
   function idiomaWhatsApp(idiomaPagina) {
@@ -116,7 +182,7 @@ window.SITIO = (function () {
       if (!carta) medir();
       var H = window.innerHeight;
       var caja = { left: carta.izq, right: carta.izq + carta.ancho, top: H - carta.abajo - carta.alto, bottom: H - carta.abajo };
-      var objetivos = document.querySelectorAll(".btn, .linkbtn, .seg button, input[type=range]");
+      var objetivos = document.querySelectorAll(".btn, .linkbtn, .seg button, input[type=range], .cv");
       var mini = H < 560;
       var i, r;
       for (i = 0; !mini && i < objetivos.length; i++) {
@@ -193,6 +259,7 @@ window.SITIO = (function () {
   iniciarQR();
 
   return {
+    abrirVisor: abrirVisor,
     idiomaGuardado: idiomaGuardado,
     guardarIdioma: guardarIdioma,
     rangoFechas: rangoFechas,

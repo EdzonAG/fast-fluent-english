@@ -79,6 +79,7 @@ todos.filter((f) => f.endsWith(".woff2")).forEach((f) => publicarConHash(f));
 todos.filter((f) => /[\\/]assets[\\/]img[\\/]logos[\\/].+\.svg$/.test(f)).forEach((f) => publicarConHash(f));
 todos.filter((f) => /[\\/]assets[\\/]img[\\/]icons\.svg$/.test(f)).forEach((f) => publicarConHash(f));
 todos.filter((f) => /[\\/]assets[\\/]js[\\/].+\.js$/.test(f)).forEach((f) => publicarConHash(f));
+todos.filter((f) => /[\\/]assets[\\/]cv[\\/]/.test(f)).forEach((f) => publicarConHash(f));
 todos.filter((f) => /[\\/]assets[\\/]css[\\/].+\.css$/.test(f)).forEach((f) => {
   const url = aUrl(f);
   const css = readFileSync(f, "utf8").replace(/url\((["']?)(?!data:|https?:)([^"')]+)\1\)/g, (m, q, ruta) => {
@@ -182,7 +183,7 @@ function seccionBallena() {
 const qrSvg = await QRCode.toString(config.qrUrl, { type: "svg", errorCorrectionLevel: "M", margin: 4, color: { dark: "#000000", light: "#ffffff" } });
 const rutaQr = `/static/a/qr.${conHash(qrSvg)}.svg`;
 writeFileSync(join(DIST, rutaQr), qrSvg);
-const estiloQr = readFileSync(join(RAIZ, "scripts", "parciales", "qr.css"), "utf8").replace(/\/\*[\s\S]*?\*\//g, "").replace(/\n+/g, "\n").trim();
+const estiloQr = readFileSync(join(RAIZ, "scripts", "parciales", "comun.css"), "utf8").replace(/\/\*[\s\S]*?\*\//g, "").replace(/\n+/g, "\n").trim();
 const { en: qrEn } = config.qrTextos;
 const bloqueQr = `<style>${estiloQr}</style>
 <button class="qr" id="qrAbrir" type="button" aria-label="${textoHtml(qrEn.ampliar)}" aria-haspopup="dialog"><img src="${rutaQr}" alt="" width="160" height="160"><span>${textoHtml(qrEn.escanea)}</span></button>
@@ -222,6 +223,13 @@ for (const archivo of listar(DIST).filter((f) => f.endsWith(".html"))) {
 
   html = html.replace(/<img\b[^>]*>/g, (m) => expandirImg(m, pagina + "index.html", avisos, cargas));
 
+  // Tamaño real del PNG del CV (el visor lo necesita). Se lee del encabezado del archivo.
+  const pngCv = join(PUBLICO, "english", "assets", "cv", "fast-english-cv.png");
+  if (html.includes("data-cv-w") && existsSync(pngCv)) {
+    const cab = readFileSync(pngCv).subarray(16, 24);
+    html = html.replace('data-cv-w="0" data-cv-h="0"', `data-cv-w="${cab.readUInt32BE(0)}" data-cv-h="${cab.readUInt32BE(4)}"`);
+  }
+
   // Versión grande que abren los visores de fotos.
   html = html.replace(/\b(data-photo|data-full-src)="([^"]+)"/g, (m, attr, src) => {
     const datos = manifiesto[claveDe(posix.resolve(pagina, src))];
@@ -231,7 +239,7 @@ for (const archivo of listar(DIST).filter((f) => f.endsWith(".html"))) {
   });
 
   // CSS, JS y sprite con hash.
-  html = html.replace(/\b(href|src|data-icons|data-pswp-js|data-pswp-css)="([^"#?]+)(#[^"]*)?"/g, (m, attr, ruta, frag = "") => {
+  html = html.replace(/\b(href|src|data-icons|data-pswp-js|data-pswp-css|data-cv-png)="([^"#?]+)(#[^"]*)?"/g, (m, attr, ruta, frag = "") => {
     if (/^[a-z]+:/i.test(ruta)) return m;
     const destino = mapa.get(posix.resolve(pagina, ruta));
     return destino ? `${attr}="${destino}${frag}"` : m;

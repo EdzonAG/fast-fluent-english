@@ -2019,54 +2019,5 @@
     }
    ]
   }
- },
- "english/assets/img/image03": {
-  "huella": "fbe9b1f4497248a9",
-  "width": 840,
-  "height": 618,
-  "variantes": {
-   "avif": [
-    {
-     "w": 480,
-     "h": 353,
-     "bytes": 12810,
-     "ruta": "/static/img/english/image03-480.5f3c1b9bb2.avif"
-    },
-    {
-     "w": 768,
-     "h": 565,
-     "bytes": 29018,
-     "ruta": "/static/img/english/image03-768.4e42683109.avif"
-    }
-   ],
-   "webp": [
-    {
-     "w": 480,
-     "h": 353,
-     "bytes": 19700,
-     "ruta": "/static/img/english/image03-480.4a4dd9570e.webp"
-    },
-    {
-     "w": 768,
-     "h": 565,
-     "bytes": 43384,
-     "ruta": "/static/img/english/image03-768.f6a4a578ea.webp"
-    }
-   ],
-   "jpg": [
-    {
-     "w": 480,
-     "h": 353,
-     "bytes": 21874,
-     "ruta": "/static/img/english/image03-480.f247f2a312.jpg"
-    },
-    {
-     "w": 768,
-     "h": 565,
-     "bytes": 50009,
-     "ruta": "/static/img/english/image03-768.f0db01b033.jpg"
-    }
-   ]
-  }
  }
 }

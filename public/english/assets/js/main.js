@@ -384,9 +384,15 @@
     else if (lbLast) lbLast.focus();
   }
   function openLb(list, i) { lbLast = document.activeElement; lbList = list; showLb(i); setLb(true); }
-  $("#openBrochure").addEventListener("click", function () {
-    openLb([{ src: this.dataset.full, alt: "FAST English company profile" }], 0);
-  });
+  // CV: visor con zoom con dos dedos y descarga del PDF.
+  function abrirCV() {
+    var b = $("#cvVer");
+    SITIO.abrirVisor([{ src: b.dataset.cvPng, width: +b.dataset.cvW, height: +b.dataset.cvH, alt: "" }], 0, {
+      descarga: { href: $("#cvPdf").href, nombre: "FAST-English-CV.pdf", texto: t("cv.pdf") }
+    });
+  }
+  $("#cvVer").addEventListener("click", abrirCV);
+  $("#openBrochure").addEventListener("click", abrirCV);
   lb.addEventListener("click", function (e) {
     if (e.target === lb || e.target.closest(".lightbox__close")) setLb(false);
     else if (e.target.closest(".lightbox__nav--prev")) showLb(lbIndex - 1);

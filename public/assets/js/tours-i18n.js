@@ -288,7 +288,6 @@ window.TOURS_I18N = {
     en: {
       close: "Close",
       reservar: "Reserve on WhatsApp",
-      viewer: { zoom: "Zoom", prev: "Previous", next: "Next", error: "This photo could not be loaded." },
       vipMsg: "Hi! I'm interested in VIP days for the {tour} expedition: {type}, {days} day(s) (estimate {total}).",
       tourName: { chiapas: "Chiapas", bcs: "Baja California Sur" },
       solo: "solo", couple: "couple", perDay: "/ day",
@@ -305,7 +304,6 @@ window.TOURS_I18N = {
     es: {
       close: "Cerrar",
       reservar: "Reservar por WhatsApp",
-      viewer: { zoom: "Acercar", prev: "Anterior", next: "Siguiente", error: "No se pudo cargar esta foto." },
       vipMsg: "¡Hola! Me interesan días VIP para la expedición de {tour}: {type}, {days} día(s) (estimado {total}).",
       tourName: { chiapas: "Chiapas", bcs: "Baja California Sur" },
       solo: "individual", couple: "pareja", perDay: "/ día",
