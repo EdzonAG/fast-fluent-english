@@ -386,7 +386,7 @@
   }
   function openLb(list, i) { lbLast = document.activeElement; lbList = list; showLb(i); setLb(true); }
   $("#openBrochure").addEventListener("click", function () {
-    openLb([{ src: "assets/img/image03.jpg", alt: "FAST English company profile" }], 0);
+    openLb([{ src: this.dataset.full, alt: "FAST English company profile" }], 0);
   });
   lb.addEventListener("click", function (e) {
     if (e.target === lb || e.target.closest(".lightbox__close")) setLb(false);
@@ -411,7 +411,7 @@
     if (!im.alt) im.setAttribute("aria-label", "Open photo");
     function open() {
       var group = zoomable.filter(function (x) { return x.closest("section") === im.closest("section"); });
-      openLb(group.map(function (x) { return { src: x.currentSrc || x.src, alt: x.alt, cap: x.alt }; }), group.indexOf(im));
+      openLb(group.map(function (x) { return { src: x.dataset.full || x.currentSrc || x.src, alt: x.alt, cap: x.alt }; }), group.indexOf(im));
     }
     im.addEventListener("click", open);
     im.addEventListener("keydown", function (e) {

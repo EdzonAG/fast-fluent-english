@@ -1,3 +1,8 @@
+/* Fuentes hospedadas en el sitio (Inter, Sora e Instrument Serif, licencia SIL OFL). */
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("../fonts/inter.woff2") format("woff2"); }
+@font-face { font-family: "Sora"; font-style: normal; font-weight: 500 800; font-display: swap; src: url("../fonts/sora.woff2") format("woff2"); }
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400; font-display: swap; src: url("../fonts/instrument-serif-italic.woff2") format("woff2"); }
+
 /* =========================================================
    SpectaCulTours — shared styles (hub, Chiapas, Baja California Sur)
    ========================================================= */
@@ -51,7 +56,9 @@
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 8px); -webkit-text-size-adjust: 100%; }
 body { margin: 0; font-family: var(--font); line-height: 1.6; color: var(--ink); background: var(--bg); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
+picture { display: contents; }
+picture > source { display: none; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; }
 h1, h2, h3, h4 { font-family: var(--display); line-height: 1.1; margin: 0; letter-spacing: -.02em; }
@@ -214,10 +221,10 @@ h1 em, h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; 
 .stay { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
 .stay__photos { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .stay__photos img { border-radius: var(--radius); width: 100%; height: 100%; object-fit: cover; box-shadow: var(--shadow); }
-.stay__photos img:first-child { grid-row: span 2; aspect-ratio: 3 / 4.2; }
-.stay__photos img:not(:first-child) { aspect-ratio: 4 / 3; }
+.stay__photos picture:first-child img { grid-row: span 2; aspect-ratio: 3 / 4.2; }
+.stay__photos picture:not(:first-child) img { aspect-ratio: 4 / 3; }
 .stay h2 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); }
-.stay__photos--land img:first-child { grid-row: auto; grid-column: span 2; aspect-ratio: 16 / 9; }
+.stay__photos--land picture:first-child img { grid-row: auto; grid-column: span 2; aspect-ratio: 16 / 9; }
 .stay__intro { color: var(--ink-2); font-size: 1.08rem; margin: 18px 0 26px; }
 .section--deep .stay__intro { color: var(--on-deep-2); }
 .pillars { display: grid; gap: 14px; }
@@ -351,11 +358,11 @@ h1 em, h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; 
 /* ---------- Hub ---------- */
 .split { position: relative; display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; min-height: 100svh; background: #000; }
 .split__panel { position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 48px 64px; color: #fff; isolation: isolate; transition: flex-grow .6s var(--ease); }
-.split__panel > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transform: scale(1.04); transition: transform 1.2s var(--ease), filter .6s; filter: saturate(1.05); }
+.split__panel img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transform: scale(1.04); transition: transform 1.2s var(--ease), filter .6s; filter: saturate(1.05); }
 .split__panel::after { content: ""; position: absolute; inset: 0; z-index: -1; transition: opacity .6s; }
 .split__panel--chiapas::after { background: linear-gradient(180deg, rgba(4, 30, 22, .55) 0%, rgba(4, 30, 22, .15) 35%, rgba(4, 30, 22, .9) 100%); }
 .split__panel--bcs::after { background: linear-gradient(180deg, rgba(2, 30, 46, .55) 0%, rgba(2, 30, 46, .1) 35%, rgba(2, 30, 46, .9) 100%); }
-.split__panel:hover > img { transform: scale(1.1); }
+.split__panel:hover img { transform: scale(1.1); }
 .split__panel small { font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255, 255, 255, .8); }
 .split__panel h2 { font-size: clamp(2.2rem, 4.6vw, 3.8rem); margin: 8px 0 12px; color: #fff; }
 .split__panel h2 em { color: #fff; }
@@ -486,7 +493,7 @@ html[lang="en"] .lang-mini [data-lang="es"], html[lang="es"] .lang-mini [data-la
 
 .english-extra__inner { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
 .english-extra__media { position: relative; }
-.english-extra__media > img { width: 100%; aspect-ratio: 4 / 3.2; object-fit: cover; object-position: 62% center; border-radius: 28px; box-shadow: var(--shadow); }
+.english-extra__media img { width: 100%; aspect-ratio: 4 / 3.2; object-fit: cover; object-position: 62% center; border-radius: 28px; box-shadow: var(--shadow); }
 .english-extra__logo { position: absolute; left: 18px; bottom: 18px; background: #fff; border-radius: 14px; padding: 10px 14px; box-shadow: var(--shadow); }
 .english-extra__logo img { height: 26px; width: auto; display: block; }
 .english-extra .eyebrow { color: #b42318; }

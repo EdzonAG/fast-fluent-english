@@ -1,6 +1,6 @@
 # SpectaCulTours (spectacultours.mx) + FAST fluent English
 
-Sitio estático (HTML + CSS + JS puro, sin build ni dependencias) listo para desplegar en Render como **Static Site gratuito**.
+Sitio estático (HTML + CSS + JS puro) con un build pequeño, desplegado en Render como **Static Site**.
 El dominio principal es **spectacultours.mx**: primero se presentan las expediciones y las clases de inglés quedan como un extra.
 
 | Ruta | Página |
@@ -24,38 +24,62 @@ Las rutas antiguas `/tours/...` redirigen a las nuevas mediante páginas de redi
 ## Estructura
 
 ```
+assets-originales/              ← originales, no se publican. "pendientes/" y "logos/" no pasan por el script de fotos
+imagenes.manifest.json          ← generado: variantes de cada imagen
+scripts/
+  optimizar-imagenes.mjs        ← originales → public/static/img (AVIF, WebP, JPG)
+  optimizar-logos.mjs           ← SVGO + comparación píxel a píxel
+  build.mjs                     ← public/ → dist/ (<picture>, hashes)
+  servir.mjs                    ← servidor local con Brotli y la misma caché que producción
 public/
   index.html                    ← portada SpectaCulTours
   chiapas/, baja-california-sur/ ← páginas de cada expedición
   assets/css/tours.css          ← estilos de tours
+  assets/fonts/                 ← Inter, Sora e Instrument Serif hospedadas aquí (SIL OFL)
   assets/js/tours-config.js     ← ⚙️ precios de tours, WhatsApp, redes, enlace a /english/
   assets/js/tours-i18n.js       ← traducciones al español de los tours
   assets/js/tours.js            ← interacciones de tours
-  assets/img/                   ← fotos de los tours (de los sitios de Carrd)
-  english/                      ← sitio FAST fluent English (autocontenido)
-    index.html
-    assets/js/config.js         ← ⚙️ WhatsApp, Calendly, precios de clases, redes, enlace a la portada
-    assets/js/i18n.js, main.js, assets/css/styles.css, assets/img/
+  assets/img/                   ← logos, iconos y tarjetas para redes
+  static/img/                   ← generado: fotos optimizadas, con hash en el nombre
+  english/                      ← sitio FAST fluent English
   sitemap.xml, robots.txt
-render.yaml                     ← Blueprint de Render (encabezados y redirecciones)
+render.yaml                     ← Blueprint de Render
 ```
 
 ## Ver en local
 
 ```bash
+npm install
 npm run dev
 ```
 
-(o `python3 -m http.server 3000 -d public`) y abrir http://localhost:3000.
-Para ver la versión en español directamente: `http://localhost:3000/?lang=es`.
+Abre http://localhost:3000. Para ver el español directamente: `http://localhost:3000/?lang=es`.
+
+## Fotos nuevas
+
+1. Copia el original a `assets-originales/`, en la ruta equivalente (por ejemplo `assets-originales/assets/img/bcs/nueva.jpg`).
+2. Genera las versiones publicadas:
+
+   ```bash
+   npm run imagenes
+   ```
+
+   Genera AVIF, WebP y JPG en 480, 768, 1280 y 1920 px sin ampliar, elimina EXIF y GPS, y falla si alguna variante pasa de 400 KB. `npm run imagenes -- --todo` reprocesa todo, por ejemplo al cambiar calidades. Las calidades por imagen están en `AJUSTES`, al inicio del script.
+3. En el HTML escribe un `<img>` normal con la ruta original y un `data-sizes` de los definidos en `TAMANOS` (`scripts/build.mjs`). El build lo convierte en `<picture>`. La imagen principal de la página lleva además `data-lcp`.
+
+Las imágenes generadas se suben al repositorio, así que Render no necesita sharp.
 
 ## Desplegar en Render
 
-1. En Render: **New → Blueprint** con este repositorio (lee `render.yaml`, con encabezados y redirecciones).
-   - Alternativa manual: **New → Static Site**, *Build command* vacío, *Publish directory* `public`.
-2. Cada `git push` a `main` vuelve a desplegar automáticamente.
-3. **Dominio:** en *Settings → Custom Domains* agrega `spectacultours.mx` y `www.spectacultours.mx`
-   y crea en tu proveedor de DNS los registros que Render indique. Render emite el certificado HTTPS solo.
+El servicio actual se creó a mano y no aplica `render.yaml`. En **Settings** del Static Site `fast-fluent-english` deben quedar estos valores, o bien hay que ligarlo como Blueprint:
+
+| Campo | Valor |
+|---|---|
+| Build Command | `npm ci --omit=dev && npm run build` |
+| Publish Directory | `dist` |
+| Header | `/static/*` · `Cache-Control` · `public, max-age=31536000, immutable` |
+
+Más los otros encabezados y las redirecciones que aparecen en `render.yaml`. Cada `git push` a `main` vuelve a desplegar. La compresión Brotli la aplica Render sin configuración.
 
 ## Editar contenido
 
@@ -82,7 +106,7 @@ Para ver la versión en español directamente: `http://localhost:3000/?lang=es`.
 - Páginas de expedición: mosaico de experiencias con los videos reales, destinos,
   calendario de pagos, calculadora de días VIP que arma el mensaje de WhatsApp, galería con visor,
   comparativa lado a lado y el idioma compartido con el sitio de FAST.
-- Responsive, accesible (teclado, `prefers-reduced-motion`) y sin dependencias externas salvo Google Fonts.
+- Responsive y accesible (teclado, `prefers-reduced-motion`), sin dependencias externas en el navegador salvo YouTube y Calendly.
 
 ## Créditos de imágenes
 

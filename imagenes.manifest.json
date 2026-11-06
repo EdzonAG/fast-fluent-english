@@ -1,0 +1,2072 @@
+{
+ "assets/img/ballena/bcs-ballena-foto-01": {
+  "huella": "6543f002285b5760",
+  "width": 1600,
+  "height": 714,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 214,
+     "bytes": 10165,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-01-480.386f26b232.avif"
+    },
+    {
+     "w": 768,
+     "h": 343,
+     "bytes": 19732,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-01-768.0bca0effff.avif"
+    },
+    {
+     "w": 1280,
+     "h": 571,
+     "bytes": 34058,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-01-1280.179de1d33d.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 214,
+     "bytes": 15680,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-01-480.e88e522463.webp"
+    },
+    {
+     "w": 768,
+     "h": 343,
+     "bytes": 30316,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-01-768.a41e8e71f6.webp"
+    },
+    {
+     "w": 1280,
+     "h": 571,
+     "bytes": 53040,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-01-1280.5d04933db8.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 214,
+     "bytes": 16479,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-01-480.5cd2d20fc9.jpg"
+    },
+    {
+     "w": 768,
+     "h": 343,
+     "bytes": 34632,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-01-768.9c64e7df0e.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 571,
+     "bytes": 72323,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-01-1280.23fd067164.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/ballena/bcs-ballena-foto-03": {
+  "huella": "284d60c936a0b079",
+  "width": 1600,
+  "height": 714,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 214,
+     "bytes": 4588,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-03-480.ab3613fc22.avif"
+    },
+    {
+     "w": 768,
+     "h": 343,
+     "bytes": 9494,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-03-768.17a5849f84.avif"
+    },
+    {
+     "w": 1280,
+     "h": 571,
+     "bytes": 18561,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-03-1280.fac2d70f85.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 214,
+     "bytes": 7906,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-03-480.d6788752d0.webp"
+    },
+    {
+     "w": 768,
+     "h": 343,
+     "bytes": 13840,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-03-768.58de2a7274.webp"
+    },
+    {
+     "w": 1280,
+     "h": 571,
+     "bytes": 27224,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-03-1280.d928ce06ef.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 214,
+     "bytes": 11279,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-03-480.bfb6514955.jpg"
+    },
+    {
+     "w": 768,
+     "h": 343,
+     "bytes": 23367,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-03-768.80daa63ed3.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 571,
+     "bytes": 50056,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-03-1280.9658bb9bef.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/ballena/bcs-ballena-foto-04": {
+  "huella": "1381f883d0913a7f",
+  "width": 1600,
+  "height": 714,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 214,
+     "bytes": 11689,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-04-480.390103531e.avif"
+    },
+    {
+     "w": 768,
+     "h": 343,
+     "bytes": 21460,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-04-768.a44b76bb89.avif"
+    },
+    {
+     "w": 1280,
+     "h": 571,
+     "bytes": 36389,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-04-1280.1c3b048273.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 214,
+     "bytes": 21190,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-04-480.c11cd9bbb5.webp"
+    },
+    {
+     "w": 768,
+     "h": 343,
+     "bytes": 37862,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-04-768.59e1b891ae.webp"
+    },
+    {
+     "w": 1280,
+     "h": 571,
+     "bytes": 64468,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-04-1280.b99ba1e08b.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 214,
+     "bytes": 21365,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-04-480.1eb3a8ce83.jpg"
+    },
+    {
+     "w": 768,
+     "h": 343,
+     "bytes": 43539,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-04-768.341c0cb0e8.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 571,
+     "bytes": 88152,
+     "ruta": "/static/img/ballena/bcs-ballena-foto-04-1280.73d054efcc.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/bcs/boobies": {
+  "huella": "980e38e961e83eec",
+  "width": 1600,
+  "height": 900,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 270,
+     "bytes": 21461,
+     "ruta": "/static/img/bcs/boobies-480.457e5a03a4.avif"
+    },
+    {
+     "w": 768,
+     "h": 432,
+     "bytes": 54686,
+     "ruta": "/static/img/bcs/boobies-768.5e57c9c4b7.avif"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 129165,
+     "ruta": "/static/img/bcs/boobies-1280.c6afccd0ba.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 270,
+     "bytes": 36790,
+     "ruta": "/static/img/bcs/boobies-480.e5301cd6a6.webp"
+    },
+    {
+     "w": 768,
+     "h": 432,
+     "bytes": 93780,
+     "ruta": "/static/img/bcs/boobies-768.08591537cf.webp"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 231248,
+     "ruta": "/static/img/bcs/boobies-1280.93f1102dba.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 270,
+     "bytes": 34512,
+     "ruta": "/static/img/bcs/boobies-480.578e0be1c6.jpg"
+    },
+    {
+     "w": 768,
+     "h": 432,
+     "bytes": 87756,
+     "ruta": "/static/img/bcs/boobies-768.e89c91a744.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 226279,
+     "ruta": "/static/img/bcs/boobies-1280.9ebc0ccb9f.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/bcs/fish-lunch": {
+  "huella": "03ae9dc274d3c1e0",
+  "width": 1600,
+  "height": 900,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 270,
+     "bytes": 15660,
+     "ruta": "/static/img/bcs/fish-lunch-480.4bc945424b.avif"
+    },
+    {
+     "w": 768,
+     "h": 432,
+     "bytes": 37835,
+     "ruta": "/static/img/bcs/fish-lunch-768.e05db80af0.avif"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 87513,
+     "ruta": "/static/img/bcs/fish-lunch-1280.b9c3dc6d3a.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 270,
+     "bytes": 28188,
+     "ruta": "/static/img/bcs/fish-lunch-480.1464f6ad69.webp"
+    },
+    {
+     "w": 768,
+     "h": 432,
+     "bytes": 66322,
+     "ruta": "/static/img/bcs/fish-lunch-768.fa76e4afab.webp"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 147872,
+     "ruta": "/static/img/bcs/fish-lunch-1280.5965da6012.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 270,
+     "bytes": 29485,
+     "ruta": "/static/img/bcs/fish-lunch-480.7ea1d9716a.jpg"
+    },
+    {
+     "w": 768,
+     "h": 432,
+     "bytes": 69737,
+     "ruta": "/static/img/bcs/fish-lunch-768.76a0fcf88c.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 169451,
+     "ruta": "/static/img/bcs/fish-lunch-1280.88e87df635.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/bcs/hero-dolphins": {
+  "huella": "b2669cffd385bcd6",
+  "width": 1600,
+  "height": 900,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 270,
+     "bytes": 14217,
+     "ruta": "/static/img/bcs/hero-dolphins-480.79400721cf.avif"
+    },
+    {
+     "w": 768,
+     "h": 432,
+     "bytes": 33019,
+     "ruta": "/static/img/bcs/hero-dolphins-768.7913c3289e.avif"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 71424,
+     "ruta": "/static/img/bcs/hero-dolphins-1280.cc647ed6ff.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 270,
+     "bytes": 29740,
+     "ruta": "/static/img/bcs/hero-dolphins-480.9aba4a422b.webp"
+    },
+    {
+     "w": 768,
+     "h": 432,
+     "bytes": 69648,
+     "ruta": "/static/img/bcs/hero-dolphins-768.2d908407ad.webp"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 152746,
+     "ruta": "/static/img/bcs/hero-dolphins-1280.93d185694b.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 270,
+     "bytes": 29578,
+     "ruta": "/static/img/bcs/hero-dolphins-480.b181796d11.jpg"
+    },
+    {
+     "w": 768,
+     "h": 432,
+     "bytes": 72075,
+     "ruta": "/static/img/bcs/hero-dolphins-768.3de9b417d7.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 174482,
+     "ruta": "/static/img/bcs/hero-dolphins-1280.35414ec741.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/bcs/img02": {
+  "huella": "cf6d882caa2d7cee",
+  "width": 449,
+  "height": 350,
+  "variantes": {
+   "avif": [
+    {
+     "w": 449,
+     "h": 350,
+     "bytes": 11139,
+     "ruta": "/static/img/bcs/img02-449.a00d9b408b.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 449,
+     "h": 350,
+     "bytes": 17196,
+     "ruta": "/static/img/bcs/img02-449.fb351ef6cd.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 449,
+     "h": 350,
+     "bytes": 24763,
+     "ruta": "/static/img/bcs/img02-449.b246c3565c.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/bcs/img03": {
+  "huella": "9108ab85aef7a146",
+  "width": 1600,
+  "height": 967,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 290,
+     "bytes": 19768,
+     "ruta": "/static/img/bcs/img03-480.473ddb093c.avif"
+    },
+    {
+     "w": 768,
+     "h": 464,
+     "bytes": 51812,
+     "ruta": "/static/img/bcs/img03-768.8eb33c179d.avif"
+    },
+    {
+     "w": 1280,
+     "h": 774,
+     "bytes": 129205,
+     "ruta": "/static/img/bcs/img03-1280.bea41be7a3.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 290,
+     "bytes": 30754,
+     "ruta": "/static/img/bcs/img03-480.bd9fbf87e9.webp"
+    },
+    {
+     "w": 768,
+     "h": 464,
+     "bytes": 81028,
+     "ruta": "/static/img/bcs/img03-768.62c64a8413.webp"
+    },
+    {
+     "w": 1280,
+     "h": 774,
+     "bytes": 194716,
+     "ruta": "/static/img/bcs/img03-1280.379de91b68.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 290,
+     "bytes": 25254,
+     "ruta": "/static/img/bcs/img03-480.908a9744de.jpg"
+    },
+    {
+     "w": 768,
+     "h": 464,
+     "bytes": 64511,
+     "ruta": "/static/img/bcs/img03-768.62911a34d3.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 774,
+     "bytes": 173925,
+     "ruta": "/static/img/bcs/img03-1280.af9074e961.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/bcs/img04": {
+  "huella": "2b19968e2c8455dc",
+  "width": 1600,
+  "height": 712,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 214,
+     "bytes": 14593,
+     "ruta": "/static/img/bcs/img04-480.789c1a2b76.avif"
+    },
+    {
+     "w": 768,
+     "h": 342,
+     "bytes": 38339,
+     "ruta": "/static/img/bcs/img04-768.13a68b7ce0.avif"
+    },
+    {
+     "w": 1280,
+     "h": 570,
+     "bytes": 96142,
+     "ruta": "/static/img/bcs/img04-1280.5fc07c7347.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 214,
+     "bytes": 25244,
+     "ruta": "/static/img/bcs/img04-480.4751f233bf.webp"
+    },
+    {
+     "w": 768,
+     "h": 342,
+     "bytes": 69314,
+     "ruta": "/static/img/bcs/img04-768.0d68278127.webp"
+    },
+    {
+     "w": 1280,
+     "h": 570,
+     "bytes": 180196,
+     "ruta": "/static/img/bcs/img04-1280.40f1de50ad.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 214,
+     "bytes": 20356,
+     "ruta": "/static/img/bcs/img04-480.b3b75fdeeb.jpg"
+    },
+    {
+     "w": 768,
+     "h": 342,
+     "bytes": 56642,
+     "ruta": "/static/img/bcs/img04-768.764cb41e7d.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 570,
+     "bytes": 160907,
+     "ruta": "/static/img/bcs/img04-1280.8dcfaf3efd.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/bcs/img05": {
+  "huella": "1ae51d9a7adcbc84",
+  "width": 1600,
+  "height": 711,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 213,
+     "bytes": 11256,
+     "ruta": "/static/img/bcs/img05-480.b8334df704.avif"
+    },
+    {
+     "w": 768,
+     "h": 341,
+     "bytes": 26613,
+     "ruta": "/static/img/bcs/img05-768.49ecd7e917.avif"
+    },
+    {
+     "w": 1280,
+     "h": 569,
+     "bytes": 64347,
+     "ruta": "/static/img/bcs/img05-1280.9f9f0af457.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 213,
+     "bytes": 24398,
+     "ruta": "/static/img/bcs/img05-480.1f44db4372.webp"
+    },
+    {
+     "w": 768,
+     "h": 341,
+     "bytes": 58474,
+     "ruta": "/static/img/bcs/img05-768.a0620c2d3e.webp"
+    },
+    {
+     "w": 1280,
+     "h": 569,
+     "bytes": 137824,
+     "ruta": "/static/img/bcs/img05-1280.53a096c390.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 213,
+     "bytes": 23615,
+     "ruta": "/static/img/bcs/img05-480.965b06c79e.jpg"
+    },
+    {
+     "w": 768,
+     "h": 341,
+     "bytes": 58271,
+     "ruta": "/static/img/bcs/img05-768.063253da9b.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 569,
+     "bytes": 147903,
+     "ruta": "/static/img/bcs/img05-1280.ddb729713e.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/bcs/img06": {
+  "huella": "678166570fd262a8",
+  "width": 1600,
+  "height": 712,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 214,
+     "bytes": 12808,
+     "ruta": "/static/img/bcs/img06-480.44ce156eff.avif"
+    },
+    {
+     "w": 768,
+     "h": 342,
+     "bytes": 28352,
+     "ruta": "/static/img/bcs/img06-768.fb38f66b4d.avif"
+    },
+    {
+     "w": 1280,
+     "h": 570,
+     "bytes": 64925,
+     "ruta": "/static/img/bcs/img06-1280.90d5846448.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 214,
+     "bytes": 21520,
+     "ruta": "/static/img/bcs/img06-480.759f17bfb0.webp"
+    },
+    {
+     "w": 768,
+     "h": 342,
+     "bytes": 48524,
+     "ruta": "/static/img/bcs/img06-768.43626762ad.webp"
+    },
+    {
+     "w": 1280,
+     "h": 570,
+     "bytes": 115200,
+     "ruta": "/static/img/bcs/img06-1280.94dda7c7f1.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 214,
+     "bytes": 22265,
+     "ruta": "/static/img/bcs/img06-480.ecde89d8d8.jpg"
+    },
+    {
+     "w": 768,
+     "h": 342,
+     "bytes": 51416,
+     "ruta": "/static/img/bcs/img06-768.369d70cf41.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 570,
+     "bytes": 126164,
+     "ruta": "/static/img/bcs/img06-1280.808c7cf789.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/bcs/img07": {
+  "huella": "e4ccbfcb3d01d1b5",
+  "width": 1600,
+  "height": 702,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 211,
+     "bytes": 7337,
+     "ruta": "/static/img/bcs/img07-480.2029c3d8d2.avif"
+    },
+    {
+     "w": 768,
+     "h": 337,
+     "bytes": 16675,
+     "ruta": "/static/img/bcs/img07-768.95404431c9.avif"
+    },
+    {
+     "w": 1280,
+     "h": 562,
+     "bytes": 43413,
+     "ruta": "/static/img/bcs/img07-1280.898062edd5.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 211,
+     "bytes": 11708,
+     "ruta": "/static/img/bcs/img07-480.f01d3f0bae.webp"
+    },
+    {
+     "w": 768,
+     "h": 337,
+     "bytes": 27774,
+     "ruta": "/static/img/bcs/img07-768.ddb92a22b4.webp"
+    },
+    {
+     "w": 1280,
+     "h": 562,
+     "bytes": 70626,
+     "ruta": "/static/img/bcs/img07-1280.971f0f72fc.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 211,
+     "bytes": 14227,
+     "ruta": "/static/img/bcs/img07-480.2182ee6aef.jpg"
+    },
+    {
+     "w": 768,
+     "h": 337,
+     "bytes": 33300,
+     "ruta": "/static/img/bcs/img07-768.4f3ab8de15.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 562,
+     "bytes": 86720,
+     "ruta": "/static/img/bcs/img07-1280.ffa8b890f7.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/bcs/img08": {
+  "huella": "8c4f35021b712ef0",
+  "width": 1600,
+  "height": 895,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 269,
+     "bytes": 14673,
+     "ruta": "/static/img/bcs/img08-480.2dbec7f371.avif"
+    },
+    {
+     "w": 768,
+     "h": 430,
+     "bytes": 36171,
+     "ruta": "/static/img/bcs/img08-768.df6f81b83f.avif"
+    },
+    {
+     "w": 1280,
+     "h": 716,
+     "bytes": 89162,
+     "ruta": "/static/img/bcs/img08-1280.1b574dbc43.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 269,
+     "bytes": 21728,
+     "ruta": "/static/img/bcs/img08-480.87ece9cb73.webp"
+    },
+    {
+     "w": 768,
+     "h": 430,
+     "bytes": 54698,
+     "ruta": "/static/img/bcs/img08-768.94868223d8.webp"
+    },
+    {
+     "w": 1280,
+     "h": 716,
+     "bytes": 133780,
+     "ruta": "/static/img/bcs/img08-1280.62542fb695.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 269,
+     "bytes": 20422,
+     "ruta": "/static/img/bcs/img08-480.7313b32e1f.jpg"
+    },
+    {
+     "w": 768,
+     "h": 430,
+     "bytes": 51196,
+     "ruta": "/static/img/bcs/img08-768.6c274abcae.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 716,
+     "bytes": 136883,
+     "ruta": "/static/img/bcs/img08-1280.7a6fa9a399.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/bcs/img09": {
+  "huella": "8f4ccf4616ac3eda",
+  "width": 1554,
+  "height": 1012,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 313,
+     "bytes": 19021,
+     "ruta": "/static/img/bcs/img09-480.623d895caa.avif"
+    },
+    {
+     "w": 768,
+     "h": 500,
+     "bytes": 46831,
+     "ruta": "/static/img/bcs/img09-768.66b64f35a7.avif"
+    },
+    {
+     "w": 1280,
+     "h": 834,
+     "bytes": 121461,
+     "ruta": "/static/img/bcs/img09-1280.707173dbe2.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 313,
+     "bytes": 30714,
+     "ruta": "/static/img/bcs/img09-480.f665400b29.webp"
+    },
+    {
+     "w": 768,
+     "h": 500,
+     "bytes": 77290,
+     "ruta": "/static/img/bcs/img09-768.fc11fdf4fc.webp"
+    },
+    {
+     "w": 1280,
+     "h": 834,
+     "bytes": 194342,
+     "ruta": "/static/img/bcs/img09-1280.61e540a0e3.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 313,
+     "bytes": 29103,
+     "ruta": "/static/img/bcs/img09-480.297c031b4c.jpg"
+    },
+    {
+     "w": 768,
+     "h": 500,
+     "bytes": 69734,
+     "ruta": "/static/img/bcs/img09-768.124b9917a9.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 834,
+     "bytes": 184032,
+     "ruta": "/static/img/bcs/img09-1280.d442841fda.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/bcs/sealion": {
+  "huella": "75bb27c77e6eaf10",
+  "width": 1600,
+  "height": 900,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 270,
+     "bytes": 17403,
+     "ruta": "/static/img/bcs/sealion-480.6f48e80620.avif"
+    },
+    {
+     "w": 768,
+     "h": 432,
+     "bytes": 42430,
+     "ruta": "/static/img/bcs/sealion-768.297a262854.avif"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 102590,
+     "ruta": "/static/img/bcs/sealion-1280.bcec92d97a.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 270,
+     "bytes": 33980,
+     "ruta": "/static/img/bcs/sealion-480.6ae878bc09.webp"
+    },
+    {
+     "w": 768,
+     "h": 432,
+     "bytes": 83174,
+     "ruta": "/static/img/bcs/sealion-768.4bdf903b72.webp"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 190652,
+     "ruta": "/static/img/bcs/sealion-1280.eeac967e3d.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 270,
+     "bytes": 31190,
+     "ruta": "/static/img/bcs/sealion-480.8868500709.jpg"
+    },
+    {
+     "w": 768,
+     "h": 432,
+     "bytes": 76897,
+     "ruta": "/static/img/bcs/sealion-768.4d66b628f6.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 197759,
+     "ruta": "/static/img/bcs/sealion-1280.ae99b9b717.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/chiapas/img02": {
+  "huella": "f23ae29263043b1f",
+  "width": 450,
+  "height": 391,
+  "variantes": {
+   "avif": [
+    {
+     "w": 450,
+     "h": 391,
+     "bytes": 27402,
+     "ruta": "/static/img/chiapas/img02-450.4bfaeb46fa.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 450,
+     "h": 391,
+     "bytes": 50276,
+     "ruta": "/static/img/chiapas/img02-450.671b8d6095.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 450,
+     "h": 391,
+     "bytes": 51328,
+     "ruta": "/static/img/chiapas/img02-450.3dd0a499f7.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/chiapas/img06": {
+  "huella": "8beaace6cdbb69f9",
+  "width": 1591,
+  "height": 989,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 298,
+     "bytes": 22361,
+     "ruta": "/static/img/chiapas/img06-480.8a3b741cbb.avif"
+    },
+    {
+     "w": 768,
+     "h": 477,
+     "bytes": 57894,
+     "ruta": "/static/img/chiapas/img06-768.e82a43a484.avif"
+    },
+    {
+     "w": 1280,
+     "h": 796,
+     "bytes": 144341,
+     "ruta": "/static/img/chiapas/img06-1280.52c263b1b3.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 298,
+     "bytes": 44416,
+     "ruta": "/static/img/chiapas/img06-480.f8eac6b87c.webp"
+    },
+    {
+     "w": 768,
+     "h": 477,
+     "bytes": 111998,
+     "ruta": "/static/img/chiapas/img06-768.7015712d90.webp"
+    },
+    {
+     "w": 1280,
+     "h": 796,
+     "bytes": 269460,
+     "ruta": "/static/img/chiapas/img06-1280.84a43b3b07.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 298,
+     "bytes": 38945,
+     "ruta": "/static/img/chiapas/img06-480.a55b2ce197.jpg"
+    },
+    {
+     "w": 768,
+     "h": 477,
+     "bytes": 97965,
+     "ruta": "/static/img/chiapas/img06-768.b504adddc3.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 796,
+     "bytes": 258322,
+     "ruta": "/static/img/chiapas/img06-1280.1f62af6bdc.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/chiapas/img07": {
+  "huella": "4d4283fec552a2ca",
+  "width": 1450,
+  "height": 1085,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 359,
+     "bytes": 25206,
+     "ruta": "/static/img/chiapas/img07-480.18a52832c3.avif"
+    },
+    {
+     "w": 768,
+     "h": 575,
+     "bytes": 62130,
+     "ruta": "/static/img/chiapas/img07-768.069560038c.avif"
+    },
+    {
+     "w": 1280,
+     "h": 958,
+     "bytes": 145681,
+     "ruta": "/static/img/chiapas/img07-1280.3bca857dd8.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 359,
+     "bytes": 53608,
+     "ruta": "/static/img/chiapas/img07-480.65cd7267a1.webp"
+    },
+    {
+     "w": 768,
+     "h": 575,
+     "bytes": 128328,
+     "ruta": "/static/img/chiapas/img07-768.9a64614339.webp"
+    },
+    {
+     "w": 1280,
+     "h": 958,
+     "bytes": 287474,
+     "ruta": "/static/img/chiapas/img07-1280.f4ab994e55.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 359,
+     "bytes": 48708,
+     "ruta": "/static/img/chiapas/img07-480.1412b88df9.jpg"
+    },
+    {
+     "w": 768,
+     "h": 575,
+     "bytes": 119472,
+     "ruta": "/static/img/chiapas/img07-768.3f5c9103e9.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 958,
+     "bytes": 296496,
+     "ruta": "/static/img/chiapas/img07-1280.214c6b68ed.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/chiapas/img08": {
+  "huella": "637c209b9fdf98ff",
+  "width": 449,
+  "height": 569,
+  "variantes": {
+   "avif": [
+    {
+     "w": 449,
+     "h": 569,
+     "bytes": 45596,
+     "ruta": "/static/img/chiapas/img08-449.464dd7cd68.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 449,
+     "h": 569,
+     "bytes": 81360,
+     "ruta": "/static/img/chiapas/img08-449.b6732527fa.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 449,
+     "h": 569,
+     "bytes": 76614,
+     "ruta": "/static/img/chiapas/img08-449.3e0e714ccd.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/chiapas/img09": {
+  "huella": "5a1ff5303ac12e79",
+  "width": 1159,
+  "height": 1356,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 562,
+     "bytes": 56972,
+     "ruta": "/static/img/chiapas/img09-480.1167b7abbc.avif"
+    },
+    {
+     "w": 768,
+     "h": 899,
+     "bytes": 138862,
+     "ruta": "/static/img/chiapas/img09-768.742f2a75ed.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 562,
+     "bytes": 111680,
+     "ruta": "/static/img/chiapas/img09-480.213544e1ee.webp"
+    },
+    {
+     "w": 768,
+     "h": 899,
+     "bytes": 265326,
+     "ruta": "/static/img/chiapas/img09-768.3f6f9fc399.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 562,
+     "bytes": 93774,
+     "ruta": "/static/img/chiapas/img09-480.22c9d42577.jpg"
+    },
+    {
+     "w": 768,
+     "h": 899,
+     "bytes": 233082,
+     "ruta": "/static/img/chiapas/img09-768.331d09c0ad.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/chiapas/img10": {
+  "huella": "0176961dd34b0d9d",
+  "width": 1600,
+  "height": 900,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 270,
+     "bytes": 17986,
+     "ruta": "/static/img/chiapas/img10-480.adf6e1f757.avif"
+    },
+    {
+     "w": 768,
+     "h": 432,
+     "bytes": 42927,
+     "ruta": "/static/img/chiapas/img10-768.247e6a292c.avif"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 102667,
+     "ruta": "/static/img/chiapas/img10-1280.cc62657d45.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 270,
+     "bytes": 34580,
+     "ruta": "/static/img/chiapas/img10-480.18dd72482d.webp"
+    },
+    {
+     "w": 768,
+     "h": 432,
+     "bytes": 83602,
+     "ruta": "/static/img/chiapas/img10-768.9cef5bcc25.webp"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 195464,
+     "ruta": "/static/img/chiapas/img10-1280.be2b623c21.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 270,
+     "bytes": 33495,
+     "ruta": "/static/img/chiapas/img10-480.f030d028ca.jpg"
+    },
+    {
+     "w": 768,
+     "h": 432,
+     "bytes": 81347,
+     "ruta": "/static/img/chiapas/img10-768.865f0d8c44.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 206150,
+     "ruta": "/static/img/chiapas/img10-1280.ca0d9b3324.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/chiapas/img12": {
+  "huella": "debb0dea603f2782",
+  "width": 1600,
+  "height": 900,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 270,
+     "bytes": 17762,
+     "ruta": "/static/img/chiapas/img12-480.f99b8ba90a.avif"
+    },
+    {
+     "w": 768,
+     "h": 432,
+     "bytes": 41035,
+     "ruta": "/static/img/chiapas/img12-768.10f33d9b78.avif"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 95805,
+     "ruta": "/static/img/chiapas/img12-1280.5dd4b2e7b0.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 270,
+     "bytes": 33992,
+     "ruta": "/static/img/chiapas/img12-480.e222bf453f.webp"
+    },
+    {
+     "w": 768,
+     "h": 432,
+     "bytes": 78388,
+     "ruta": "/static/img/chiapas/img12-768.c681d503ba.webp"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 171630,
+     "ruta": "/static/img/chiapas/img12-1280.b7fcd8b51d.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 270,
+     "bytes": 32329,
+     "ruta": "/static/img/chiapas/img12-480.2906646bd6.jpg"
+    },
+    {
+     "w": 768,
+     "h": 432,
+     "bytes": 76995,
+     "ruta": "/static/img/chiapas/img12-768.a01292598e.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 190221,
+     "ruta": "/static/img/chiapas/img12-1280.960bd63ea9.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/chiapas/img13": {
+  "huella": "e599dd7f29c14dea",
+  "width": 1145,
+  "height": 1374,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 576,
+     "bytes": 30468,
+     "ruta": "/static/img/chiapas/img13-480.0154aef370.avif"
+    },
+    {
+     "w": 768,
+     "h": 922,
+     "bytes": 70240,
+     "ruta": "/static/img/chiapas/img13-768.d217763f38.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 576,
+     "bytes": 60120,
+     "ruta": "/static/img/chiapas/img13-480.6edf2a14a6.webp"
+    },
+    {
+     "w": 768,
+     "h": 922,
+     "bytes": 129432,
+     "ruta": "/static/img/chiapas/img13-768.359848daf3.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 576,
+     "bytes": 61334,
+     "ruta": "/static/img/chiapas/img13-480.c3d4fc7388.jpg"
+    },
+    {
+     "w": 768,
+     "h": 922,
+     "bytes": 140895,
+     "ruta": "/static/img/chiapas/img13-768.1e39b2c83f.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/chiapas/img14": {
+  "huella": "c3387c2f97ae5af2",
+  "width": 1086,
+  "height": 1448,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 640,
+     "bytes": 60902,
+     "ruta": "/static/img/chiapas/img14-480.d31275d908.avif"
+    },
+    {
+     "w": 768,
+     "h": 1024,
+     "bytes": 140810,
+     "ruta": "/static/img/chiapas/img14-768.80e13043f4.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 640,
+     "bytes": 117878,
+     "ruta": "/static/img/chiapas/img14-480.9b3e531be4.webp"
+    },
+    {
+     "w": 768,
+     "h": 1024,
+     "bytes": 265516,
+     "ruta": "/static/img/chiapas/img14-768.988be7bd62.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 640,
+     "bytes": 99414,
+     "ruta": "/static/img/chiapas/img14-480.3ff26381cd.jpg"
+    },
+    {
+     "w": 768,
+     "h": 1024,
+     "bytes": 240761,
+     "ruta": "/static/img/chiapas/img14-768.8205ada8ad.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/chiapas/img15": {
+  "huella": "5d19eb451ae5bac6",
+  "width": 1600,
+  "height": 914,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 274,
+     "bytes": 23922,
+     "ruta": "/static/img/chiapas/img15-480.6688a452d6.avif"
+    },
+    {
+     "w": 768,
+     "h": 439,
+     "bytes": 60370,
+     "ruta": "/static/img/chiapas/img15-768.0f9cef48cd.avif"
+    },
+    {
+     "w": 1280,
+     "h": 731,
+     "bytes": 150988,
+     "ruta": "/static/img/chiapas/img15-1280.d34eeccf71.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 274,
+     "bytes": 41462,
+     "ruta": "/static/img/chiapas/img15-480.aeb312138e.webp"
+    },
+    {
+     "w": 768,
+     "h": 439,
+     "bytes": 101444,
+     "ruta": "/static/img/chiapas/img15-768.aa843190ab.webp"
+    },
+    {
+     "w": 1280,
+     "h": 731,
+     "bytes": 244538,
+     "ruta": "/static/img/chiapas/img15-1280.95be3dc5d4.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 274,
+     "bytes": 34539,
+     "ruta": "/static/img/chiapas/img15-480.445728a534.jpg"
+    },
+    {
+     "w": 768,
+     "h": 439,
+     "bytes": 83740,
+     "ruta": "/static/img/chiapas/img15-768.73279af5d4.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 731,
+     "bytes": 219628,
+     "ruta": "/static/img/chiapas/img15-1280.a79e16a0d7.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/host": {
+  "huella": "e595464fe8efab35",
+  "width": 1536,
+  "height": 1024,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 320,
+     "bytes": 13408,
+     "ruta": "/static/img/host-480.c99ce4ac40.avif"
+    },
+    {
+     "w": 768,
+     "h": 512,
+     "bytes": 30134,
+     "ruta": "/static/img/host-768.09991a5e3f.avif"
+    },
+    {
+     "w": 1280,
+     "h": 853,
+     "bytes": 71813,
+     "ruta": "/static/img/host-1280.978b0b47dc.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 320,
+     "bytes": 24462,
+     "ruta": "/static/img/host-480.d9f5d3fe28.webp"
+    },
+    {
+     "w": 768,
+     "h": 512,
+     "bytes": 56038,
+     "ruta": "/static/img/host-768.cddd94d90d.webp"
+    },
+    {
+     "w": 1280,
+     "h": 853,
+     "bytes": 125948,
+     "ruta": "/static/img/host-1280.3861037e30.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 320,
+     "bytes": 28576,
+     "ruta": "/static/img/host-480.a72e2109e3.jpg"
+    },
+    {
+     "w": 768,
+     "h": 512,
+     "bytes": 65092,
+     "ruta": "/static/img/host-768.32598ada80.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 853,
+     "bytes": 156736,
+     "ruta": "/static/img/host-1280.5cfbfcbd07.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/portadas/lagos-de-colon": {
+  "huella": "30c8a0c875b32057",
+  "width": 1345,
+  "height": 1169,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 417,
+     "bytes": 52878,
+     "ruta": "/static/img/portadas/lagos-de-colon-480.1b81f817f4.avif"
+    },
+    {
+     "w": 768,
+     "h": 668,
+     "bytes": 114550,
+     "ruta": "/static/img/portadas/lagos-de-colon-768.f729e1c2f9.avif"
+    },
+    {
+     "w": 1280,
+     "h": 1113,
+     "bytes": 221032,
+     "ruta": "/static/img/portadas/lagos-de-colon-1280.f8be706839.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 417,
+     "bytes": 74298,
+     "ruta": "/static/img/portadas/lagos-de-colon-480.7419c433fd.webp"
+    },
+    {
+     "w": 768,
+     "h": 668,
+     "bytes": 165478,
+     "ruta": "/static/img/portadas/lagos-de-colon-768.5341731cdb.webp"
+    },
+    {
+     "w": 1280,
+     "h": 1113,
+     "bytes": 347212,
+     "ruta": "/static/img/portadas/lagos-de-colon-1280.bcc4e9ef98.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 417,
+     "bytes": 57630,
+     "ruta": "/static/img/portadas/lagos-de-colon-480.ac866e91d3.jpg"
+    },
+    {
+     "w": 768,
+     "h": 668,
+     "bytes": 135506,
+     "ruta": "/static/img/portadas/lagos-de-colon-768.8c736f7559.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 1113,
+     "bytes": 313533,
+     "ruta": "/static/img/portadas/lagos-de-colon-1280.ed8b392c5c.jpg"
+    }
+   ]
+  }
+ },
+ "assets/img/portadas/loreto-mulege": {
+  "huella": "e00ffe2fe17ad2d5",
+  "width": 1420,
+  "height": 1108,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 375,
+     "bytes": 20558,
+     "ruta": "/static/img/portadas/loreto-mulege-480.3862a94478.avif"
+    },
+    {
+     "w": 768,
+     "h": 599,
+     "bytes": 41912,
+     "ruta": "/static/img/portadas/loreto-mulege-768.24083c9e80.avif"
+    },
+    {
+     "w": 1280,
+     "h": 999,
+     "bytes": 90999,
+     "ruta": "/static/img/portadas/loreto-mulege-1280.aaf48106f6.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 375,
+     "bytes": 31110,
+     "ruta": "/static/img/portadas/loreto-mulege-480.20ed999213.webp"
+    },
+    {
+     "w": 768,
+     "h": 599,
+     "bytes": 67840,
+     "ruta": "/static/img/portadas/loreto-mulege-768.0c948736cc.webp"
+    },
+    {
+     "w": 1280,
+     "h": 999,
+     "bytes": 148702,
+     "ruta": "/static/img/portadas/loreto-mulege-1280.a985c7fa63.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 375,
+     "bytes": 28801,
+     "ruta": "/static/img/portadas/loreto-mulege-480.7bbaa149ac.jpg"
+    },
+    {
+     "w": 768,
+     "h": 599,
+     "bytes": 64768,
+     "ruta": "/static/img/portadas/loreto-mulege-768.4540f8c2a7.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 999,
+     "bytes": 149814,
+     "ruta": "/static/img/portadas/loreto-mulege-1280.e3718fb2aa.jpg"
+    }
+   ]
+  }
+ },
+ "english/assets/img/cefr-chart": {
+  "huella": "d39b0ca5fd7f9b56",
+  "width": 620,
+  "height": 354,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 274,
+     "bytes": 6920,
+     "ruta": "/static/img/english/cefr-chart-480.5c3c00bea4.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 274,
+     "bytes": 11986,
+     "ruta": "/static/img/english/cefr-chart-480.26bd34012a.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 274,
+     "bytes": 18134,
+     "ruta": "/static/img/english/cefr-chart-480.2f9c243eda.jpg"
+    }
+   ]
+  }
+ },
+ "english/assets/img/certificate": {
+  "huella": "f3ed264fb77b01c4",
+  "width": 560,
+  "height": 425,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 364,
+     "bytes": 6968,
+     "ruta": "/static/img/english/certificate-480.f4f8b2257e.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 364,
+     "bytes": 11760,
+     "ruta": "/static/img/english/certificate-480.e5d8585586.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 364,
+     "bytes": 16927,
+     "ruta": "/static/img/english/certificate-480.d01bed2ed8.jpg"
+    }
+   ]
+  }
+ },
+ "english/assets/img/hero/hello-class": {
+  "huella": "4c8645f2fad96d94",
+  "width": 800,
+  "height": 533,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 320,
+     "bytes": 9781,
+     "ruta": "/static/img/english/hero/hello-class-480.c769b3a783.avif"
+    },
+    {
+     "w": 768,
+     "h": 512,
+     "bytes": 16765,
+     "ruta": "/static/img/english/hero/hello-class-768.2c478a2a0b.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 320,
+     "bytes": 17216,
+     "ruta": "/static/img/english/hero/hello-class-480.6b240f1fc9.webp"
+    },
+    {
+     "w": 768,
+     "h": 512,
+     "bytes": 29084,
+     "ruta": "/static/img/english/hero/hello-class-768.f052b96825.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 320,
+     "bytes": 23320,
+     "ruta": "/static/img/english/hero/hello-class-480.83caa6b5a0.jpg"
+    },
+    {
+     "w": 768,
+     "h": 512,
+     "bytes": 44906,
+     "ruta": "/static/img/english/hero/hello-class-768.8040164acd.jpg"
+    }
+   ]
+  }
+ },
+ "english/assets/img/hero/learn-headphones": {
+  "huella": "8dc6b7a9c7adc593",
+  "width": 1100,
+  "height": 733,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 320,
+     "bytes": 10749,
+     "ruta": "/static/img/english/hero/learn-headphones-480.5f308f31c0.avif"
+    },
+    {
+     "w": 768,
+     "h": 512,
+     "bytes": 21210,
+     "ruta": "/static/img/english/hero/learn-headphones-768.52f955e031.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 320,
+     "bytes": 17942,
+     "ruta": "/static/img/english/hero/learn-headphones-480.87e3579f02.webp"
+    },
+    {
+     "w": 768,
+     "h": 512,
+     "bytes": 33036,
+     "ruta": "/static/img/english/hero/learn-headphones-768.8082a6a031.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 320,
+     "bytes": 24331,
+     "ruta": "/static/img/english/hero/learn-headphones-480.3244cef8f2.jpg"
+    },
+    {
+     "w": 768,
+     "h": 512,
+     "bytes": 49852,
+     "ruta": "/static/img/english/hero/learn-headphones-768.ab5f136f87.jpg"
+    }
+   ]
+  }
+ },
+ "english/assets/img/hero/notes": {
+  "huella": "0c4b78c3876d01df",
+  "width": 800,
+  "height": 602,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 361,
+     "bytes": 7807,
+     "ruta": "/static/img/english/hero/notes-480.48226fe1e1.avif"
+    },
+    {
+     "w": 768,
+     "h": 578,
+     "bytes": 14083,
+     "ruta": "/static/img/english/hero/notes-768.2e1efa08f2.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 361,
+     "bytes": 10784,
+     "ruta": "/static/img/english/hero/notes-480.aac4759264.webp"
+    },
+    {
+     "w": 768,
+     "h": 578,
+     "bytes": 19552,
+     "ruta": "/static/img/english/hero/notes-768.2655acb668.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 361,
+     "bytes": 16823,
+     "ruta": "/static/img/english/hero/notes-480.4a42061f0a.jpg"
+    },
+    {
+     "w": 768,
+     "h": 578,
+     "bytes": 32797,
+     "ruta": "/static/img/english/hero/notes-768.e0281b54b7.jpg"
+    }
+   ]
+  }
+ },
+ "english/assets/img/hero/video-call": {
+  "huella": "65864173699f86a8",
+  "width": 800,
+  "height": 534,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 320,
+     "bytes": 11690,
+     "ruta": "/static/img/english/hero/video-call-480.cd991b8c37.avif"
+    },
+    {
+     "w": 768,
+     "h": 513,
+     "bytes": 22070,
+     "ruta": "/static/img/english/hero/video-call-768.e4dda0c7c7.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 320,
+     "bytes": 19484,
+     "ruta": "/static/img/english/hero/video-call-480.d8828f7dfe.webp"
+    },
+    {
+     "w": 768,
+     "h": 513,
+     "bytes": 35786,
+     "ruta": "/static/img/english/hero/video-call-768.2538b0f1c1.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 320,
+     "bytes": 24956,
+     "ruta": "/static/img/english/hero/video-call-480.57b114786a.jpg"
+    },
+    {
+     "w": 768,
+     "h": 513,
+     "bytes": 50619,
+     "ruta": "/static/img/english/hero/video-call-768.b24a7304eb.jpg"
+    }
+   ]
+  }
+ },
+ "english/assets/img/image02": {
+  "huella": "f133df53a3bed825",
+  "width": 840,
+  "height": 559,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 319,
+     "bytes": 11806,
+     "ruta": "/static/img/english/image02-480.3bd7a8397b.avif"
+    },
+    {
+     "w": 768,
+     "h": 511,
+     "bytes": 24061,
+     "ruta": "/static/img/english/image02-768.2b8b115765.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 319,
+     "bytes": 19654,
+     "ruta": "/static/img/english/image02-480.b50f6cf9a8.webp"
+    },
+    {
+     "w": 768,
+     "h": 511,
+     "bytes": 40018,
+     "ruta": "/static/img/english/image02-768.5bd9c81b93.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 319,
+     "bytes": 25034,
+     "ruta": "/static/img/english/image02-480.1df3ce28c6.jpg"
+    },
+    {
+     "w": 768,
+     "h": 511,
+     "bytes": 53658,
+     "ruta": "/static/img/english/image02-768.5d335060e5.jpg"
+    }
+   ]
+  }
+ },
+ "english/assets/img/image03": {
+  "huella": "fbe9b1f4497248a9",
+  "width": 840,
+  "height": 618,
+  "variantes": {
+   "avif": [
+    {
+     "w": 480,
+     "h": 353,
+     "bytes": 12810,
+     "ruta": "/static/img/english/image03-480.5f3c1b9bb2.avif"
+    },
+    {
+     "w": 768,
+     "h": 565,
+     "bytes": 29018,
+     "ruta": "/static/img/english/image03-768.4e42683109.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 480,
+     "h": 353,
+     "bytes": 19700,
+     "ruta": "/static/img/english/image03-480.4a4dd9570e.webp"
+    },
+    {
+     "w": 768,
+     "h": 565,
+     "bytes": 43384,
+     "ruta": "/static/img/english/image03-768.f6a4a578ea.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 480,
+     "h": 353,
+     "bytes": 21874,
+     "ruta": "/static/img/english/image03-480.f247f2a312.jpg"
+    },
+    {
+     "w": 768,
+     "h": 565,
+     "bytes": 50009,
+     "ruta": "/static/img/english/image03-768.f0db01b033.jpg"
+    }
+   ]
+  }
+ }
+}

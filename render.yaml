@@ -1,20 +1,21 @@
-# Render Blueprint — free static sites, no build step.
+# Render Blueprint: sitio estático con un build pequeño.
 # https://render.com/docs/blueprint-spec
 #
-# One static site for spectacultours.mx:
-#   /                      SpectaCulTours home (all expeditions)
-#   /chiapas/              Chiapas expedition
-#   /baja-california-sur/  Baja California Sur expedition
-#   /english/              FAST fluent English (English classes, secondary)
+# Un solo sitio para spectacultours.mx:
+#   /                      portada de SpectaCulTours
+#   /chiapas/              expedición Chiapas
+#   /baja-california-sur/  expedición Baja California Sur
+#   /english/              FAST fluent English (clases de inglés, secundario)
 #
-# Custom domain: add spectacultours.mx and www.spectacultours.mx in the
-# service's Settings → Custom Domains and create the DNS records Render shows.
+# Importante: este archivo solo se aplica si el servicio está ligado al Blueprint.
+# El servicio actual se creó a mano, así que hay que ligarlo o copiar estos valores
+# en Settings del panel (ver README).
 services:
   - type: web
     name: fast-fluent-english
     runtime: static
-    buildCommand: ""
-    staticPublishPath: ./public
+    buildCommand: npm ci --omit=dev && npm run build
+    staticPublishPath: ./dist
     pullRequestPreviewsEnabled: true
     headers:
       - path: /*
@@ -26,16 +27,13 @@ services:
       - path: /*
         name: X-Content-Type-Options
         value: nosniff
-      - path: /*.jpg
+      # Archivos con hash en el nombre: nunca cambian.
+      # El HTML y el resto conservan el valor de Render (max-age=0, revalidación).
+      # La compresión Brotli la aplica Render en HTML, CSS, JS y SVG.
+      - path: /static/*
         name: Cache-Control
-        value: public, max-age=604800
-      - path: /*.css
-        name: Cache-Control
-        value: public, max-age=3600
-      - path: /*.js
-        name: Cache-Control
-        value: public, max-age=3600
-    # Old URLs from the first version (tours lived under /tours/).
+        value: public, max-age=31536000, immutable
+    # URLs antiguas de la primera versión (los tours vivían en /tours/).
     routes:
       - type: redirect
         source: /tours/chiapas/*

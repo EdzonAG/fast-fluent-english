@@ -15,9 +15,6 @@
   <meta property="og:image" content="https://spectacultours.mx/english/assets/img/card.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -154,12 +151,12 @@
     <!-- Photo collage (Unsplash License photos) -->
     <div class="hero__visual reveal">
       <div class="collage">
-        <figure class="collage__main"><img src="assets/img/hero/learn-headphones.jpg" alt="Smiling student with headphones in an online English class" width="1100" height="733"></figure>
-        <figure class="collage__a"><img src="assets/img/hero/video-call.jpg" alt="Professional practicing English on a video call" width="800" height="533" loading="lazy"></figure>
-        <figure class="collage__b"><img src="assets/img/hero/hello-class.jpg" alt="Student waving hello at the start of a live class" width="800" height="533" loading="lazy"></figure>
+        <figure class="collage__main"><img data-lcp data-sizes="collage-main" src="assets/img/hero/learn-headphones.jpg" alt="Smiling student with headphones in an online English class" width="1100" height="733"></figure>
+        <figure class="collage__a"><img data-sizes="collage-side" src="assets/img/hero/video-call.jpg" alt="Professional practicing English on a video call" width="800" height="533" loading="lazy"></figure>
+        <figure class="collage__b"><img data-sizes="collage-side" src="assets/img/hero/hello-class.jpg" alt="Student waving hello at the start of a live class" width="800" height="533" loading="lazy"></figure>
       </div>
       <div class="floatcard floatcard--a">
-        <img class="floatcard__thumb" src="assets/img/hero/notes.jpg" alt="" loading="lazy">
+        <img data-sizes="thumb" class="floatcard__thumb" src="assets/img/hero/notes.jpg" alt="" loading="lazy">
         <div><b data-i18n="mock.ebook">Your personal e-book</b><span>FAST English B2.docx</span></div>
       </div>
       <div class="floatcard floatcard--b">
@@ -354,7 +351,7 @@
       </article>
     </div>
     <div class="services__foot reveal">
-      <button class="linkbtn" type="button" id="openBrochure"><svg class="i"><use href="#i-expand"/></svg><span data-i18n="svc.brochure">View company profile</span></button>
+      <button class="linkbtn" type="button" id="openBrochure" data-full-src="assets/img/image03.jpg"><svg class="i"><use href="#i-expand"/></svg><span data-i18n="svc.brochure">View company profile</span></button>
     </div>
   </div>
 </section>
@@ -408,7 +405,7 @@
       <p class="eyebrow" data-i18n="quiz.eyebrow">Free level check</p>
       <h2 data-i18n="quiz.title">What's your English level? <em>Find out in 60 seconds.</em></h2>
       <p class="section__sub" data-i18n="quiz.sub">A quick self-assessment based on the Common European Framework of Reference (A1–C2). Then confirm it with a free evaluation call with your teacher.</p>
-      <figure class="cefr-chart"><img src="assets/img/cefr-chart.jpg" alt="Common European Framework of Reference levels A1 to C2" width="620" height="354" loading="lazy"></figure>
+      <figure class="cefr-chart"><img data-sizes="cefr" src="assets/img/cefr-chart.jpg" alt="Common European Framework of Reference levels A1 to C2" width="620" height="354" loading="lazy"></figure>
     </div>
     <div class="quiz reveal" id="quiz" aria-live="polite"></div>
   </div>
@@ -475,7 +472,7 @@
 <section class="section" id="about">
   <div class="container about">
     <figure class="about__photo reveal">
-      <img src="assets/img/image02.jpg" alt="Your FAST English teacher" loading="lazy" width="840" height="559">
+      <img data-sizes="about" src="assets/img/image02.jpg" alt="Your FAST English teacher" loading="lazy" width="840" height="559">
       <figcaption>
         <span class="about__badge"><b>30</b><span data-i18n="about.badge">years teaching</span></span>
       </figcaption>
@@ -490,7 +487,7 @@
         <div class="cert"><svg class="i"><use href="#i-shield"/></svg><span data-i18n="about.sep"><b>SEP</b> Registered with the Education Secretariat</span></div>
         <div class="cert"><svg class="i"><use href="#i-shield"/></svg><span data-i18n="about.stps"><b>STPS</b> Registered with the Labor Secretariat</span></div>
       </div>
-      <figure class="about__cert"><img src="assets/img/certificate.jpg" alt="FAST English certificate of completion" width="560" height="425" loading="lazy"><figcaption data-i18n="about.cert">Certificates of completion that document your training hours for HR.</figcaption></figure>
+      <figure class="about__cert"><img data-sizes="cert" src="assets/img/certificate.jpg" alt="FAST English certificate of completion" width="560" height="425" loading="lazy"><figcaption data-i18n="about.cert">Certificates of completion that document your training hours for HR.</figcaption></figure>
     </div>
   </div>
 </section>
@@ -543,8 +540,8 @@
         <span class="btn btn--light tours-portal__btn"><span data-i18n="tours.go">Explore the expeditions</span><svg class="i"><use href="#i-arrow"/></svg></span>
       </span>
       <span class="tours-portal__media" aria-hidden="true">
-        <span class="tours-portal__img"><img src="../assets/img/chiapas/img15.jpg?v=2" alt="" loading="lazy"><small>Chiapas</small></span>
-        <span class="tours-portal__img"><img src="../assets/img/bcs/hero-dolphins.jpg?v=2" alt="" loading="lazy"><small>Baja California Sur</small></span>
+        <span class="tours-portal__img"><img data-sizes="portal" src="../assets/img/chiapas/img15.jpg" alt="" loading="lazy"><small>Chiapas</small></span>
+        <span class="tours-portal__img"><img data-sizes="portal" src="../assets/img/bcs/hero-dolphins.jpg" alt="" loading="lazy"><small>Baja California Sur</small></span>
       </span>
     </a>
   </div>
@@ -611,7 +608,7 @@
 <div class="wa" id="wa">
   <div class="wa__panel" id="waPanel" role="dialog" aria-labelledby="waTitle" hidden>
     <div class="wa__head">
-      <span class="wa__avatar"><img src="assets/img/image02.jpg" alt=""></span>
+      <span class="wa__avatar"><img data-sizes="avatar" src="assets/img/image02.jpg" alt=""></span>
       <div><b id="waTitle">FAST fluent English</b><small data-i18n="wa.status">Typically replies within a few hours</small></div>
       <button class="wa__close" type="button" id="waClose" aria-label="Close"><svg class="i"><use href="#i-x"/></svg></button>
     </div>
@@ -637,7 +634,7 @@
 <!-- ============ LIGHTBOX ============ -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" hidden>
   <button class="lightbox__close" type="button" aria-label="Close"><svg class="i"><use href="#i-x"/></svg></button>
-  <figure class="lightbox__fig"><img id="lbImg" src="assets/img/image03.jpg" alt="FAST English company profile" loading="lazy"><figcaption class="lightbox__cap" id="lbCap"></figcaption></figure>
+  <figure class="lightbox__fig"><img id="lbImg" alt="FAST English company profile"><figcaption class="lightbox__cap" id="lbCap"></figcaption></figure>
   <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Previous"><svg class="i"><use href="#i-arrow"/></svg></button>
   <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Next"><svg class="i"><use href="#i-arrow"/></svg></button>
 </div>

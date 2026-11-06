@@ -237,7 +237,7 @@
     var items = $$("button", g);
     items.forEach(function (b, i) {
       b.addEventListener("click", function () {
-        gallery = items.map(function (x) { var im = x.querySelector("img"); return { src: im.src, alt: im.alt }; });
+        gallery = items.map(function (x) { var im = x.querySelector("img"); return { src: im.dataset.full || im.currentSrc || im.src, alt: im.alt }; });
         showPhoto(i);
       });
     });
@@ -252,7 +252,7 @@
     if (!im.alt) im.setAttribute("aria-label", "Open photo");
     function open() {
       var group = zoomable.filter(function (x) { return x.closest("section") === im.closest("section"); });
-      gallery = group.map(function (x) { return { src: x.currentSrc || x.src, alt: x.alt }; });
+      gallery = group.map(function (x) { return { src: x.dataset.full || x.currentSrc || x.src, alt: x.alt }; });
       showPhoto(group.indexOf(im));
     }
     im.addEventListener("click", open);
