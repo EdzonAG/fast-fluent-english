@@ -19,6 +19,7 @@
   /* ---------------- Language (shared with the FAST English site) ---------------- */
   var EN = {};
   $$("[data-i18n]").forEach(function (el) { EN[el.dataset.i18n] = el.innerHTML; });
+  $$("[data-i18n-alt]").forEach(function (el) { EN[el.dataset.i18nAlt] = el.alt; });
   var urlLang = (location.search.match(/[?&]lang=(en|es)\b/) || [])[1];
   // English is always the default; Spanish only via the footer switch (or ?lang=es).
   // The choice lasts for this tab's visit and is shared with the FAST English pages.
@@ -37,6 +38,10 @@
     $$("[data-i18n]").forEach(function (el) {
       var v = dict[el.dataset.i18n];
       if (v != null) el.innerHTML = v;
+    });
+    $$("[data-i18n-alt]").forEach(function (el) {
+      var v = dict[el.dataset.i18nAlt];
+      if (v != null) el.alt = v;
     });
     updateWa();
     updatePrices();
@@ -131,16 +136,12 @@
   });
 
   /* ---------------- Nav ---------------- */
-  var nav = $("#nav"), burger = $("#burger"), menu = $("#mMenu");
-  function onScroll() { nav.classList.toggle("is-scrolled", window.scrollY > 24 || !menu.hidden); }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-  function closeMenu() { menu.hidden = true; burger.setAttribute("aria-expanded", "false"); onScroll(); }
+  var burger = $("#burger"), menu = $("#mMenu");
+  function closeMenu() { menu.hidden = true; burger.setAttribute("aria-expanded", "false"); }
   burger.addEventListener("click", function () {
     var open = menu.hidden;
     menu.hidden = !open;
     burger.setAttribute("aria-expanded", String(open));
-    onScroll();
   });
   $$("a", menu).forEach(function (a) { a.addEventListener("click", closeMenu); });
 
@@ -244,7 +245,7 @@
   });
   // Every other photo opens full size too (links, video tiles and logos keep their own action).
   // Arrows/swipe browse the photos of the same section.
-  var zoomable = $$("main img").filter(function (im) { return !im.closest("a, button, [class*='logo']"); });
+  var zoomable = $$("main img").filter(function (im) { return !im.closest("a, button, .portada, [class*='logo']"); });
   zoomable.forEach(function (im) {
     im.classList.add("zoomable");
     im.tabIndex = 0;

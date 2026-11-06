@@ -6,6 +6,8 @@
 window.TOURS_I18N = {
   es: {
     /* ---- shared ---- */
+    "h.alt.bcs": "Loreto y Mulegé, Baja California Sur: playa de arena blanca y agua turquesa bajo un cielo azul",
+    "h.alt.chi": "Lagos de Colón, Chiapas: lago verde rodeado de árboles, con una persona nadando",
     "t.nav.packages": "Paquetes y precios",
     "t.back.tours": "Todas las expediciones",
     "t.nav.english": "Clases de inglés",

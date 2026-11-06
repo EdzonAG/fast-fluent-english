@@ -7,6 +7,10 @@
  *   - a full URL if it ever moves to its own domain.
  */
 window.TOURS_CONFIG = {
+  // Destino que va primero en la portada: "bcs" (Loreto y Mulegé) o "chiapas" (Lagos de Colón).
+  // A partir de marzo, cambiar a "chiapas" y volver a desplegar.
+  destinoDestacado: "bcs",
+
   whatsapp: "525530071808",
   phone: "+525530071808",
   phoneDisplay: "+52 55 3007 1808",

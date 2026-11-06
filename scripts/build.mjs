@@ -9,16 +9,25 @@ import { createHash } from "node:crypto";
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { basename, dirname, extname, join, posix, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
+import vm from "node:vm";
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), "..");
 const PUBLICO = join(RAIZ, "public");
 const DIST = join(RAIZ, "dist");
 const manifiesto = JSON.parse(readFileSync(join(RAIZ, "imagenes.manifest.json"), "utf8"));
 
+// La configuración es un archivo para el navegador: se ejecuta aquí con un window de mentira.
+const entorno = { window: {} };
+vm.runInNewContext(readFileSync(join(PUBLICO, "assets", "js", "tours-config.js"), "utf8"), entorno);
+const config = entorno.window.TOURS_CONFIG;
+const ORDEN = config.destinoDestacado === "chiapas" ? ["chiapas", "bcs"] : ["bcs", "chiapas"];
+const OG_DESTINO = { bcs: "loreto-mulege", chiapas: "lagos-de-colon" };
+
 // Ancho aproximado que ocupa cada imagen, para que el navegador elija la variante correcta.
 const COL = "calc(100vw - 48px)";
 const TAMANOS = {
-  split: "(max-width: 900px) 100vw, 50vw",
+  portada: "(max-width: 899px) 100vw, 60vw",
+  "portada-solo": "(max-width: 899px) 100vw, 80vw",
   tile: `(max-width: 560px) ${COL}, (max-width: 1000px) calc(50vw - 32px), 290px`,
   "tile-big": `(max-width: 1000px) ${COL}, 590px`,
   mosaic: "(max-width: 980px) 58vw, 340px",
@@ -148,6 +157,20 @@ for (const archivo of listar(DIST).filter((f) => f.endsWith(".html"))) {
   const pagina = url.endsWith("/") ? url : url.replace(/[^/]*$/, "");
   let html = readFileSync(archivo, "utf8");
   const cargas = [];
+
+  // Orden de los destinos según destinoDestacado.
+  html = html.replace(/<!--destinos-->([\s\S]*?)<!--\/destinos-->/g, (m, bloque) => {
+    const partes = Object.fromEntries(
+      ORDEN.map((d) => [d, bloque.match(new RegExp(`<!--d:${d}-->([\\s\\S]*?)<!--/d:${d}-->`))?.[1] ?? ""])
+    );
+    const separador = bloque.match(/<!--\/d:\w+-->(\s*)<!--d:/)?.[1] ?? "";
+    return ORDEN.map((d) => partes[d]).join(separador);
+  });
+  // La primera portada de la página es la imagen principal.
+  html = html.replace("<img data-portada", "<img data-lcp").replaceAll("<img data-portada ", "<img ");
+  if (url === "/index.html") {
+    html = html.replace(/(<meta property="og:image" content="[^"]*\/og\/)[^"]+"/, `$1${OG_DESTINO[ORDEN[0]]}.jpg"`);
+  }
 
   html = html.replace(/<img\b[^>]*>/g, (m) => expandirImg(m, pagina + "index.html", avisos, cargas));
 

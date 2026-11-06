@@ -1580,7 +1580,7 @@
   }
  },
  "assets/img/portadas/lagos-de-colon": {
-  "huella": "30c8a0c875b32057",
+  "huella": "b68ae72ee98ce93b",
   "width": 1345,
   "height": 1169,
   "variantes": {
@@ -1588,20 +1588,20 @@
     {
      "w": 480,
      "h": 417,
-     "bytes": 52878,
-     "ruta": "/static/img/portadas/lagos-de-colon-480.1b81f817f4.avif"
+     "bytes": 37271,
+     "ruta": "/static/img/portadas/lagos-de-colon-480.cc3f2c1e1f.avif"
     },
     {
      "w": 768,
      "h": 668,
-     "bytes": 114550,
-     "ruta": "/static/img/portadas/lagos-de-colon-768.f729e1c2f9.avif"
+     "bytes": 80871,
+     "ruta": "/static/img/portadas/lagos-de-colon-768.72247f69aa.avif"
     },
     {
      "w": 1280,
      "h": 1113,
-     "bytes": 221032,
-     "ruta": "/static/img/portadas/lagos-de-colon-1280.f8be706839.avif"
+     "bytes": 157454,
+     "ruta": "/static/img/portadas/lagos-de-colon-1280.204622d5de.avif"
     }
    ],
    "webp": [

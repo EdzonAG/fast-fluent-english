@@ -28,7 +28,7 @@ const CALIDAD_BASE = { avif: 50, webp: 75, jpg: 78, chroma: "4:2:0" };
 // Ajustes por imagen, revisados a ojo. El primero que coincide gana.
 const AJUSTES = [
   // Portadas: el rótulo rojo y los bordes de la letra se degradan con 4:2:0.
-  { patron: /\/portadas\/lagos/, avif: 56, webp: 70, jpg: 70, chroma: "4:4:4" },
+  { patron: /\/portadas\/lagos/, avif: 46, webp: 70, jpg: 70, chroma: "4:4:4" },
   { patron: /\/portadas\//, avif: 58, webp: 80, jpg: 76, chroma: "4:4:4" },
   // El agua turquesa y el cielo son los primeros en mostrar bandas en AVIF.
   { patron: /\/(bcs\/(img03|img04|img08|img09)|chiapas\/img15|ballena\/)/, avif: 56, webp: 78 },

@@ -24,12 +24,12 @@
 
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="t-nav" id="nav">
+<header class="t-nav is-scrolled" id="nav">
   <div class="container t-nav__inner">
     <a href="./" class="t-logo" aria-label="SpectaCulTours"><img src="assets/img/logos/spectacultours_color.svg" alt="SpectaCulTours" width="149" height="34"></a>
     <nav class="t-nav__links" aria-label="Main">
-      <a href="chiapas/">Chiapas</a>
-      <a href="baja-california-sur/">Baja California Sur</a>
+      <!--destinos--><!--d:chiapas--><a href="chiapas/">Chiapas</a><!--/d:chiapas-->
+      <!--d:bcs--><a href="baja-california-sur/">Baja California Sur</a><!--/d:bcs--><!--/destinos-->
       <a href="#moments" data-i18n="h.nav.moments">Real moments</a>
       <a href="#how" data-i18n="h.nav.how">How it works</a>
       <a href="#compare" data-i18n="h.nav.compare">Compare</a>
@@ -41,8 +41,8 @@
     </div>
   </div>
   <div class="m-menu" id="mMenu" hidden>
-    <a href="chiapas/">Chiapas</a>
-    <a href="baja-california-sur/">Baja California Sur</a>
+    <!--destinos--><!--d:chiapas--><a href="chiapas/">Chiapas</a><!--/d:chiapas-->
+    <!--d:bcs--><a href="baja-california-sur/">Baja California Sur</a><!--/d:bcs--><!--/destinos-->
     <a href="#moments" data-i18n="h.nav.moments">Real moments</a>
     <a href="#how" data-i18n="h.nav.how">How it works</a>
     <a href="#compare" data-i18n="h.nav.compare">Compare</a>
@@ -53,31 +53,42 @@
 
 <main id="main">
 
-<!-- SPLIT HERO -->
-<section class="split" aria-label="Choose your expedition">
-  <div class="split__center">
-    <p class="split__kicker" data-i18n="h.hero.kicker">Custom eco-expeditions · Mexico</p>
-    <h1 data-i18n="h.hero.title">Choose your <em>paradise.</em></h1>
-    <p data-i18n="h.hero.sub">Custom-guided eco-expeditions in Mexico. No hotels, no tourist crowds — just spectacular nature, culture and native hosts.</p>
-  </div>
+<h1 class="sr-only" data-i18n="h.hero.title">Choose your <em>paradise.</em></h1>
 
-  <a class="split__panel split__panel--chiapas" href="chiapas/">
-    <img data-lcp data-sizes="split" src="assets/img/chiapas/img15.jpg" alt="Turquoise natural pool and waterfall in Chiapas">
-    <small>SpectaCulTour Chiapas</small>
-    <h2 data-i18n="h.chi.title">Jungle &amp; <em>waterfalls</em></h2>
-    <p data-i18n="h.chi.text">Paradise lakes, natural pools, Mayan ruins and cabin lodges with native hosts.</p>
-    <div class="split__meta"><span><span data-i18n="t.stamp.pkg">Package</span> <span data-price="chiapas">€550</span></span><span>Lagos de Colón</span><span>Toniná · Montebello</span></div>
-    <span class="btn"><span data-i18n="h.chi.cta">Explore Chiapas</span><svg class="i"><use href="assets/img/icons.svg#arrow"/></svg></span>
-  </a>
-
-  <a class="split__panel split__panel--bcs" href="baja-california-sur/">
-    <img data-sizes="split" src="assets/img/bcs/hero-dolphins.jpg" alt="Dolphins in Loreto Bay, Baja California Sur">
+<!--destinos-->
+<!--d:bcs-->
+<section class="portada portada--bcs" id="loreto" aria-labelledby="portada-bcs">
+  <h2 class="sr-only" id="portada-bcs">Loreto y Mulegé, Baja California Sur</h2>
+  <a class="portada__img" href="baja-california-sur/"><img data-portada data-sizes="portada" src="assets/img/portadas/loreto-mulege.png" alt="Loreto and Mulegé, Baja California Sur: white-sand beach with turquoise water under a blue sky" data-i18n-alt="h.alt.bcs"></a>
+  <div class="portada__info">
     <small>SpectaCulTour BCS</small>
-    <h2 data-i18n="h.bcs.title">Islands &amp; <em>ocean</em></h2>
+    <h3 data-i18n="h.bcs.title">Islands &amp; <em>ocean</em></h3>
     <p data-i18n="h.bcs.text">White-beach islands, dolphins, sea lions and the oldest missions of the Californias.</p>
-    <div class="split__meta"><span><span data-i18n="t.stamp.pkg">Package</span> <span data-price="bcs">€600</span></span><span>Loreto</span><span>Mulegé</span></div>
-    <span class="btn"><span data-i18n="h.bcs.cta">Explore Baja California Sur</span><svg class="i"><use href="assets/img/icons.svg#arrow"/></svg></span>
-  </a>
+    <div class="portada__meta"><span><span data-i18n="t.stamp.pkg">Package</span> <span data-price="bcs">€600</span></span><span>Loreto</span><span>Mulegé</span></div>
+    <a class="btn" href="baja-california-sur/"><span data-i18n="h.bcs.cta">Explore Baja California Sur</span><svg class="i"><use href="assets/img/icons.svg#arrow"/></svg></a>
+  </div>
+</section>
+<!--/d:bcs-->
+<!--d:chiapas-->
+<section class="portada portada--chiapas" id="lagos" aria-labelledby="portada-chiapas">
+  <h2 class="sr-only" id="portada-chiapas">Lagos de Colón, Chiapas</h2>
+  <a class="portada__img" href="chiapas/"><img data-portada data-sizes="portada" src="assets/img/portadas/lagos-de-colon.png" alt="Lagos de Colón, Chiapas: green lake surrounded by trees, with a swimmer in the water" data-i18n-alt="h.alt.chi"></a>
+  <div class="portada__info">
+    <small>SpectaCulTour Chiapas</small>
+    <h3 data-i18n="h.chi.title">Jungle &amp; <em>waterfalls</em></h3>
+    <p data-i18n="h.chi.text">Paradise lakes, natural pools, Mayan ruins and cabin lodges with native hosts.</p>
+    <div class="portada__meta"><span><span data-i18n="t.stamp.pkg">Package</span> <span data-price="chiapas">€550</span></span><span>Lagos de Colón</span><span>Toniná · Montebello</span></div>
+    <a class="btn" href="chiapas/"><span data-i18n="h.chi.cta">Explore Chiapas</span><svg class="i"><use href="assets/img/icons.svg#arrow"/></svg></a>
+  </div>
+</section>
+<!--/d:chiapas-->
+<!--/destinos-->
+
+<section class="intro">
+  <div class="container">
+    <p class="intro__kicker" data-i18n="h.hero.kicker">Custom eco-expeditions · Mexico</p>
+    <p class="intro__text" data-i18n="h.hero.sub">Custom-guided eco-expeditions in Mexico. No hotels, no tourist crowds — just spectacular nature, culture and native hosts.</p>
+  </div>
 </section>
 <div class="authentic"><div class="authentic__inner"><svg class="i"><use href="assets/img/icons.svg#camera"/></svg><span data-i18n="t.authentic"><b>All pictures and videos are authentic</b> — taken on our own tours.</span></div></div>
 
@@ -246,8 +257,8 @@
     <div>
       <h4 data-i18n="t.foot.exp">Expeditions</h4>
       <ul>
-        <li><a href="chiapas/">Chiapas</a></li>
-        <li><a href="baja-california-sur/">Baja California Sur</a></li>
+        <!--destinos--><!--d:chiapas--><li><a href="chiapas/">Chiapas</a></li><!--/d:chiapas-->
+        <!--d:bcs--><li><a href="baja-california-sur/">Baja California Sur</a></li><!--/d:bcs--><!--/destinos-->
         <li><a href="#compare" data-i18n="h.nav.compare">Compare</a></li>
       </ul>
     </div>
