@@ -189,9 +189,11 @@ window.SITIO = (function () {
         r = objetivos[i].getBoundingClientRect();
         if (r.width && cruza(caja, r)) mini = true;
       }
-      // Al abrir la página el QR se ve completo; al desplazarse deja leer la frase de la ballena.
-      var frase = document.querySelector(".ballena__frase");
-      if (!mini && frase && window.scrollY > 0 && cruza(caja, frase.getBoundingClientRect())) mini = true;
+      // Al abrir la página el QR se ve completo; al desplazarse deja leer la frase de la ballena y el título de la página.
+      if (!mini && window.scrollY > 0) {
+        var frases = document.querySelectorAll(".ballena__frase, .t-hero h2");
+        for (i = 0; !mini && i < frases.length; i++) mini = cruza(caja, frases[i].getBoundingClientRect());
+      }
       // data-titulo: dónde está el título dentro de la portada, en fracciones (x1,y1,x2,y2).
       var portadas = document.querySelectorAll(".portada__img img[data-titulo]");
       for (i = 0; !mini && i < portadas.length; i++) {
@@ -200,15 +202,14 @@ window.SITIO = (function () {
         if (cruza(caja, { left: r.left + t[0] * r.width, top: r.top + t[1] * r.height, right: r.left + t[2] * r.width, bottom: r.top + t[3] * r.height })) mini = true;
       }
       btn.classList.toggle("qr--mini", mini);
-      // Aun en mini se quita mientras pasa encima del centro de un botón.
+      // Aun en mini se quita mientras pasa encima de un botón, para no taparlo. Sobre el CV sí se queda.
       var oculto = false;
       if (mini) {
         var m = btn.getBoundingClientRect();
+        var cajaMini = { left: carta.izq, right: carta.izq + m.width, top: caja.bottom - m.height, bottom: caja.bottom };
         for (i = 0; !oculto && i < objetivos.length; i++) {
           r = objetivos[i].getBoundingClientRect();
-          if (!r.width) continue;
-          var cx = (r.left + r.right) / 2, cy = (r.top + r.bottom) / 2;
-          oculto = cx > m.left && cx < m.right && cy > m.top && cy < m.bottom;
+          oculto = r.width > 0 && !objetivos[i].classList.contains("cv") && cruza(cajaMini, r);
         }
       }
       btn.classList.toggle("qr--oculto", oculto);

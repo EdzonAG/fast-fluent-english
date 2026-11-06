@@ -139,9 +139,10 @@ function expandirImg(etiqueta, pagina, avisos, cargas) {
   attrs.set("sizes", sizes || "100vw");
   attrs.set("width", String(datos.width));
   attrs.set("height", String(datos.height));
-  attrs.set("data-full", mayor(webp).ruta);
-  attrs.set("data-full-w", String(mayor(webp).w));
-  attrs.set("data-full-h", String(mayor(webp).h));
+  const grande = datos.visor || mayor(webp);
+  attrs.set("data-full", grande.ruta);
+  attrs.set("data-full-w", String(grande.w));
+  attrs.set("data-full-h", String(grande.h));
   if (!attrs.has("alt")) attrs.set("alt", "");
   if (prioritaria) {
     attrs.delete("loading");
@@ -234,7 +235,7 @@ for (const archivo of listar(DIST).filter((f) => f.endsWith(".html"))) {
   html = html.replace(/\b(data-photo|data-full-src)="([^"]+)"/g, (m, attr, src) => {
     const datos = manifiesto[claveDe(posix.resolve(pagina, src))];
     if (!datos) { avisos.push(`${url}: ${attr} sin manifiesto: ${src}`); return m; }
-    const v = mayor(datos.variantes.webp);
+    const v = datos.visor || mayor(datos.variantes.webp);
     return `${attr === "data-photo" ? "data-photo" : "data-full"}="${v.ruta}" data-full-w="${v.w}" data-full-h="${v.h}"`;
   });
 

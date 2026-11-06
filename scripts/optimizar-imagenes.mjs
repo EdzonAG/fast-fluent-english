@@ -30,6 +30,8 @@ const AJUSTES = [
   // Portadas: el rótulo rojo y los bordes de la letra se degradan con 4:2:0.
   { patron: /\/portadas\/lagos/, avif: 46, webp: 70, jpg: 70, chroma: "4:4:4" },
   { patron: /\/portadas\//, avif: 58, webp: 80, jpg: 76, chroma: "4:4:4" },
+  // Follaje con mucho detalle: eran las más pesadas de Chiapas y no se nota la diferencia.
+  { patron: /\/chiapas\/(img09|img13|img14)/, avif: 42, webp: 68 },
   // El agua turquesa y el cielo son los primeros en mostrar bandas en AVIF.
   { patron: /\/(bcs\/(img03|img04|img08|img09)|chiapas\/img15|ballena\/)/, avif: 56, webp: 78 },
 ];
@@ -84,9 +86,21 @@ async function procesar(archivo, clave, c, huella) {
     );
   }
   Object.values(variantes).forEach((l) => l.sort((a, b) => a.w - b.w));
-  return { huella, width: ancho, height: alto, variantes };
+
+  // Foto entre dos anchos (por ejemplo 1159 px): el visor abre su tamaño real.
+  // No entra en srcset para no subirle el peso a los celulares de alta densidad.
+  let visor;
+  if (anchos[anchos.length - 1] < Math.min(ancho, 1280)) {
+    let buf = await codificar(sharp(entrada).rotate(), "webp", c);
+    for (let q = c.webp - 6; buf.length > LIMITE_KB * 1024 && q >= 50; q -= 6) buf = await codificar(sharp(entrada).rotate(), "webp", { ...c, webp: q });
+    const nombre = `${destino}-${ancho}.${sha(buf).slice(0, 10)}.webp`;
+    writeFileSync(nombre, buf);
+    visor = { w: ancho, h: alto, bytes: buf.length, ruta: `/${relative(join(RAIZ, "public"), nombre).split(sep).join("/")}` };
+  }
+  return { huella, width: ancho, height: alto, variantes, ...(visor && { visor }) };
 }
 
+const publicados = (d) => [...Object.values(d.variantes).flat(), ...(d.visor ? [d.visor] : [])];
 const anterior = existsSync(MANIFIESTO) ? JSON.parse(readFileSync(MANIFIESTO, "utf8")) : {};
 const todo = process.argv.includes("--todo");
 const nuevo = {};
@@ -96,13 +110,13 @@ for (const archivo of listar(ORIGINALES).sort()) {
   const rel = relative(ORIGINALES, archivo).split(sep).join("/");
   const clave = rel.slice(0, -extname(rel).length);
   const c = calidadDe(clave);
-  const huella = sha(sha(readFileSync(archivo)) + JSON.stringify(c)).slice(0, 16);
+  const huella = sha(sha(readFileSync(archivo)) + JSON.stringify({ c, ANCHOS })).slice(0, 16);
   const previa = anterior[clave];
   const vigente =
     !todo && previa && previa.huella === huella &&
-    Object.values(previa.variantes).flat().every((v) => existsSync(join(RAIZ, "public", v.ruta)));
+    publicados(previa).every((v) => existsSync(join(RAIZ, "public", v.ruta)));
   if (vigente) { nuevo[clave] = previa; continue; }
-  if (previa) Object.values(previa.variantes).flat().forEach((v) => rmSync(join(RAIZ, "public", v.ruta), { force: true }));
+  if (previa) publicados(previa).forEach((v) => rmSync(join(RAIZ, "public", v.ruta), { force: true }));
   process.stdout.write(`procesando ${clave}\n`);
   nuevo[clave] = await procesar(archivo, clave, c, huella);
   procesadas++;
@@ -110,7 +124,7 @@ for (const archivo of listar(ORIGINALES).sort()) {
 
 // Quita lo publicado de originales que ya no existen.
 for (const [clave, datos] of Object.entries(anterior)) {
-  if (!nuevo[clave]) Object.values(datos.variantes).flat().forEach((v) => rmSync(join(RAIZ, "public", v.ruta), { force: true }));
+  if (!nuevo[clave]) publicados(datos).forEach((v) => rmSync(join(RAIZ, "public", v.ruta), { force: true }));
 }
 writeFileSync(MANIFIESTO, JSON.stringify(nuevo, null, 1) + "\n");
 

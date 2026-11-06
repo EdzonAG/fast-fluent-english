@@ -1,6 +1,6 @@
 {
  "assets/img/ballena/bcs-ballena-foto-01": {
-  "huella": "6543f002285b5760",
+  "huella": "fa08ff3dcb304b81",
   "width": 1600,
   "height": 714,
   "variantes": {
@@ -67,7 +67,7 @@
   }
  },
  "assets/img/ballena/bcs-ballena-foto-03": {
-  "huella": "284d60c936a0b079",
+  "huella": "a5e646b6066a2257",
   "width": 1600,
   "height": 714,
   "variantes": {
@@ -134,7 +134,7 @@
   }
  },
  "assets/img/ballena/bcs-ballena-foto-04": {
-  "huella": "1381f883d0913a7f",
+  "huella": "bb0b5b317752eb24",
   "width": 1600,
   "height": 714,
   "variantes": {
@@ -201,7 +201,7 @@
   }
  },
  "assets/img/bcs/boobies": {
-  "huella": "980e38e961e83eec",
+  "huella": "9ef10f324b88c124",
   "width": 1600,
   "height": 900,
   "variantes": {
@@ -268,7 +268,7 @@
   }
  },
  "assets/img/bcs/fish-lunch": {
-  "huella": "03ae9dc274d3c1e0",
+  "huella": "7aab58e46ae78c3b",
   "width": 1600,
   "height": 900,
   "variantes": {
@@ -335,7 +335,7 @@
   }
  },
  "assets/img/bcs/hero-dolphins": {
-  "huella": "b2669cffd385bcd6",
+  "huella": "9973c7f2cb161604",
   "width": 1600,
   "height": 900,
   "variantes": {
@@ -402,7 +402,7 @@
   }
  },
  "assets/img/bcs/img02": {
-  "huella": "cf6d882caa2d7cee",
+  "huella": "9dcfe767370333f2",
   "width": 449,
   "height": 350,
   "variantes": {
@@ -433,7 +433,7 @@
   }
  },
  "assets/img/bcs/img03": {
-  "huella": "9108ab85aef7a146",
+  "huella": "aceba8ed12bf438e",
   "width": 1600,
   "height": 967,
   "variantes": {
@@ -500,7 +500,7 @@
   }
  },
  "assets/img/bcs/img04": {
-  "huella": "2b19968e2c8455dc",
+  "huella": "ebfe5726525fc39c",
   "width": 1600,
   "height": 712,
   "variantes": {
@@ -567,7 +567,7 @@
   }
  },
  "assets/img/bcs/img05": {
-  "huella": "1ae51d9a7adcbc84",
+  "huella": "3242b9d14179307f",
   "width": 1600,
   "height": 711,
   "variantes": {
@@ -634,7 +634,7 @@
   }
  },
  "assets/img/bcs/img06": {
-  "huella": "678166570fd262a8",
+  "huella": "3869da00bdc5bee3",
   "width": 1600,
   "height": 712,
   "variantes": {
@@ -701,7 +701,7 @@
   }
  },
  "assets/img/bcs/img07": {
-  "huella": "e4ccbfcb3d01d1b5",
+  "huella": "5822ddbb9b6c1994",
   "width": 1600,
   "height": 702,
   "variantes": {
@@ -768,7 +768,7 @@
   }
  },
  "assets/img/bcs/img08": {
-  "huella": "8c4f35021b712ef0",
+  "huella": "53b197d6af40ef36",
   "width": 1600,
   "height": 895,
   "variantes": {
@@ -835,7 +835,7 @@
   }
  },
  "assets/img/bcs/img09": {
-  "huella": "8f4ccf4616ac3eda",
+  "huella": "aa2080f9bbbf385b",
   "width": 1554,
   "height": 1012,
   "variantes": {
@@ -902,7 +902,7 @@
   }
  },
  "assets/img/bcs/sealion": {
-  "huella": "75bb27c77e6eaf10",
+  "huella": "d8741a7d9a918e47",
   "width": 1600,
   "height": 900,
   "variantes": {
@@ -969,7 +969,7 @@
   }
  },
  "assets/img/chiapas/img02": {
-  "huella": "f23ae29263043b1f",
+  "huella": "1a9f47078798bd7f",
   "width": 450,
   "height": 391,
   "variantes": {
@@ -1000,7 +1000,7 @@
   }
  },
  "assets/img/chiapas/img06": {
-  "huella": "8beaace6cdbb69f9",
+  "huella": "63b598a4a7184597",
   "width": 1591,
   "height": 989,
   "variantes": {
@@ -1067,7 +1067,7 @@
   }
  },
  "assets/img/chiapas/img07": {
-  "huella": "4d4283fec552a2ca",
+  "huella": "99e9a716114b4a71",
   "width": 1450,
   "height": 1085,
   "variantes": {
@@ -1134,7 +1134,7 @@
   }
  },
  "assets/img/chiapas/img08": {
-  "huella": "637c209b9fdf98ff",
+  "huella": "09ee4304c617dc7d",
   "width": 449,
   "height": 569,
   "variantes": {
@@ -1165,7 +1165,7 @@
   }
  },
  "assets/img/chiapas/img09": {
-  "huella": "5a1ff5303ac12e79",
+  "huella": "49bac6c87c893f77",
   "width": 1159,
   "height": 1356,
   "variantes": {
@@ -1173,28 +1173,28 @@
     {
      "w": 480,
      "h": 562,
-     "bytes": 56972,
-     "ruta": "/static/img/chiapas/img09-480.1167b7abbc.avif"
+     "bytes": 39421,
+     "ruta": "/static/img/chiapas/img09-480.0a39355bf9.avif"
     },
     {
      "w": 768,
      "h": 899,
-     "bytes": 138862,
-     "ruta": "/static/img/chiapas/img09-768.742f2a75ed.avif"
+     "bytes": 99497,
+     "ruta": "/static/img/chiapas/img09-768.f33af94016.avif"
     }
    ],
    "webp": [
     {
      "w": 480,
      "h": 562,
-     "bytes": 111680,
-     "ruta": "/static/img/chiapas/img09-480.213544e1ee.webp"
+     "bytes": 105560,
+     "ruta": "/static/img/chiapas/img09-480.712058378d.webp"
     },
     {
      "w": 768,
      "h": 899,
-     "bytes": 265326,
-     "ruta": "/static/img/chiapas/img09-768.3f6f9fc399.webp"
+     "bytes": 247482,
+     "ruta": "/static/img/chiapas/img09-768.32e0b4d960.webp"
     }
    ],
    "jpg": [
@@ -1211,10 +1211,16 @@
      "ruta": "/static/img/chiapas/img09-768.331d09c0ad.jpg"
     }
    ]
+  },
+  "visor": {
+   "w": 1159,
+   "h": 1356,
+   "bytes": 394768,
+   "ruta": "/static/img/chiapas/img09-1159.a39c7ada16.webp"
   }
  },
  "assets/img/chiapas/img10": {
-  "huella": "0176961dd34b0d9d",
+  "huella": "7c5ea1809486eb8d",
   "width": 1600,
   "height": 900,
   "variantes": {
@@ -1281,7 +1287,7 @@
   }
  },
  "assets/img/chiapas/img12": {
-  "huella": "debb0dea603f2782",
+  "huella": "4cc4341237bf423b",
   "width": 1600,
   "height": 900,
   "variantes": {
@@ -1348,7 +1354,7 @@
   }
  },
  "assets/img/chiapas/img13": {
-  "huella": "e599dd7f29c14dea",
+  "huella": "e018a13fbbbcee5c",
   "width": 1145,
   "height": 1374,
   "variantes": {
@@ -1356,28 +1362,28 @@
     {
      "w": 480,
      "h": 576,
-     "bytes": 30468,
-     "ruta": "/static/img/chiapas/img13-480.0154aef370.avif"
+     "bytes": 21161,
+     "ruta": "/static/img/chiapas/img13-480.ab628fc77c.avif"
     },
     {
      "w": 768,
      "h": 922,
-     "bytes": 70240,
-     "ruta": "/static/img/chiapas/img13-768.d217763f38.avif"
+     "bytes": 47836,
+     "ruta": "/static/img/chiapas/img13-768.7b44aeded0.avif"
     }
    ],
    "webp": [
     {
      "w": 480,
      "h": 576,
-     "bytes": 60120,
-     "ruta": "/static/img/chiapas/img13-480.6edf2a14a6.webp"
+     "bytes": 54984,
+     "ruta": "/static/img/chiapas/img13-480.ceab192b5b.webp"
     },
     {
      "w": 768,
      "h": 922,
-     "bytes": 129432,
-     "ruta": "/static/img/chiapas/img13-768.359848daf3.webp"
+     "bytes": 117750,
+     "ruta": "/static/img/chiapas/img13-768.953c09f799.webp"
     }
    ],
    "jpg": [
@@ -1394,10 +1400,16 @@
      "ruta": "/static/img/chiapas/img13-768.1e39b2c83f.jpg"
     }
    ]
+  },
+  "visor": {
+   "w": 1145,
+   "h": 1374,
+   "bytes": 209480,
+   "ruta": "/static/img/chiapas/img13-1145.fbff039e16.webp"
   }
  },
  "assets/img/chiapas/img14": {
-  "huella": "c3387c2f97ae5af2",
+  "huella": "32d0833ce76e9704",
   "width": 1086,
   "height": 1448,
   "variantes": {
@@ -1405,28 +1417,28 @@
     {
      "w": 480,
      "h": 640,
-     "bytes": 60902,
-     "ruta": "/static/img/chiapas/img14-480.d31275d908.avif"
+     "bytes": 42280,
+     "ruta": "/static/img/chiapas/img14-480.f400ccab08.avif"
     },
     {
      "w": 768,
      "h": 1024,
-     "bytes": 140810,
-     "ruta": "/static/img/chiapas/img14-768.80e13043f4.avif"
+     "bytes": 101045,
+     "ruta": "/static/img/chiapas/img14-768.3061966bf4.avif"
     }
    ],
    "webp": [
     {
      "w": 480,
      "h": 640,
-     "bytes": 117878,
-     "ruta": "/static/img/chiapas/img14-480.9b3e531be4.webp"
+     "bytes": 109170,
+     "ruta": "/static/img/chiapas/img14-480.4113222e18.webp"
     },
     {
      "w": 768,
      "h": 1024,
-     "bytes": 265516,
-     "ruta": "/static/img/chiapas/img14-768.988be7bd62.webp"
+     "bytes": 249598,
+     "ruta": "/static/img/chiapas/img14-768.0e1417e27b.webp"
     }
    ],
    "jpg": [
@@ -1443,10 +1455,16 @@
      "ruta": "/static/img/chiapas/img14-768.8205ada8ad.jpg"
     }
    ]
+  },
+  "visor": {
+   "w": 1086,
+   "h": 1448,
+   "bytes": 393900,
+   "ruta": "/static/img/chiapas/img14-1086.0fce03e284.webp"
   }
  },
  "assets/img/chiapas/img15": {
-  "huella": "5d19eb451ae5bac6",
+  "huella": "bcdbc53dfdb238c0",
   "width": 1600,
   "height": 914,
   "variantes": {
@@ -1513,7 +1531,7 @@
   }
  },
  "assets/img/host": {
-  "huella": "e595464fe8efab35",
+  "huella": "4697a46b72c2d071",
   "width": 1536,
   "height": 1024,
   "variantes": {
@@ -1580,7 +1598,7 @@
   }
  },
  "assets/img/portadas/lagos-de-colon": {
-  "huella": "b68ae72ee98ce93b",
+  "huella": "d2c259c2ccb11f03",
   "width": 1345,
   "height": 1169,
   "variantes": {
@@ -1647,7 +1665,7 @@
   }
  },
  "assets/img/portadas/loreto-mulege": {
-  "huella": "e00ffe2fe17ad2d5",
+  "huella": "a54b854d7d3a5eb6",
   "width": 1420,
   "height": 1108,
   "variantes": {
@@ -1714,7 +1732,7 @@
   }
  },
  "english/assets/img/cefr-chart": {
-  "huella": "d39b0ca5fd7f9b56",
+  "huella": "98a5499ec4e4bc4c",
   "width": 620,
   "height": 354,
   "variantes": {
@@ -1742,10 +1760,16 @@
      "ruta": "/static/img/english/cefr-chart-480.2f9c243eda.jpg"
     }
    ]
+  },
+  "visor": {
+   "w": 620,
+   "h": 354,
+   "bytes": 17262,
+   "ruta": "/static/img/english/cefr-chart-620.2230e6b45a.webp"
   }
  },
  "english/assets/img/certificate": {
-  "huella": "f3ed264fb77b01c4",
+  "huella": "ad9220aed4ba529b",
   "width": 560,
   "height": 425,
   "variantes": {
@@ -1773,10 +1797,16 @@
      "ruta": "/static/img/english/certificate-480.d01bed2ed8.jpg"
     }
    ]
+  },
+  "visor": {
+   "w": 560,
+   "h": 425,
+   "bytes": 14582,
+   "ruta": "/static/img/english/certificate-560.2bdaa87b81.webp"
   }
  },
  "english/assets/img/hero/hello-class": {
-  "huella": "4c8645f2fad96d94",
+  "huella": "42d4d726357f10a8",
   "width": 800,
   "height": 533,
   "variantes": {
@@ -1822,10 +1852,16 @@
      "ruta": "/static/img/english/hero/hello-class-768.8040164acd.jpg"
     }
    ]
+  },
+  "visor": {
+   "w": 800,
+   "h": 533,
+   "bytes": 30788,
+   "ruta": "/static/img/english/hero/hello-class-800.fb1defff3d.webp"
   }
  },
  "english/assets/img/hero/learn-headphones": {
-  "huella": "8dc6b7a9c7adc593",
+  "huella": "a5347bafd9187c5d",
   "width": 1100,
   "height": 733,
   "variantes": {
@@ -1871,10 +1907,16 @@
      "ruta": "/static/img/english/hero/learn-headphones-768.ab5f136f87.jpg"
     }
    ]
+  },
+  "visor": {
+   "w": 1100,
+   "h": 733,
+   "bytes": 54276,
+   "ruta": "/static/img/english/hero/learn-headphones-1100.dd71b7e052.webp"
   }
  },
  "english/assets/img/hero/notes": {
-  "huella": "0c4b78c3876d01df",
+  "huella": "cd82103478fccaeb",
   "width": 800,
   "height": 602,
   "variantes": {
@@ -1920,10 +1962,16 @@
      "ruta": "/static/img/english/hero/notes-768.e0281b54b7.jpg"
     }
    ]
+  },
+  "visor": {
+   "w": 800,
+   "h": 602,
+   "bytes": 21172,
+   "ruta": "/static/img/english/hero/notes-800.60bf032b5b.webp"
   }
  },
  "english/assets/img/hero/video-call": {
-  "huella": "65864173699f86a8",
+  "huella": "5897cbc92623560e",
   "width": 800,
   "height": 534,
   "variantes": {
@@ -1969,10 +2017,16 @@
      "ruta": "/static/img/english/hero/video-call-768.b24a7304eb.jpg"
     }
    ]
+  },
+  "visor": {
+   "w": 800,
+   "h": 534,
+   "bytes": 38800,
+   "ruta": "/static/img/english/hero/video-call-800.760c25d63d.webp"
   }
  },
  "english/assets/img/image02": {
-  "huella": "f133df53a3bed825",
+  "huella": "1100d84b8e509cb3",
   "width": 840,
   "height": 559,
   "variantes": {
@@ -2018,6 +2072,12 @@
      "ruta": "/static/img/english/image02-768.5d335060e5.jpg"
     }
    ]
+  },
+  "visor": {
+   "w": 840,
+   "h": 559,
+   "bytes": 47734,
+   "ruta": "/static/img/english/image02-840.5844f00dc3.webp"
   }
  }
 }

@@ -10,7 +10,8 @@
     "build": "node scripts/build.mjs",
     "dev": "node scripts/build.mjs && node scripts/servir.mjs dist 3000",
     "start": "node scripts/servir.mjs dist ${PORT:-3000}",
-    "cv": "node scripts/generar-cv.mjs"
+    "cv": "node scripts/generar-cv.mjs",
+    "test": "node scripts/build.mjs && node --test --test-reporter=spec tests/sitio.test.mjs"
   },
   "devDependencies": {
     "jsqr": "^1.4.0",
