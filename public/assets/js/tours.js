@@ -58,6 +58,7 @@
     updateWa();
     updatePrices();
     renderTimelines();
+    renderFechas();
     $$("[data-vip]").forEach(updateVip);
   }
   var langBtn = $("#langToggle");
@@ -103,6 +104,25 @@
       total.innerHTML = "<span>" + t("total") + "</span><span>" + money(tourTotal(ol.dataset.timeline)) + "</span>";
       if (ol.nextElementSibling && ol.nextElementSibling.classList.contains("timeline__total")) ol.nextElementSibling.remove();
       ol.after(total);
+    });
+  }
+
+  /* ---------------- Fechas de tours ---------------- */
+  // Por ahora el mensaje sale en el idioma de la página.
+  function mensajeFecha(f) {
+    var plantilla = CFG.mensajesWhatsApp.fecha[lang];
+    return plantilla.replace("{tour}", f.tour[lang]).replace(/\{(fechas|dates)\}/, SITIO.rangoFechas(f.inicio, f.fin, lang));
+  }
+  function renderFechas() {
+    $$("[data-fechas]").forEach(function (ul) {
+      var lista = SITIO.fechasVigentes(ul.dataset.fechas);
+      ul.closest("section").hidden = !lista.length;
+      ul.innerHTML = lista.map(function (f) {
+        return '<li class="fecha"><div class="fecha__info"><h3>' + f.tour[lang] + '</h3><p class="fecha__dias"><time datetime="' + f.inicio + '">' +
+          SITIO.rangoFechas(f.inicio, f.fin, lang) + "</time></p>" +
+          (SITIO.destinoLleno(f.destino) ? '<p class="fecha__destino">' + icon("pin") + "<span>" + f.destino + "</span></p>" : "") +
+          '</div><a class="btn btn--wa" target="_blank" rel="noopener" href="' + SITIO.urlWhatsApp(mensajeFecha(f)).replace(/&/g, "&amp;") + '">' + icon("whatsapp") + "<span>" + t("reservar") + "</span></a></li>";
+      }).join("");
     });
   }
 

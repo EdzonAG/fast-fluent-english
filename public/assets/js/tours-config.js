@@ -52,6 +52,24 @@ window.TOURS_CONFIG = {
     ]
   },
 
+  // Fechas de tours. Una fecha se oculta sola al día siguiente de "fin".
+  // destino: se muestra solo si está lleno; "[DESTINO]" significa que falta el dato.
+  // paquete: "bcs" o "chiapas" para que salga en la página de ese destino. Sin definir (null), sale en ambas.
+  fechas: [
+    { tour: { en: "Blue Whales / Constitución", es: "Ballena azul / Constitución" }, inicio: "2027-01-28", fin: "2027-02-02", destino: "Loreto, BCS", paquete: "bcs" },
+    { tour: { en: "B. Juárez", es: "B. Juárez" }, inicio: "2027-03-11", fin: "2027-03-16", destino: "[DESTINO]", paquete: null },
+    { tour: { en: "Easter", es: "Semana Santa" }, inicio: "2027-03-24", fin: "2027-03-29", destino: "[DESTINO]", paquete: null },
+    { tour: { en: "Labor", es: "Día del Trabajo" }, inicio: "2027-04-29", fin: "2027-05-03", destino: "[DESTINO]", paquete: null }
+  ],
+
+  // Mensajes precargados de WhatsApp.
+  mensajesWhatsApp: {
+    fecha: {
+      en: "Hi! I'm interested in the {tour} tour, {dates}. Are there spots available?",
+      es: "Hola, me interesa el tour {tour} del {fechas}. ¿Hay lugares disponibles?"
+    }
+  },
+
   whatsapp: "525530071808",
   phone: "+525530071808",
   phoneDisplay: "+52 55 3007 1808",

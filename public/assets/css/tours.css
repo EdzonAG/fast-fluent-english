@@ -386,6 +386,16 @@ main { padding-top: var(--nav-h); }
 }
 @media (max-width: 899px) { .portada--solo .portada__img img { width: 100%; } }
 
+/* ---------- Fechas de tours ---------- */
+.fechas { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.fecha { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; padding: 20px 22px; border-radius: 18px; background: #fff; border: 1px solid var(--line); }
+.fecha__info { min-width: min(100%, 280px); flex: 1; }
+.fecha h3 { font-size: 1.2rem; }
+.fecha__dias { margin: 6px 0 0; color: var(--ink-2); font-weight: 600; }
+.fecha__destino { display: flex; align-items: center; gap: 6px; margin: 6px 0 0; font-size: .92rem; color: var(--ink-3); }
+.fecha__destino .i { width: 16px; height: 16px; flex: none; }
+@media (max-width: 600px) { .fecha { padding: 18px; } .fecha .btn { width: 100%; } }
+
 /* ---------- Ballena azul ---------- */
 .ballena { padding: 36px 0 56px; background: #032a3f; color: #fff; }
 .ballena__frase { max-width: 900px; margin-bottom: 24px; font-size: clamp(1.45rem, 3.2vw, 2.4rem); font-weight: 700; line-height: 1.2; color: #fff; }

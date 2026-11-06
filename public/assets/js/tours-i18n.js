@@ -6,6 +6,7 @@
 window.TOURS_I18N = {
   es: {
     /* ---- shared ---- */
+    "f.title": "Fechas de tours",
     "w.fotos": "Fotos de ballena azul",
     "w.videos": "Videos de ballena azul",
     "w.play": "Reproducir video:",
@@ -286,6 +287,7 @@ window.TOURS_I18N = {
   dynamic: {
     en: {
       close: "Close",
+      reservar: "Reserve on WhatsApp",
       viewer: { zoom: "Zoom", prev: "Previous", next: "Next", error: "This photo could not be loaded." },
       "h.wa.hello": "Hi! I saw the SpectaCulTours website and I'd like information about the expeditions.",
       "c.wa.hello": "Hi! I'd like information about the SpectaCulTour Chiapas expedition.",
@@ -305,6 +307,7 @@ window.TOURS_I18N = {
     },
     es: {
       close: "Cerrar",
+      reservar: "Reservar por WhatsApp",
       viewer: { zoom: "Acercar", prev: "Anterior", next: "Siguiente", error: "No se pudo cargar esta foto." },
       "h.wa.hello": "¡Hola! Vi el sitio de SpectaCulTours y me gustaría información sobre las expediciones.",
       "c.wa.hello": "¡Hola! Me gustaría información sobre la expedición SpectaCulTour Chiapas.",
