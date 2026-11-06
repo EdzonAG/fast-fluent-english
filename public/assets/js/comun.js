@@ -50,6 +50,115 @@ window.SITIO = (function () {
     return "https://wa.me/" + CFG.whatsapp + (texto ? "?text=" + encodeURIComponent(texto) : "");
   }
 
+  /* ---------------- QR flotante ---------------- */
+  function iniciarQR() {
+    var btn = document.getElementById("qrAbrir"), modal = document.getElementById("qrModal");
+    if (!btn || !modal) return;
+    var cerrar = modal.querySelector(".qr-modal__cerrar");
+    var img = modal.querySelector(".qr-modal__codigo");
+    var etiqueta = btn.querySelector("span"), texto = modal.querySelector(".qr-modal__texto");
+
+    function aplicarIdioma() {
+      var d = CFG.qrTextos[document.documentElement.lang === "es" ? "es" : "en"];
+      etiqueta.textContent = d.escanea;
+      btn.setAttribute("aria-label", d.ampliar);
+      texto.textContent = d.modal;
+      modal.setAttribute("aria-label", d.modal);
+      cerrar.setAttribute("aria-label", d.cerrar);
+      img.alt = d.alt;
+    }
+    new MutationObserver(aplicarIdioma).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+    aplicarIdioma();
+
+    /* Tarjeta completa, mini u oculta según lo que tenga debajo. */
+    var carta = null;
+    function medir() {
+      btn.classList.remove("qr--mini", "qr--oculto");
+      var r = btn.getBoundingClientRect();
+      carta = { izq: r.left, abajo: window.innerHeight - r.bottom, ancho: r.width, alto: r.height };
+    }
+    function cruza(a, b) { return a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top; }
+    function actualizar() {
+      pendiente = false;
+      if (!carta) medir();
+      var H = window.innerHeight;
+      var caja = { left: carta.izq, right: carta.izq + carta.ancho, top: H - carta.abajo - carta.alto, bottom: H - carta.abajo };
+      var objetivos = document.querySelectorAll(".btn, .linkbtn, .seg button, input[type=range]");
+      var mini = H < 560;
+      var i, r;
+      for (i = 0; !mini && i < objetivos.length; i++) {
+        r = objetivos[i].getBoundingClientRect();
+        if (r.width && cruza(caja, r)) mini = true;
+      }
+      // Al abrir la página el QR se ve completo; al desplazarse deja leer la frase de la ballena.
+      var frase = document.querySelector(".ballena__frase");
+      if (!mini && frase && window.scrollY > 0 && cruza(caja, frase.getBoundingClientRect())) mini = true;
+      // data-titulo: dónde está el título dentro de la portada, en fracciones (x1,y1,x2,y2).
+      var portadas = document.querySelectorAll(".portada__img img[data-titulo]");
+      for (i = 0; !mini && i < portadas.length; i++) {
+        r = portadas[i].getBoundingClientRect();
+        var t = portadas[i].dataset.titulo.split(",");
+        if (cruza(caja, { left: r.left + t[0] * r.width, top: r.top + t[1] * r.height, right: r.left + t[2] * r.width, bottom: r.top + t[3] * r.height })) mini = true;
+      }
+      btn.classList.toggle("qr--mini", mini);
+      // Aun en mini se quita mientras pasa encima del centro de un botón.
+      var oculto = false;
+      if (mini) {
+        var m = btn.getBoundingClientRect();
+        for (i = 0; !oculto && i < objetivos.length; i++) {
+          r = objetivos[i].getBoundingClientRect();
+          if (!r.width) continue;
+          var cx = (r.left + r.right) / 2, cy = (r.top + r.bottom) / 2;
+          oculto = cx > m.left && cx < m.right && cy > m.top && cy < m.bottom;
+        }
+      }
+      btn.classList.toggle("qr--oculto", oculto);
+    }
+    var pendiente = false;
+    function programar() {
+      if (pendiente) return;
+      pendiente = true;
+      requestAnimationFrame(actualizar);
+    }
+    window.addEventListener("scroll", programar, { passive: true });
+    window.addEventListener("resize", function () { carta = null; programar(); });
+    window.addEventListener("load", programar);
+    programar();
+
+    /* No estorba con el menú móvil ni con el panel de WhatsApp abiertos. */
+    var estorbos = ["mMenu", "mobileMenu", "waPanel"].map(function (id) { return document.getElementById(id); }).filter(Boolean);
+    function revisarEstorbos() {
+      btn.hidden = estorbos.some(function (el) { return !el.hidden; });
+    }
+    estorbos.forEach(function (el) {
+      new MutationObserver(revisarEstorbos).observe(el, { attributes: true, attributeFilter: ["hidden"] });
+    });
+
+    /* Modal */
+    function abrir() {
+      modal.hidden = false;
+      document.documentElement.style.overflow = "hidden";
+      cerrar.focus();
+    }
+    function ocultar() {
+      modal.hidden = true;
+      document.documentElement.style.overflow = "";
+      btn.focus();
+    }
+    btn.addEventListener("click", abrir);
+    cerrar.addEventListener("click", ocultar);
+    modal.addEventListener("click", function (e) {
+      if (!e.target.closest(".qr-modal__caja") && !e.target.closest(".qr-modal__cerrar")) ocultar();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (modal.hidden) return;
+      if (e.key === "Escape") { e.stopPropagation(); ocultar(); }
+      // El único elemento enfocable es cerrar: el foco no sale del modal.
+      if (e.key === "Tab") { e.preventDefault(); cerrar.focus(); }
+    });
+  }
+  iniciarQR();
+
   return {
     rangoFechas: rangoFechas,
     fechasVigentes: fechasVigentes,

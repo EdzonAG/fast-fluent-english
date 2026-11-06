@@ -10,6 +10,7 @@ import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, write
 import { basename, dirname, extname, join, posix, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import vm from "node:vm";
+import QRCode from "qrcode";
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), "..");
 const PUBLICO = join(RAIZ, "public");
@@ -177,7 +178,24 @@ function seccionBallena() {
 </section>`;
 }
 
-/* ---------- 4. Páginas ---------- */
+/* ---------- 4. QR flotante: SVG local, nivel M, zona de silencio de 4 módulos ---------- */
+const qrSvg = await QRCode.toString(config.qrUrl, { type: "svg", errorCorrectionLevel: "M", margin: 4, color: { dark: "#000000", light: "#ffffff" } });
+const rutaQr = `/static/a/qr.${conHash(qrSvg)}.svg`;
+writeFileSync(join(DIST, rutaQr), qrSvg);
+const estiloQr = readFileSync(join(RAIZ, "scripts", "parciales", "qr.css"), "utf8").replace(/\/\*[\s\S]*?\*\//g, "").replace(/\n+/g, "\n").trim();
+const { en: qrEn } = config.qrTextos;
+const bloqueQr = `<style>${estiloQr}</style>
+<button class="qr" id="qrAbrir" type="button" aria-label="${textoHtml(qrEn.ampliar)}" aria-haspopup="dialog"><img src="${rutaQr}" alt="" width="160" height="160"><span>${textoHtml(qrEn.escanea)}</span></button>
+<div class="qr-modal" id="qrModal" role="dialog" aria-modal="true" aria-label="${textoHtml(qrEn.modal)}" hidden>
+  <button class="qr-modal__cerrar" type="button" aria-label="${textoHtml(qrEn.cerrar)}"><span aria-hidden="true">×</span></button>
+  <div class="qr-modal__caja">
+    <img class="qr-modal__logo" src="/assets/img/logos/spectacultours_color.svg" alt="SpectaCulTours" width="149" height="34" loading="lazy">
+    <img class="qr-modal__codigo" src="${rutaQr}" alt="${textoHtml(qrEn.alt)}" width="420" height="420">
+    <p class="qr-modal__texto">${textoHtml(qrEn.modal)}</p>
+  </div>
+</div>`;
+
+/* ---------- 5. Páginas ---------- */
 const avisos = [];
 for (const archivo of listar(DIST).filter((f) => f.endsWith(".html"))) {
   const url = aUrl(archivo);
@@ -186,6 +204,7 @@ for (const archivo of listar(DIST).filter((f) => f.endsWith(".html"))) {
   const cargas = [];
 
   html = html.replace("<!--ballena-->", seccionBallena);
+  html = html.replace("<!--qr-->", () => bloqueQr);
 
   // Orden de los destinos según destinoDestacado.
   html = html.replace(/<!--destinos-->([\s\S]*?)<!--\/destinos-->/g, (m, bloque) => {

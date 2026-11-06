@@ -529,7 +529,7 @@ h2 em, h1 em { font-family: var(--serif); font-style: italic; font-weight: 400; 
 @media (max-width: 460px) { .footer__grid { grid-template-columns: 1fr; } }
 
 /* ---------- WhatsApp widget ---------- */
-.wa { position: fixed; right: 20px; bottom: 20px; z-index: 60; display: flex; flex-direction: column; align-items: flex-end; gap: 14px; }
+.wa { position: fixed; right: calc(20px + env(safe-area-inset-right)); bottom: calc(20px + env(safe-area-inset-bottom)); z-index: 60; display: flex; flex-direction: column; align-items: flex-end; gap: 14px; }
 .wa__fab { position: relative; width: 62px; height: 62px; border-radius: 50%; background: var(--wa); color: #fff; display: grid; place-items: center; box-shadow: 0 14px 30px -8px rgba(18, 140, 75, .7); transition: transform .3s var(--ease); }
 .wa__fab:hover { transform: scale(1.08); }
 .wa__fab .i { width: 32px; height: 32px; }
@@ -554,7 +554,7 @@ h2 em, h1 em { font-family: var(--serif); font-style: italic; font-weight: 400; 
 .wa__form input { flex: 1; min-width: 0; border: 0; border-radius: 999px; padding: 11px 16px; font: inherit; font-size: .92rem; background: #fff; outline: none; }
 .wa__form button { width: 42px; height: 42px; border-radius: 50%; background: #00a884; color: #fff; display: grid; place-items: center; flex: none; }
 .wa__form button .i { width: 18px; height: 18px; }
-@media (max-width: 560px) { .wa { right: 14px; bottom: 14px; } .wa__fab { width: 56px; height: 56px; } }
+@media (max-width: 560px) { .wa { right: calc(14px + env(safe-area-inset-right)); bottom: calc(14px + env(safe-area-inset-bottom)); } .wa__fab { width: 56px; height: 56px; } }
 
 /* ---------- Lightbox ---------- */
 .lightbox { position: fixed; inset: 0; z-index: 80; background: rgba(5, 13, 46, .88); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); display: grid; place-items: center; padding: 24px; animation: drop .25s; }

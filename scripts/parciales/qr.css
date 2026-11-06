@@ -1,0 +1,19 @@
+/* QR flotante. Va en línea en el HTML: es lo mismo en tours y en inglés, y evita otro CSS que bloquee el render. */
+.qr { position: fixed; left: calc(20px + env(safe-area-inset-left)); bottom: calc(20px + env(safe-area-inset-bottom)); z-index: 55; display: flex; flex-direction: column; align-items: center; gap: 4px; margin: 0; padding: 8px 8px 6px; border: 0; border-radius: 14px; background: #fff; color: #0c1b3a; font: 600 .8rem/1.2 Inter, system-ui, sans-serif; box-shadow: 0 10px 28px -10px rgba(0, 0, 0, .45), 0 0 0 1px rgba(0, 0, 0, .06); cursor: pointer; }
+.qr img { display: block; width: 160px; height: 160px; max-width: none; }
+.qr:focus-visible, .qr-modal__cerrar:focus-visible { outline: 3px solid #0c1b3a; outline-offset: 3px; }
+/* Mini: cuando la tarjeta taparía un botón o el título de la portada. Misma altura que WhatsApp. */
+.qr--mini { padding: 6px; }
+.qr--mini img { width: 48px; height: 48px; }
+.qr--mini span { display: none; }
+.qr--oculto { visibility: hidden; }
+.qr[hidden], .qr-modal[hidden] { display: none; }
+@media (max-width: 899px) { .qr img { width: 112px; height: 112px; } .qr--mini img { width: 44px; height: 44px; } }
+@media (max-width: 560px) { .qr { left: calc(14px + env(safe-area-inset-left)); bottom: calc(14px + env(safe-area-inset-bottom)); } }
+
+.qr-modal { position: fixed; inset: 0; z-index: 95; display: flex; align-items: center; justify-content: center; padding: calc(16px + env(safe-area-inset-top)) 16px calc(16px + env(safe-area-inset-bottom)); overflow: auto; background: #fff; color: #0c1b3a; }
+.qr-modal__caja { display: flex; flex-direction: column; align-items: center; gap: 20px; margin: auto; text-align: center; }
+.qr-modal__logo { display: block; width: auto; height: 46px; max-width: 80vw; }
+.qr-modal__codigo { display: block; width: min(80vw, 420px); height: min(80vw, 420px); max-width: none; }
+.qr-modal__texto { margin: 0; font: 600 1.15rem/1.3 Inter, system-ui, sans-serif; }
+.qr-modal__cerrar { position: absolute; top: calc(12px + env(safe-area-inset-top)); right: calc(12px + env(safe-area-inset-right)); display: grid; place-items: center; width: 48px; height: 48px; padding: 0; border: 0; border-radius: 50%; background: #eef1f6; color: #0c1b3a; font: 400 1.8rem/1 system-ui, sans-serif; cursor: pointer; }

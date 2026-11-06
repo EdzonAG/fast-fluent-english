@@ -52,6 +52,13 @@ window.TOURS_CONFIG = {
     ]
   },
 
+  // Destino del QR flotante. Al cambiarlo, el QR se vuelve a generar en el build.
+  qrUrl: "https://www.spectacultours.mx/?utm_source=qr&utm_medium=presencial",
+  qrTextos: {
+    en: { escanea: "Scan me", ampliar: "Show the QR code larger", modal: "Scan to save SpectaCulTours", cerrar: "Close", alt: "QR code for the SpectaCulTours website" },
+    es: { escanea: "Escanéame", ampliar: "Mostrar el código QR más grande", modal: "Escanea para guardar SpectaCulTours", cerrar: "Cerrar", alt: "Código QR del sitio de SpectaCulTours" }
+  },
+
   // Fechas de tours. Una fecha se oculta sola al día siguiente de "fin".
   // destino: se muestra solo si está lleno; "[DESTINO]" significa que falta el dato.
   // paquete: "bcs" o "chiapas" para que salga en la página de ese destino. Sin definir (null), sale en ambas.
