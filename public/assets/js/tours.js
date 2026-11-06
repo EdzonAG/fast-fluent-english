@@ -16,10 +16,18 @@
     } catch (e) { return null; }
   }
 
+  // Los textos de ballena viven en la configuración: el inglés ya viene en el HTML del build.
+  if (CFG.ballena) {
+    I18N.es["w.frase"] = CFG.ballena.frase.es;
+    CFG.ballena.fotos.forEach(function (f, i) { I18N.es["w.foto." + i] = f.alt.es; });
+    CFG.ballena.videos.forEach(function (v, i) { I18N.es["w.video." + i] = v.titulo.es; });
+  }
+
   /* ---------------- Language (shared with the FAST English site) ---------------- */
   var EN = {};
   $$("[data-i18n]").forEach(function (el) { EN[el.dataset.i18n] = el.innerHTML; });
   $$("[data-i18n-alt]").forEach(function (el) { EN[el.dataset.i18nAlt] = el.alt; });
+  $$("[data-i18n-aria]").forEach(function (el) { EN[el.dataset.i18nAria] = el.getAttribute("aria-label"); });
   var urlLang = (location.search.match(/[?&]lang=(en|es)\b/) || [])[1];
   // English is always the default; Spanish only via the footer switch (or ?lang=es).
   // The choice lasts for this tab's visit and is shared with the FAST English pages.
@@ -42,6 +50,10 @@
     $$("[data-i18n-alt]").forEach(function (el) {
       var v = dict[el.dataset.i18nAlt];
       if (v != null) el.alt = v;
+    });
+    $$("[data-i18n-aria]").forEach(function (el) {
+      var v = dict[el.dataset.i18nAria];
+      if (v != null) el.setAttribute("aria-label", v);
     });
     updateWa();
     updatePrices();
@@ -177,69 +189,112 @@
     $$(".reveal").forEach(function (el) { el.classList.add("is-in"); });
   }
 
-  /* ---------------- Overlay: videos & photos ---------------- */
+  /* ---------------- Overlay: videos ---------------- */
   var overlay = document.createElement("div");
   overlay.className = "overlay";
   overlay.hidden = true;
   overlay.setAttribute("role", "dialog");
   overlay.setAttribute("aria-modal", "true");
   document.body.appendChild(overlay);
-  var gallery = [], gIndex = 0, lastFocus = null;
+  var lastFocus = null;
 
-  function openOverlay(html) {
-    lastFocus = document.activeElement;
-    overlay.innerHTML = '<button class="overlay__close" type="button" aria-label="Close">' + icon("close") + "</button>" + html;
-    overlay.hidden = false;
-    document.body.style.overflow = "hidden";
-    overlay.querySelector(".overlay__close").focus();
-  }
   function closeOverlay() {
     overlay.hidden = true;
     overlay.innerHTML = "";
     document.body.style.overflow = "";
     if (lastFocus) lastFocus.focus();
   }
-  function showVideo(id) {
-    openOverlay('<div class="overlay__frame"><iframe src="https://www.youtube-nocookie.com/embed/' + id +
-      '?autoplay=1&rel=0" title="SpectaCulTours video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>');
-  }
-  function showPhoto(i) {
-    gIndex = (i + gallery.length) % gallery.length;
-    var img = gallery[gIndex];
-    var nav = gallery.length > 1
-      ? '<button class="overlay__nav overlay__nav--prev" type="button" aria-label="Previous">' + icon("arrow") + "</button>" +
-        '<button class="overlay__nav overlay__nav--next" type="button" aria-label="Next">' + icon("arrow") + "</button>"
-      : "";
-    openOverlay('<figure style="margin:0;text-align:center"><img class="overlay__img" src="' + img.src + '" alt="' + (img.alt || "") + '">' +
-      (img.alt ? '<figcaption class="overlay__cap">' + img.alt + "</figcaption>" : "") + "</figure>" + nav);
+  // El iframe se crea hasta aquí: antes del clic no se carga nada de YouTube.
+  function showVideo(id, title) {
+    lastFocus = document.activeElement;
+    overlay.setAttribute("aria-label", title);
+    overlay.innerHTML = '<button class="overlay__close" type="button" aria-label="' + t("close") + '">' + icon("close") + "</button>" +
+      '<div class="overlay__frame"><iframe src="https://www.youtube-nocookie.com/embed/' + id +
+      '?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>' +
+      '<span class="overlay__fin" tabindex="0"></span>';
+    overlay.querySelector("iframe").title = title;
+    overlay.hidden = false;
+    document.body.style.overflow = "hidden";
+    overlay.querySelector(".overlay__close").focus();
   }
   overlay.addEventListener("click", function (e) {
     if (e.target === overlay || e.target.closest(".overlay__close")) closeOverlay();
-    else if (e.target.closest(".overlay__nav--prev")) showPhoto(gIndex - 1);
-    else if (e.target.closest(".overlay__nav--next")) showPhoto(gIndex + 1);
+  });
+  // Foco atrapado: al salir del video por el final regresa a cerrar, y al revés.
+  overlay.addEventListener("focusin", function (e) {
+    if (e.target.classList.contains("overlay__fin")) overlay.querySelector(".overlay__close").focus();
   });
   document.addEventListener("keydown", function (e) {
     if (overlay.hidden) { if (e.key === "Escape" && !menu.hidden) closeMenu(); return; }
     if (e.key === "Escape") closeOverlay();
-    if (gallery.length && overlay.querySelector(".overlay__img")) {
-      if (e.key === "ArrowLeft") showPhoto(gIndex - 1);
-      if (e.key === "ArrowRight") showPhoto(gIndex + 1);
+    if (e.key === "Tab" && e.shiftKey && document.activeElement === overlay.querySelector(".overlay__close")) {
+      e.preventDefault();
+      overlay.querySelector("iframe").focus();
     }
   });
+  $$("[data-video]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var cap = b.querySelector("[data-i18n^='w.video']") || b.querySelector(".tile__cap b, .vcard__body");
+      showVideo(b.dataset.video, cap ? cap.textContent.trim() : "SpectaCulTours video");
+    });
+  });
 
-  $$("[data-video]").forEach(function (b) { b.addEventListener("click", function () { showVideo(b.dataset.video); }); });
+  /* ---------------- Visor de fotos: PhotoSwipe, se descarga al abrir la primera foto ---------------- */
+  var visor = null;
+  function cargarVisor() {
+    if (!visor) {
+      var hoja = new Promise(function (ok, mal) {
+        var css = document.createElement("link");
+        css.rel = "stylesheet";
+        css.href = document.body.dataset.pswpCss;
+        css.onload = ok;
+        css.onerror = mal;
+        document.head.appendChild(css);
+      });
+      visor = Promise.all([import(document.body.dataset.pswpJs), hoja]).then(function (r) { return r[0].default; });
+    }
+    return visor;
+  }
+  function abrirVisor(items, i) {
+    cargarVisor().then(function (PhotoSwipe) {
+      var v = t("viewer");
+      var pswp = new PhotoSwipe({
+        dataSource: items,
+        index: i,
+        bgOpacity: 0.92,
+        showHideAnimationType: reduceMotion ? "none" : "fade",
+        secondaryZoomLevel: 2,
+        maxZoomLevel: 4,
+        closeTitle: t("close"),
+        zoomTitle: v.zoom,
+        arrowPrevTitle: v.prev,
+        arrowNextTitle: v.next,
+        errorMsg: v.error
+      });
+      pswp.on("uiRegister", function () {
+        pswp.ui.registerElement({
+          name: "pie",
+          className: "pswp__pie",
+          appendTo: "root",
+          onInit: function (el) { pswp.on("change", function () { el.textContent = pswp.currSlide.data.alt || ""; }); }
+        });
+      });
+      pswp.init();
+    }).catch(function () { visor = null; window.open(items[i].src, "_blank", "noopener"); });
+  }
+  function itemDe(im) {
+    return { src: im.dataset.full || im.currentSrc || im.src, width: +im.dataset.fullW || im.naturalWidth, height: +im.dataset.fullH || im.naturalHeight, alt: im.alt };
+  }
   $$("[data-photo]").forEach(function (b) {
     b.addEventListener("click", function () {
-      gallery = [{ src: b.dataset.photo, alt: (b.querySelector(".tile__cap b") || {}).textContent || "" }];
-      showPhoto(0);
+      abrirVisor([{ src: b.dataset.photo, width: +b.dataset.fullW, height: +b.dataset.fullH, alt: (b.querySelector(".tile__cap b") || {}).textContent || "" }], 0);
     });
   });
   $$("[data-gallery]").forEach(function (g) {
     var items = $$("button", g);
     items.forEach(function (b, i) {
       b.addEventListener("click", function () {
-        gallery = items.map(function (x) { var im = x.querySelector("img"); return { src: im.dataset.full || im.currentSrc || im.src, alt: im.alt }; });
-        showPhoto(i);
+        abrirVisor(items.map(function (x) { return itemDe(x.querySelector("img")); }), i);
       });
     });
   });
@@ -253,21 +308,12 @@
     if (!im.alt) im.setAttribute("aria-label", "Open photo");
     function open() {
       var group = zoomable.filter(function (x) { return x.closest("section") === im.closest("section"); });
-      gallery = group.map(function (x) { return { src: x.dataset.full || x.currentSrc || x.src, alt: x.alt }; });
-      showPhoto(group.indexOf(im));
+      abrirVisor(group.map(itemDe), group.indexOf(im));
     }
     im.addEventListener("click", open);
     im.addEventListener("keydown", function (e) {
       if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
     });
-  });
-  var touchX = null;
-  overlay.addEventListener("touchstart", function (e) { touchX = e.touches.length === 1 ? e.touches[0].clientX : null; }, { passive: true });
-  overlay.addEventListener("touchend", function (e) {
-    if (touchX === null || gallery.length < 2 || !overlay.querySelector(".overlay__img")) return;
-    var dx = e.changedTouches[0].clientX - touchX;
-    touchX = null;
-    if (Math.abs(dx) > 50) showPhoto(gIndex + (dx < 0 ? 1 : -1));
   });
 
   /* ---------------- WhatsApp tip ---------------- */

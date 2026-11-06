@@ -6,6 +6,9 @@
 window.TOURS_I18N = {
   es: {
     /* ---- shared ---- */
+    "w.fotos": "Fotos de ballena azul",
+    "w.videos": "Videos de ballena azul",
+    "w.play": "Reproducir video:",
     "h.alt.bcs": "Loreto y Mulegé, Baja California Sur: playa de arena blanca y agua turquesa bajo un cielo azul",
     "h.alt.chi": "Lagos de Colón, Chiapas: lago verde rodeado de árboles, con una persona nadando",
     "t.nav.packages": "Paquetes y precios",
@@ -282,6 +285,8 @@ window.TOURS_I18N = {
 
   dynamic: {
     en: {
+      close: "Close",
+      viewer: { zoom: "Zoom", prev: "Previous", next: "Next", error: "This photo could not be loaded." },
       "h.wa.hello": "Hi! I saw the SpectaCulTours website and I'd like information about the expeditions.",
       "c.wa.hello": "Hi! I'd like information about the SpectaCulTour Chiapas expedition.",
       "b.wa.hello": "Hi! I'd like information about the SpectaCulTour Baja California Sur expedition.",
@@ -299,6 +304,8 @@ window.TOURS_I18N = {
       vipLine: "Solo {s} · Couple {c}"
     },
     es: {
+      close: "Cerrar",
+      viewer: { zoom: "Acercar", prev: "Anterior", next: "Siguiente", error: "No se pudo cargar esta foto." },
       "h.wa.hello": "¡Hola! Vi el sitio de SpectaCulTours y me gustaría información sobre las expediciones.",
       "c.wa.hello": "¡Hola! Me gustaría información sobre la expedición SpectaCulTour Chiapas.",
       "b.wa.hello": "¡Hola! Me gustaría información sobre la expedición SpectaCulTour Baja California Sur.",

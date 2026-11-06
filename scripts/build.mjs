@@ -28,6 +28,7 @@ const COL = "calc(100vw - 48px)";
 const TAMANOS = {
   portada: "(max-width: 899px) 100vw, 60vw",
   "portada-solo": "(max-width: 899px) 100vw, 80vw",
+  ballena: "(max-width: 1099px) calc(100vw - 48px), 380px",
   tile: `(max-width: 560px) ${COL}, (max-width: 1000px) calc(50vw - 32px), 290px`,
   "tile-big": `(max-width: 1000px) ${COL}, 590px`,
   mosaic: "(max-width: 980px) 58vw, 340px",
@@ -137,6 +138,8 @@ function expandirImg(etiqueta, pagina, avisos, cargas) {
   attrs.set("width", String(datos.width));
   attrs.set("height", String(datos.height));
   attrs.set("data-full", mayor(webp).ruta);
+  attrs.set("data-full-w", String(mayor(webp).w));
+  attrs.set("data-full-h", String(mayor(webp).h));
   if (!attrs.has("alt")) attrs.set("alt", "");
   if (prioritaria) {
     attrs.delete("loading");
@@ -150,13 +153,39 @@ function expandirImg(etiqueta, pagina, avisos, cargas) {
   return `<picture><source type="image/avif" srcset="${srcset(avif)}" sizes="${escapar(sizes || "100vw")}"><source type="image/webp" srcset="${srcset(webp)}" sizes="${escapar(sizes || "100vw")}"><img ${serializar(attrs)}></picture>`;
 }
 
-/* ---------- 3. Páginas ---------- */
+/* ---------- 3. Sección de ballena, armada desde la configuración ---------- */
+const textoHtml = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+function seccionBallena() {
+  const { frase, fotos, videos } = config.ballena;
+  const listaFotos = fotos.map((f, i) =>
+    `<button type="button"><img data-sizes="ballena" src="/${f.src}" alt="${textoHtml(f.alt.en)}" data-i18n-alt="w.foto.${i}"></button>`
+  ).join("\n      ");
+  const listaVideos = videos.map((v, i) =>
+    `<li><button class="vcard" type="button" data-video="${v.id}"><span class="vcard__thumb"><img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt=""><span class="tile__play"><svg class="i"><use href="/assets/img/icons.svg#play"/></svg></span></span>` +
+    `<span class="vcard__body"><span class="sr-only" data-i18n="w.play">Play video:</span> <span data-i18n="w.video.${i}">${textoHtml(v.titulo.en)}</span></span></button></li>`
+  ).join("\n      ");
+  return `<section class="ballena" id="ballena" aria-labelledby="ballena-frase">
+  <div class="container">
+    <h2 class="ballena__frase" id="ballena-frase" data-i18n="w.frase">${textoHtml(frase.en)}</h2>
+    <div class="ballena__fotos" data-gallery data-n="${fotos.length}" role="group" aria-label="Blue whale photos" data-i18n-aria="w.fotos">
+      ${listaFotos}
+    </div>
+    <ul class="ballena__videos" aria-label="Blue whale videos" data-i18n-aria="w.videos">
+      ${listaVideos}
+    </ul>
+  </div>
+</section>`;
+}
+
+/* ---------- 4. Páginas ---------- */
 const avisos = [];
 for (const archivo of listar(DIST).filter((f) => f.endsWith(".html"))) {
   const url = aUrl(archivo);
   const pagina = url.endsWith("/") ? url : url.replace(/[^/]*$/, "");
   let html = readFileSync(archivo, "utf8");
   const cargas = [];
+
+  html = html.replace("<!--ballena-->", seccionBallena);
 
   // Orden de los destinos según destinoDestacado.
   html = html.replace(/<!--destinos-->([\s\S]*?)<!--\/destinos-->/g, (m, bloque) => {
@@ -178,11 +207,12 @@ for (const archivo of listar(DIST).filter((f) => f.endsWith(".html"))) {
   html = html.replace(/\b(data-photo|data-full-src)="([^"]+)"/g, (m, attr, src) => {
     const datos = manifiesto[claveDe(posix.resolve(pagina, src))];
     if (!datos) { avisos.push(`${url}: ${attr} sin manifiesto: ${src}`); return m; }
-    return `${attr === "data-photo" ? "data-photo" : "data-full"}="${mayor(datos.variantes.webp).ruta}"`;
+    const v = mayor(datos.variantes.webp);
+    return `${attr === "data-photo" ? "data-photo" : "data-full"}="${v.ruta}" data-full-w="${v.w}" data-full-h="${v.h}"`;
   });
 
   // CSS, JS y sprite con hash.
-  html = html.replace(/\b(href|src|data-icons)="([^"#?]+)(#[^"]*)?"/g, (m, attr, ruta, frag = "") => {
+  html = html.replace(/\b(href|src|data-icons|data-pswp-js|data-pswp-css)="([^"#?]+)(#[^"]*)?"/g, (m, attr, ruta, frag = "") => {
     if (/^[a-z]+:/i.test(ruta)) return m;
     const destino = mapa.get(posix.resolve(pagina, ruta));
     return destino ? `${attr}="${destino}${frag}"` : m;

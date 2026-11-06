@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "jsqr": "^1.4.0",
+    "photoswipe": "^5.4.4",
     "pixelmatch": "^8.0.0",
     "playwright": "^1.65.0",
     "pngjs": "^7.0.0",

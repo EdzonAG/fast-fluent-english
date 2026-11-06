@@ -11,6 +11,47 @@ window.TOURS_CONFIG = {
   // A partir de marzo, cambiar a "chiapas" y volver a desplegar.
   destinoDestacado: "bcs",
 
+  // Sección de ballena azul (inicio y página de BCS). Va justo debajo de la portada de Loreto y Mulegé.
+  // fotos: rutas de assets-originales ya procesadas con "npm run imagenes". videos: id de YouTube.
+  ballena: {
+    frase: {
+      en: "Loreto, BCS, is the only place in the world where Blue Whale watching is guaranteed",
+      es: "Loreto, BCS, es el único lugar del mundo donde el avistamiento de ballena azul está garantizado"
+    },
+    fotos: [
+      {
+        src: "assets/img/ballena/bcs-ballena-foto-01.jpg",
+        alt: {
+          en: "Blue-gray whale tail rising from the water in a cascade, with mountains in the background",
+          es: "Cola de ballena azul-grisácea saliendo del agua con cascada de agua, montañas al fondo"
+        }
+      },
+      {
+        src: "assets/img/ballena/bcs-ballena-foto-03.jpg",
+        alt: {
+          en: "Whale tail lifting with water streaming off it, clear horizon",
+          es: "Cola de ballena levantándose con agua escurriendo, horizonte despejado"
+        }
+      },
+      {
+        src: "assets/img/ballena/bcs-ballena-foto-04.jpg",
+        alt: {
+          en: "Whale tail, gray in color, with water falling from it; distant coast and a boat in the background",
+          es: "Cola de ballena de color gris con agua cayendo, costa lejana y una lancha al fondo"
+        }
+      }
+    ],
+    videos: [
+      { id: "LyiDEUgSIAs", titulo: { en: "Whale in the distance raising its tail in front of the sierra", es: "Ballena a lo lejos levantando la cola frente a la sierra" } },
+      { id: "Rbb6OL761Nk", titulo: { en: "Whale's back and dorsal fin in a very calm sea", es: "Lomo y aleta dorsal de ballena en mar muy calmo" } },
+      { id: "t6dm55ArCcw", titulo: { en: "Whale's gray back off a rocky coast", es: "Lomo gris de ballena frente a costa rocosa" } },
+      { id: "8xeYU-N8cb8", titulo: { en: "Whale raising its tail and splashing, reddish coast in the background", es: "Ballena levantando la cola y salpicando, costa rojiza al fondo" } },
+      { id: "ESV94NizlOY", titulo: { en: "Whale leaping in front of mountains", es: "Salto de ballena frente a montañas" } },
+      { id: "GRCz-HWflbc", titulo: { en: "Blue whale tail raised, misty sierra in the background", es: "Cola de ballena azul levantada, sierra brumosa al fondo" } },
+      { id: "aSKArkkvZJ8", titulo: { en: "Long blue-gray whale surfacing in open sea", es: "Ballena gris-azulada larga emergiendo en mar abierto" } }
+    ]
+  },
+
   whatsapp: "525530071808",
   phone: "+525530071808",
   phoneDisplay: "+52 55 3007 1808",
