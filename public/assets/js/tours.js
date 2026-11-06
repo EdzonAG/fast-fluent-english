@@ -29,15 +29,8 @@
   $$("[data-i18n-alt]").forEach(function (el) { EN[el.dataset.i18nAlt] = el.alt; });
   $$("[data-i18n-aria]").forEach(function (el) { EN[el.dataset.i18nAria] = el.getAttribute("aria-label"); });
   var urlLang = (location.search.match(/[?&]lang=(en|es)\b/) || [])[1];
-  // English is always the default; Spanish only via the footer switch (or ?lang=es).
-  // The choice lasts for this tab's visit and is shared with the FAST English pages.
-  function session(key, val) {
-    try {
-      if (val === undefined) return sessionStorage.getItem(key);
-      sessionStorage.setItem(key, val);
-    } catch (e) { return null; }
-  }
-  var lang = urlLang || session("fast-lang") || "en";
+  // Abre en inglés salvo que el visitante haya elegido español con el botón del header (o ?lang=es).
+  var lang = urlLang || SITIO.idiomaGuardado() || "en";
   function t(key) { var d = I18N.dynamic[lang]; return d[key] != null ? d[key] : I18N.dynamic.en[key]; }
 
   function applyLang() {
@@ -64,7 +57,7 @@
   var langBtn = $("#langToggle");
   if (langBtn) langBtn.addEventListener("click", function () {
     lang = lang === "en" ? "es" : "en";
-    session("fast-lang", lang);
+    SITIO.guardarIdioma(lang);
     applyLang();
   });
 

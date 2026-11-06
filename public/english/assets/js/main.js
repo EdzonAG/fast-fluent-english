@@ -14,22 +14,15 @@
       localStorage.setItem(key, val);
     } catch (e) { return null; }
   }
-  // Per-tab memory: a language switch survives navigation within the visit only.
-  function session(key, val) {
-    try {
-      if (val === undefined) return sessionStorage.getItem(key);
-      sessionStorage.setItem(key, val);
-    } catch (e) { return null; }
-  }
 
   /* ---------------- Language ---------------- */
   var EN = {};
   $$("[data-i18n]").forEach(function (el) { EN[el.dataset.i18n] = el.innerHTML; });
   $$("[data-i18n-placeholder]").forEach(function (el) { EN[el.dataset.i18nPlaceholder] = el.placeholder; });
 
-  // English is always the default; Spanish only via the footer switch (or ?lang=es).
+  // Abre en inglés salvo que el visitante haya elegido español con el botón del header (o ?lang=es).
   var urlLang = (location.search.match(/[?&]lang=(en|es)\b/) || [])[1];
-  var lang = urlLang || session("fast-lang") || "en";
+  var lang = urlLang || SITIO.idiomaGuardado() || "en";
 
   function t(key) { return I18N.dynamic[lang][key] != null ? I18N.dynamic[lang][key] : I18N.dynamic.en[key]; }
   // Los mensajes de WhatsApp siguen su propia regla de idioma (comun.js).
@@ -59,7 +52,7 @@
 
   $("#langToggle").addEventListener("click", function () {
     lang = lang === "en" ? "es" : "en";
-    session("fast-lang", lang);
+    SITIO.guardarIdioma(lang);
     applyLang();
   });
 

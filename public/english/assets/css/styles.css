@@ -640,10 +640,12 @@ body:has(.calendly-overlay) .wa { display: none; }
 .about__cert figcaption { font-size: .9rem; color: var(--ink-2); }
 
 /* Discreet language switch (footer) */
-.lang-mini { display: inline-flex; align-items: center; gap: 6px; font-size: .82rem; color: #7c88b3; padding: 4px 8px; border-radius: 8px; transition: color .2s, background .2s; }
-.lang-mini:hover { color: #fff; background: rgba(255, 255, 255, .06); }
-.lang-mini .i { width: 15px; height: 15px; }
-html[lang="en"] .lang-mini [data-lang="es"], html[lang="es"] .lang-mini [data-lang="en"] { display: none; }
+/* Botón de idioma en el header */
+.lang-btn { flex: none; display: inline-flex; align-items: center; gap: 5px; height: 40px; padding: 0 11px 0 9px; border: 1px solid rgba(127, 140, 160, .45); border-radius: 999px; background: transparent; color: inherit; font-size: .85rem; font-weight: 700; letter-spacing: .02em; line-height: 1; cursor: pointer; transition: background .2s; }
+.lang-btn:hover { background: rgba(127, 140, 160, .14); }
+.lang-btn .i { width: 17px; height: 17px; }
+html[lang="en"] .lang-btn [data-lang="es"], html[lang="es"] .lang-btn [data-lang="en"] { display: none; }
+@media (max-width: 350px) { .nav__inner { gap: 6px; } .nav__back { padding: 0 8px; height: 36px; } .logo__chip { padding: 4px 6px; } .logo__chip img { width: 92px; height: auto; } .logo__text { display: none; } .lang-btn { height: 36px; padding: 0 7px; } .nav__burger { width: 36px; } }
 .footer__legal { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 4px 12px; }
 
 /* Back to spectacultours.mx */

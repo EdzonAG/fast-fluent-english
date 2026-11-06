@@ -50,6 +50,25 @@ window.SITIO = (function () {
     return "https://wa.me/" + CFG.whatsapp + (texto ? "?text=" + encodeURIComponent(texto) : "");
   }
 
+  /* ---------------- Idioma elegido: se recuerda entre visitas y entre los dos sitios ---------------- */
+  var CLAVE_IDIOMA = "fast-lang";
+  function idiomaGuardado() {
+    try { return localStorage.getItem(CLAVE_IDIOMA); } catch (e) { return null; }
+  }
+  function guardarIdioma(idioma) {
+    try { localStorage.setItem(CLAVE_IDIOMA, idioma); } catch (e) { /* modo privado: dura esta página */ }
+  }
+  function iniciarBotonIdioma() {
+    var btn = document.getElementById("langToggle");
+    if (!btn) return;
+    function etiqueta() {
+      btn.setAttribute("aria-label", document.documentElement.lang === "es" ? "View in English" : "Ver en español");
+    }
+    new MutationObserver(etiqueta).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+    etiqueta();
+  }
+  iniciarBotonIdioma();
+
   /* ---------------- WhatsApp ---------------- */
   // Español si el visitante eligió español o si su navegador empieza con "es".
   function idiomaWhatsApp(idiomaPagina) {
@@ -174,6 +193,8 @@ window.SITIO = (function () {
   iniciarQR();
 
   return {
+    idiomaGuardado: idiomaGuardado,
+    guardarIdioma: guardarIdioma,
     rangoFechas: rangoFechas,
     fechasVigentes: fechasVigentes,
     destinoLleno: destinoLleno,
