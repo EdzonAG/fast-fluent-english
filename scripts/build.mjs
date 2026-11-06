@@ -65,6 +65,7 @@ function publicarConHash(archivo, contenido) {
 
 const todos = listar(DIST);
 todos.filter((f) => f.endsWith(".woff2")).forEach((f) => publicarConHash(f));
+todos.filter((f) => /[\\/]assets[\\/]img[\\/]logos[\\/].+\.svg$/.test(f)).forEach((f) => publicarConHash(f));
 todos.filter((f) => /[\\/]assets[\\/]img[\\/]icons\.svg$/.test(f)).forEach((f) => publicarConHash(f));
 todos.filter((f) => /[\\/]assets[\\/]js[\\/].+\.js$/.test(f)).forEach((f) => publicarConHash(f));
 todos.filter((f) => /[\\/]assets[\\/]css[\\/].+\.css$/.test(f)).forEach((f) => {
@@ -108,7 +109,7 @@ function expandirImg(etiqueta, pagina, avisos, cargas) {
   const ruta = posix.resolve(posix.dirname(pagina), src.split("?")[0]);
   const datos = manifiesto[claveDe(ruta)];
   if (!datos) {
-    if (!existsSync(join(DIST, ruta))) avisos.push(`${pagina}: imagen inexistente ${src}`);
+    if (!mapa.has(ruta) && !existsSync(join(DIST, ruta))) avisos.push(`${pagina}: imagen inexistente ${src}`);
     attrs.set("decoding", "async");
     return `<img ${serializar(attrs)}>`;
   }

@@ -93,7 +93,8 @@ h1 em, h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; 
 .t-nav.is-scrolled { background: rgba(255, 255, 255, .86); -webkit-backdrop-filter: saturate(180%) blur(16px); backdrop-filter: saturate(180%) blur(16px); color: var(--ink); box-shadow: 0 1px 0 var(--line); }
 .t-nav__inner { height: 100%; display: flex; align-items: center; gap: 20px; }
 .t-logo { display: inline-flex; align-items: center; gap: 10px; background: #fff; border-radius: 12px; padding: 6px 12px; box-shadow: 0 6px 18px -8px rgba(0, 0, 0, .35); }
-.t-logo img { height: 26px; width: auto; }
+.t-logo img { height: 34px; width: auto; }
+.t-footer .t-logo { background: none; box-shadow: none; padding: 0; }
 .t-logo__place { font-family: var(--display); font-weight: 700; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--brand-blue); border-left: 1.5px solid #dde3ef; padding-left: 10px; white-space: nowrap; }
 .t-nav__links { display: flex; gap: 2px; margin-left: auto; }
 .t-nav__links a { padding: 8px 13px; border-radius: 999px; font-size: .92rem; font-weight: 500; opacity: .88; white-space: nowrap; transition: background .2s, opacity .2s; }
@@ -464,7 +465,7 @@ h1 em, h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; 
 .t-back:hover { background: rgba(255, 255, 255, .22); transform: translateX(-2px); }
 .t-nav.is-scrolled .t-back { background: var(--bg-2); border-color: var(--line); }
 .t-nav.is-scrolled .t-back:hover { background: #fff; }
-@media (max-width: 560px) { .t-back { padding: 0 12px 0 9px; font-size: .85rem; } .t-nav__inner { gap: 10px; } .t-logo { padding: 5px 9px; } .t-logo img { height: 22px; } }
+@media (max-width: 560px) { .t-back { padding: 0 12px 0 9px; font-size: .85rem; } .t-nav__inner { gap: 10px; } .t-logo { padding: 5px 9px; } .t-logo img { height: 30px; } }
 @media (max-width: 340px) { .t-back span { display: none; } .t-back { padding: 0 11px; } }
 .m-menu__back { font-weight: 600 !important; color: var(--deep); background: var(--bg-2); margin-bottom: 4px; }
 .crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 18px; font-size: .86rem; color: var(--on-deep-2); }

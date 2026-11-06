@@ -518,6 +518,8 @@ h2 em, h1 em { font-family: var(--serif); font-style: italic; font-weight: 400; 
 .footer ul a:hover { color: #fff; }
 .footer__brand p { margin: 18px 0 22px; max-width: 320px; }
 .logo--light { color: #fff; }
+.logo--light .logo__chip { background: none; box-shadow: none; padding: 0; }
+.logo--light .logo__chip img { height: 26px; }
 .social { display: flex; flex-wrap: wrap; gap: 8px; }
 .social a { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: rgba(255, 255, 255, .06); color: #dbe3fb; transition: background .2s, transform .2s; }
 .social a:hover { background: var(--blue-600); transform: translateY(-3px); color: #fff; }
@@ -593,8 +595,7 @@ body:has(.calendly-overlay) .wa { display: none; }
   box-shadow: var(--shadow-lg); transition: transform .4s var(--ease); }
 .tours-portal:hover { transform: translateY(-4px); }
 .tours-portal__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
-.tours-portal__logo { background: #fff; border-radius: 12px; padding: 7px 12px; box-shadow: 0 6px 18px -8px rgba(0, 0, 0, .35); }
-.tours-portal__logo img { height: 24px; width: auto; display: block; }
+.tours-portal__logo img { height: 30px; width: auto; display: block; }
 .tours-portal .eyebrow { margin: 6px 0 0; color: #fbbf24; }
 .tours-portal__title { font-family: var(--display); font-weight: 700; font-size: clamp(1.9rem, 3.6vw, 2.8rem); line-height: 1.1; letter-spacing: -.02em; }
 .tours-portal__title em { font-family: var(--serif); font-style: italic; font-weight: 400; color: #fbbf24; }

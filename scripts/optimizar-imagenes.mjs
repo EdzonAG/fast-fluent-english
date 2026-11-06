@@ -114,6 +114,16 @@ for (const [clave, datos] of Object.entries(anterior)) {
 }
 writeFileSync(MANIFIESTO, JSON.stringify(nuevo, null, 1) + "\n");
 
+// Vista previa al compartir (1200x630, ruta fija): recorte inferior que conserva el título de la portada.
+const OG = join(RAIZ, "public", "assets", "img", "og");
+mkdirSync(OG, { recursive: true });
+for (const nombre of ["loreto-mulege", "lagos-de-colon"]) {
+  await sharp(join(ORIGINALES, "assets", "img", "portadas", `${nombre}.png`))
+    .resize({ width: 1200, height: 630, fit: "cover", position: "bottom" })
+    .jpeg({ quality: 80, mozjpeg: true })
+    .toFile(join(OG, `${nombre}.jpg`));
+}
+
 const kb = (b) => (b / 1024).toFixed(0).padStart(4);
 const filas = Object.entries(nuevo).map(([clave, d]) => {
   const de = (f, w) => d.variantes[f].find((v) => v.w === w) || d.variantes[f][d.variantes[f].length - 1];
