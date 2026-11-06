@@ -50,6 +50,20 @@ window.SITIO = (function () {
     return "https://wa.me/" + CFG.whatsapp + (texto ? "?text=" + encodeURIComponent(texto) : "");
   }
 
+  /* ---------------- WhatsApp ---------------- */
+  // Español si el visitante eligió español o si su navegador empieza con "es".
+  function idiomaWhatsApp(idiomaPagina) {
+    var navegador = (navigator.language || "").toLowerCase();
+    return idiomaPagina === "es" || navegador.indexOf("es") === 0 ? "es" : "en";
+  }
+  function mensajeWhatsApp(clave, idiomaPagina) {
+    return CFG.mensajesWhatsApp[clave][idiomaWhatsApp(idiomaPagina)];
+  }
+  function mensajeFecha(f, idiomaPagina) {
+    var l = idiomaWhatsApp(idiomaPagina);
+    return CFG.mensajesWhatsApp.fecha[l].replace("{tour}", f.tour[l]).replace(/\{(fechas|dates)\}/, rangoFechas(f.inicio, f.fin, l));
+  }
+
   /* ---------------- QR flotante ---------------- */
   function iniciarQR() {
     var btn = document.getElementById("qrAbrir"), modal = document.getElementById("qrModal");
@@ -163,6 +177,9 @@ window.SITIO = (function () {
     rangoFechas: rangoFechas,
     fechasVigentes: fechasVigentes,
     destinoLleno: destinoLleno,
-    urlWhatsApp: urlWhatsApp
+    urlWhatsApp: urlWhatsApp,
+    idiomaWhatsApp: idiomaWhatsApp,
+    mensajeWhatsApp: mensajeWhatsApp,
+    mensajeFecha: mensajeFecha
   };
 })();

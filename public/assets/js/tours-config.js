@@ -69,8 +69,25 @@ window.TOURS_CONFIG = {
     { tour: { en: "Labor", es: "Día del Trabajo" }, inicio: "2027-04-29", fin: "2027-05-03", destino: "[DESTINO]", paquete: null }
   ],
 
-  // Mensajes precargados de WhatsApp.
+  // Mensajes precargados de WhatsApp. Salen en español si el visitante eligió español
+  // o si su navegador está en español; en inglés en cualquier otro caso.
   mensajesWhatsApp: {
+    general: {
+      en: "Hi! I saw the SpectaCulTours website and I'd like more information about the tours.",
+      es: "Hola, vi la página de SpectaCulTours y me gustaría recibir informes de los tours."
+    },
+    loreto: {
+      en: "Hi! I'm interested in the Blue Whale tour in Loreto, BCS. Could you send me more information?",
+      es: "Hola, me interesa el tour de ballena azul en Loreto, BCS. ¿Me pueden dar informes?"
+    },
+    lagos: {
+      en: "Hi! I'm interested in the Lagos de Colón, Chiapas tour. Could you send me more information?",
+      es: "Hola, me interesa el tour a Lagos de Colón, Chiapas. ¿Me pueden dar informes?"
+    },
+    fast: {
+      en: "Hi! I saw the FAST English website and I'd like information about the classes.",
+      es: "Hola, vi la página de FAST English y me gustaría recibir informes de las clases."
+    },
     fecha: {
       en: "Hi! I'm interested in the {tour} tour, {dates}. Are there spots available?",
       es: "Hola, me interesa el tour {tour} del {fechas}. ¿Hay lugares disponibles?"

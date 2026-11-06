@@ -165,7 +165,7 @@ function seccionBallena() {
     `<li><button class="vcard" type="button" data-video="${v.id}"><span class="vcard__thumb"><img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt=""><span class="tile__play"><svg class="i"><use href="/assets/img/icons.svg#play"/></svg></span></span>` +
     `<span class="vcard__body"><span class="sr-only" data-i18n="w.play">Play video:</span> <span data-i18n="w.video.${i}">${textoHtml(v.titulo.en)}</span></span></button></li>`
   ).join("\n      ");
-  return `<section class="ballena" id="ballena" aria-labelledby="ballena-frase">
+  return `<section class="ballena" id="ballena" data-wa-context="loreto" aria-labelledby="ballena-frase">
   <div class="container">
     <h2 class="ballena__frase" id="ballena-frase" data-i18n="w.frase">${textoHtml(frase.en)}</h2>
     <div class="ballena__fotos" data-gallery data-n="${fotos.length}" role="group" aria-label="Blue whale photos" data-i18n-aria="w.fotos">

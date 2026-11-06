@@ -32,6 +32,12 @@
   var lang = urlLang || session("fast-lang") || "en";
 
   function t(key) { return I18N.dynamic[lang][key] != null ? I18N.dynamic[lang][key] : I18N.dynamic.en[key]; }
+  // Los mensajes de WhatsApp siguen su propia regla de idioma (comun.js).
+  function tWa(key) {
+    if (key === "wa.hello") return SITIO.mensajeWhatsApp("fast", lang);
+    var d = I18N.dynamic[SITIO.idiomaWhatsApp(lang)];
+    return d[key] != null ? d[key] : I18N.dynamic.en[key];
+  }
 
   function applyLang() {
     document.documentElement.lang = lang;
@@ -62,7 +68,7 @@
     return "https://wa.me/" + CFG.whatsapp + (text ? "?text=" + encodeURIComponent(text) : "");
   }
   function updateWaLinks() {
-    $$("[data-wa]").forEach(function (a) { a.href = waUrl(t(a.dataset.wa)); });
+    $$("[data-wa]").forEach(function (a) { a.href = waUrl(tWa(a.dataset.wa)); });
   }
   $$("[data-tel]").forEach(function (a) { a.href = "tel:" + CFG.phone; });
   $$("[data-phone]").forEach(function (el) { el.textContent = CFG.phoneDisplay; });
@@ -289,7 +295,7 @@
       var score = answers.reduce(function (a, b) { return a + b; }, 0);
       var lvl = levelFor(score);
       var info = Q.levels[lvl];
-      var msg = t("wa.level").replace("{level}", lvl + " (" + info[0] + ")");
+      var msg = tWa("wa.level").replace("{level}", lvl + " (" + info[0] + ")");
       html = '<div class="quiz__progress"><span>' + Q.resultTitle + '</span><div class="quiz__bar"><span style="width:100%"></span></div></div>' +
         '<div class="result quiz__step"><div class="result__level">' + lvl + '</div>' +
         '<p class="result__name">' + info[0] + "</p><p>" + info[1] + "</p>" +
@@ -357,12 +363,12 @@
   waFab.addEventListener("click", function () { setWa(waPanel.hidden); });
   $("#waClose").addEventListener("click", function () { setWa(false); });
   $$("[data-wa-quick]").forEach(function (b) {
-    b.addEventListener("click", function () { window.open(waUrl(t(b.dataset.waQuick)), "_blank", "noopener"); });
+    b.addEventListener("click", function () { window.open(waUrl(tWa(b.dataset.waQuick)), "_blank", "noopener"); });
   });
   $("#waForm").addEventListener("submit", function (e) {
     e.preventDefault();
     var v = $("#waInput").value.trim();
-    window.open(waUrl(v || t("wa.hello")), "_blank", "noopener");
+    window.open(waUrl(v || tWa("wa.hello")), "_blank", "noopener");
     $("#waInput").value = "";
   });
 

@@ -69,9 +69,9 @@
   });
 
   /* ---------------- Money ---------------- */
-  function money(n) {
+  function money(n, idioma) {
     var s = String(Math.round(n));
-    s = s.replace(/\B(?=(\d{3})+(?!\d))/g, lang === "es" ? "." : ",");
+    s = s.replace(/\B(?=(\d{3})+(?!\d))/g, (idioma || lang) === "es" ? "." : ",");
     return CFG.currency + s;
   }
   function tourTotal(key) { var p = CFG.tours[key]; return p.reservation + p.firstZoom + p.secondZoom; }
@@ -108,11 +108,6 @@
   }
 
   /* ---------------- Fechas de tours ---------------- */
-  // Por ahora el mensaje sale en el idioma de la página.
-  function mensajeFecha(f) {
-    var plantilla = CFG.mensajesWhatsApp.fecha[lang];
-    return plantilla.replace("{tour}", f.tour[lang]).replace(/\{(fechas|dates)\}/, SITIO.rangoFechas(f.inicio, f.fin, lang));
-  }
   function renderFechas() {
     $$("[data-fechas]").forEach(function (ul) {
       var lista = SITIO.fechasVigentes(ul.dataset.fechas);
@@ -121,7 +116,7 @@
         return '<li class="fecha"><div class="fecha__info"><h3>' + f.tour[lang] + '</h3><p class="fecha__dias"><time datetime="' + f.inicio + '">' +
           SITIO.rangoFechas(f.inicio, f.fin, lang) + "</time></p>" +
           (SITIO.destinoLleno(f.destino) ? '<p class="fecha__destino">' + icon("pin") + "<span>" + f.destino + "</span></p>" : "") +
-          '</div><a class="btn btn--wa" target="_blank" rel="noopener" href="' + SITIO.urlWhatsApp(mensajeFecha(f)).replace(/&/g, "&amp;") + '">' + icon("whatsapp") + "<span>" + t("reservar") + "</span></a></li>";
+          '</div><a class="btn btn--wa" target="_blank" rel="noopener" href="' + SITIO.urlWhatsApp(SITIO.mensajeFecha(f, lang)).replace(/&/g, "&amp;") + '">' + icon("whatsapp") + "<span>" + t("reservar") + "</span></a></li>";
       }).join("");
     });
   }
@@ -140,7 +135,8 @@
     box.querySelector('[data-vip-rate="couple"]').textContent = money(p.vipCouple) + " " + t("perDay");
     box.querySelector("[data-vip-days]").textContent = days;
     box.querySelector("[data-vip-total]").textContent = money(total);
-    var msg = t("vipMsg").replace("{tour}", t("tourName")[key]).replace("{type}", t(type)).replace("{days}", days).replace("{total}", money(total));
+    var idiomaWa = SITIO.idiomaWhatsApp(lang), d = I18N.dynamic[idiomaWa];
+    var msg = d.vipMsg.replace("{tour}", d.tourName[key]).replace("{type}", d[type]).replace("{days}", days).replace("{total}", money(total, idiomaWa));
     box.querySelector("[data-vip-wa]").href = waUrl(msg);
   }
   $$("[data-vip]").forEach(function (box) {
@@ -155,7 +151,20 @@
 
   /* ---------------- Config-driven links ---------------- */
   function waUrl(text) { return "https://wa.me/" + CFG.whatsapp + (text ? "?text=" + encodeURIComponent(text) : ""); }
-  function updateWa() { $$("[data-wa]").forEach(function (a) { a.href = waUrl(t(a.dataset.wa)); }); }
+  function updateWa() { $$("[data-wa]").forEach(function (a) { a.href = waUrl(SITIO.mensajeWhatsApp(a.dataset.wa, lang)); }); }
+  // El botón flotante usa el mensaje de la sección que está a media pantalla.
+  var waFlotante = $(".wa-fab__btn"), waBase = waFlotante ? waFlotante.dataset.wa : "general", waZonas = $$("[data-wa-context]");
+  function contextoWa() {
+    if (!waFlotante) return;
+    var mitad = window.innerHeight / 2, contexto = waBase;
+    waZonas.forEach(function (z) {
+      var r = z.getBoundingClientRect();
+      if (r.top <= mitad && r.bottom > mitad) contexto = z.dataset.waContext;
+    });
+    if (contexto === waFlotante.dataset.wa) return;
+    waFlotante.dataset.wa = contexto;
+    waFlotante.href = waUrl(SITIO.mensajeWhatsApp(contexto, lang));
+  }
   $$("[data-tel]").forEach(function (a) { a.href = "tel:" + CFG.phone; });
   $$("[data-phone]").forEach(function (el) { el.textContent = CFG.phoneDisplay; });
   $$("[data-host]").forEach(function (el) { el.textContent = CFG.host; });
@@ -182,6 +191,7 @@
   var tick = false;
   function markActive() {
     tick = false;
+    contextoWa();
     var mid = window.innerHeight / 2, cur = -1;
     navSecs.forEach(function (s, i) { if (!s) return; var r = s.getBoundingClientRect(); if (r.top <= mid && r.bottom > mid) cur = i; });
     navLinks.forEach(function (a, i) { a.classList.toggle("is-active", i === cur); });
