@@ -182,7 +182,7 @@ window.SITIO = (function () {
       if (!carta) medir();
       var H = window.innerHeight;
       var caja = { left: carta.izq, right: carta.izq + carta.ancho, top: H - carta.abajo - carta.alto, bottom: H - carta.abajo };
-      var objetivos = document.querySelectorAll(".btn, .linkbtn, .seg button, input[type=range], .cv");
+      var objetivos = document.querySelectorAll(".btn, .linkbtn, .seg button, input[type=range], .cv, .menu-card");
       var mini = H < 560;
       var i, r;
       for (i = 0; !mini && i < objetivos.length; i++) {
@@ -202,14 +202,15 @@ window.SITIO = (function () {
         if (cruza(caja, { left: r.left + t[0] * r.width, top: r.top + t[1] * r.height, right: r.left + t[2] * r.width, bottom: r.top + t[3] * r.height })) mini = true;
       }
       btn.classList.toggle("qr--mini", mini);
-      // Aun en mini se quita mientras pasa encima de un botón, para no taparlo. Sobre el CV sí se queda.
+      // Aun en mini se quita mientras pasa encima de un botón, para no taparlo.
+      // Sobre el CV y el menú del inicio sí se queda: ahí no tapa el texto.
       var oculto = false;
       if (mini) {
         var m = btn.getBoundingClientRect();
         var cajaMini = { left: carta.izq, right: carta.izq + m.width, top: caja.bottom - m.height, bottom: caja.bottom };
         for (i = 0; !oculto && i < objetivos.length; i++) {
           r = objetivos[i].getBoundingClientRect();
-          oculto = r.width > 0 && !objetivos[i].classList.contains("cv") && cruza(cajaMini, r);
+          oculto = r.width > 0 && !objetivos[i].matches(".cv, .menu-card") && cruza(cajaMini, r);
         }
       }
       btn.classList.toggle("qr--oculto", oculto);

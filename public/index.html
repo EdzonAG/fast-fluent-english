@@ -27,226 +27,37 @@
 <header class="t-nav is-scrolled" id="nav">
   <div class="container t-nav__inner">
     <a href="./" class="t-logo" aria-label="SpectaCulTours"><img src="assets/img/logos/spectacultours_color.svg" alt="SpectaCulTours" width="149" height="34"></a>
-    <nav class="t-nav__links" aria-label="Main">
-      <!--destinos--><!--d:chiapas--><a href="chiapas/">Chiapas</a><!--/d:chiapas-->
-      <!--d:bcs--><a href="baja-california-sur/">Baja California Sur</a><!--/d:bcs--><!--/destinos-->
-      <a href="#moments" data-i18n="h.nav.moments">Real moments</a>
-      <a href="#how" data-i18n="h.nav.how">How it works</a>
-      <a href="#compare" data-i18n="h.nav.compare">Compare</a>
-      <a class="t-nav__extra" href="/english/" data-fast><span data-i18n="t.nav.english">English classes</span></a>
-    </nav>
     <div class="t-nav__actions">
       <button class="lang-btn" id="langToggle" type="button"><svg class="i"><use href="assets/img/icons.svg#globe"/></svg><span data-lang="en">ES</span><span data-lang="es">EN</span></button>
       <a class="btn btn--wa btn--sm t-nav__cta" href="https://wa.me/525530071808" data-wa="general" target="_blank" rel="noopener"><svg class="i"><use href="assets/img/icons.svg#whatsapp"/></svg><span data-i18n="t.cta.waShort">WhatsApp us</span></a>
-      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mMenu"><svg class="i"><use href="assets/img/icons.svg#menu"/></svg></button>
     </div>
-  </div>
-  <div class="m-menu" id="mMenu" hidden>
-    <!--destinos--><!--d:chiapas--><a href="chiapas/">Chiapas</a><!--/d:chiapas-->
-    <!--d:bcs--><a href="baja-california-sur/">Baja California Sur</a><!--/d:bcs--><!--/destinos-->
-    <a href="#moments" data-i18n="h.nav.moments">Real moments</a>
-    <a href="#how" data-i18n="h.nav.how">How it works</a>
-    <a href="#compare" data-i18n="h.nav.compare">Compare</a>
-    <a class="m-menu__extra" href="/english/" data-fast>🎓 <span data-i18n="t.nav.englishLong">English classes · FAST fluent English</span></a>
-    <a class="btn btn--wa" href="https://wa.me/525530071808" data-wa="general" target="_blank" rel="noopener"><svg class="i"><use href="assets/img/icons.svg#whatsapp"/></svg><span data-i18n="t.cta.plan">Plan my expedition</span></a>
   </div>
 </header>
 
-<main id="main">
+<main id="main" class="menu">
 
 <h1 class="sr-only" data-i18n="h.hero.title">Choose your <em>paradise.</em></h1>
 
+<nav class="menu__lista" aria-label="Destinations" data-i18n-aria="h.menu">
 <!--destinos-->
 <!--d:bcs-->
-<section class="portada portada--bcs" id="loreto" data-wa-context="loreto" aria-labelledby="portada-bcs">
-  <h2 class="sr-only" id="portada-bcs">Loreto y Mulegé, Baja California Sur</h2>
-  <a class="portada__img" href="baja-california-sur/"><img data-portada data-sizes="portada" src="assets/img/portadas/loreto-mulege.png" data-titulo="0.26,0.56,0.96,0.94" alt="Loreto and Mulegé, Baja California Sur: white-sand beach with turquoise water under a blue sky" data-i18n-alt="h.alt.bcs"></a>
-  <div class="portada__info">
-    <small>SpectaCulTour BCS</small>
-    <h3 data-i18n="h.bcs.title">Islands &amp; <em>ocean</em></h3>
-    <p data-i18n="h.bcs.text">White-beach islands, dolphins, sea lions and the oldest missions of the Californias.</p>
-    <div class="portada__meta"><span><span data-i18n="t.stamp.pkg">Package</span> <span data-price="bcs">€600</span></span><span>Loreto</span><span>Mulegé</span></div>
-    <a class="btn" href="baja-california-sur/"><span data-i18n="h.bcs.cta">Explore Baja California Sur</span><svg class="i"><use href="assets/img/icons.svg#arrow"/></svg></a>
-  </div>
-</section>
-<!--ballena-->
+  <a class="menu-card menu-card--bcs" href="baja-california-sur/">
+    <span class="menu-card__img"><img data-portada data-sizes="menu" src="assets/img/portadas/loreto-mulege.png" data-titulo="0.26,0.56,0.96,0.94" alt="Loreto and Mulegé, Baja California Sur: white-sand beach with turquoise water under a blue sky" data-i18n-alt="h.alt.bcs"></span>
+    <h2 class="menu-card__ir"><span data-i18n="h.bcs.cta">Explore Baja California Sur</span><svg class="i"><use href="assets/img/icons.svg#arrow"/></svg></h2>
+  </a>
 <!--/d:bcs-->
 <!--d:chiapas-->
-<section class="portada portada--chiapas" id="lagos" data-wa-context="lagos" aria-labelledby="portada-chiapas">
-  <h2 class="sr-only" id="portada-chiapas">Lagos de Colón, Chiapas</h2>
-  <a class="portada__img" href="chiapas/"><img data-portada data-sizes="portada" src="assets/img/portadas/lagos-de-colon.png" data-titulo="0.05,0.54,1,0.94" alt="Lagos de Colón, Chiapas: green lake surrounded by trees, with a swimmer in the water" data-i18n-alt="h.alt.chi"></a>
-  <div class="portada__info">
-    <small>SpectaCulTour Chiapas</small>
-    <h3 data-i18n="h.chi.title">Jungle &amp; <em>waterfalls</em></h3>
-    <p data-i18n="h.chi.text">Paradise lakes, natural pools, Mayan ruins and cabin lodges with native hosts.</p>
-    <div class="portada__meta"><span><span data-i18n="t.stamp.pkg">Package</span> <span data-price="chiapas">€550</span></span><span>Lagos de Colón</span><span>Toniná · Montebello</span></div>
-    <a class="btn" href="chiapas/"><span data-i18n="h.chi.cta">Explore Chiapas</span><svg class="i"><use href="assets/img/icons.svg#arrow"/></svg></a>
-  </div>
-</section>
+  <a class="menu-card menu-card--chiapas" href="chiapas/">
+    <span class="menu-card__img"><img data-portada data-sizes="menu" src="assets/img/portadas/lagos-de-colon.png" data-titulo="0.05,0.54,1,0.94" alt="Lagos de Colón, Chiapas: green lake surrounded by trees, with a swimmer in the water" data-i18n-alt="h.alt.chi"></span>
+    <h2 class="menu-card__ir"><span data-i18n="h.chi.cta">Explore Chiapas</span><svg class="i"><use href="assets/img/icons.svg#arrow"/></svg></h2>
+  </a>
 <!--/d:chiapas-->
 <!--/destinos-->
-
-<section class="intro">
-  <div class="container">
-    <p class="intro__kicker" data-i18n="h.hero.kicker">Custom eco-expeditions · Mexico</p>
-    <p class="intro__text" data-i18n="h.hero.sub">Custom-guided eco-expeditions in Mexico. No hotels, no tourist crowds — just spectacular nature, culture and native hosts.</p>
-  </div>
-</section>
-<div class="authentic"><div class="authentic__inner"><svg class="i"><use href="assets/img/icons.svg#camera"/></svg><span data-i18n="t.authentic"><b>All pictures and videos are authentic</b> — taken on our own tours.</span></div></div>
-
-<!-- WHY -->
-<section class="section">
-  <div class="container">
-    <div class="section__head reveal">
-      <p class="eyebrow" data-i18n="h.why.eyebrow">Why SpectaCulTours</p>
-      <h2 data-i18n="h.why.title">Travel like a local. <em>Feel like an explorer.</em></h2>
-      <p class="sub" data-i18n="h.why.sub">Spectacles and nature interaction, with cultural explanations — designed around you.</p>
-    </div>
-    <div class="why">
-      <article class="why__item reveal"><div class="why__emoji" aria-hidden="true">🏝️</div><h3 data-i18n="h.w1t">No hotels, no crowds</h3><p data-i18n="h.w1p">Cabin lodges and native hosts instead of tour buses and resort buffets.</p></article>
-      <article class="why__item reveal"><div class="why__emoji" aria-hidden="true">🧭</div><h3 data-i18n="h.w2t">Custom-guided</h3><p data-i18n="h.w2p">Local experts who know every secret passage — and your suggestions are welcome.</p></article>
-      <article class="why__item reveal"><div class="why__emoji" aria-hidden="true">🗿</div><h3 data-i18n="h.w3t">Culture explained</h3><p data-i18n="h.w3p">Mayan archaeology, colonial history and historic missions with deep context.</p></article>
-      <article class="why__item reveal"><div class="why__emoji" aria-hidden="true">✈️</div><h3 data-i18n="h.w4t">Worry-free</h3><p data-i18n="h.w4p">Domestic flights, road transport, travel insurance and a trilingual guide included.</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- REAL MOMENTS -->
-<section class="section section--tint" id="moments">
-  <div class="container">
-    <div class="section__head reveal">
-      <p class="eyebrow" data-i18n="h.mom.eyebrow">Real moments</p>
-      <h2 data-i18n="h.mom.title">Not a brochure. <em>Our travelers, on camera.</em></h2>
-      <p class="sub" data-i18n="h.mom.sub">Every video was filmed on our own expeditions. Tap to watch.</p>
-    </div>
-    <div class="bento bento--moments">
-      <button class="tile tile--big reveal" type="button" data-video="yHEhVtaQTCU">
-        <img data-sizes="tile-big" src="assets/img/bcs/hero-dolphins.jpg" alt="" loading="lazy">
-        <span class="tile__badge tile__badge--bcs">Baja California Sur</span><span class="tile__play"><svg class="i"><use href="assets/img/icons.svg#play"/></svg></span>
-        <span class="tile__cap"><b data-i18n="h.m1">Dolphins splashing next to the boat</b></span>
-      </button>
-      <button class="tile  reveal" type="button" data-video="eMT7oFmcI5Y">
-        <img data-sizes="tile" src="assets/img/chiapas/img06.jpg" alt="" loading="lazy">
-        <span class="tile__badge tile__badge--chi">Chiapas</span><span class="tile__play"><svg class="i"><use href="assets/img/icons.svg#play"/></svg></span>
-        <span class="tile__cap"><b data-i18n="h.m2">A massage under the waterfall</b></span>
-      </button>
-      <button class="tile  reveal" type="button" data-video="u6-13JBzBnw">
-        <img data-sizes="tile" src="assets/img/bcs/sealion.jpg" alt="" loading="lazy">
-        <span class="tile__badge tile__badge--bcs">Baja California Sur</span><span class="tile__play"><svg class="i"><use href="assets/img/icons.svg#play"/></svg></span>
-        <span class="tile__cap"><b data-i18n="h.m3">A baby sea lion riding on mom</b></span>
-      </button>
-      <button class="tile  reveal" type="button" data-video="Jn5JNxnwb3E">
-        <img data-sizes="tile" src="assets/img/chiapas/img10.jpg" alt="" loading="lazy">
-        <span class="tile__badge tile__badge--chi">Chiapas</span><span class="tile__play"><svg class="i"><use href="assets/img/icons.svg#play"/></svg></span>
-        <span class="tile__cap"><b data-i18n="h.m4">Swimming in natural pools</b></span>
-      </button>
-      <button class="tile  reveal" type="button" data-video="Jfmey-9Bryg">
-        <img data-sizes="tile" src="assets/img/bcs/boobies.jpg" alt="" loading="lazy">
-        <span class="tile__badge tile__badge--bcs">Baja California Sur</span><span class="tile__play"><svg class="i"><use href="assets/img/icons.svg#play"/></svg></span>
-        <span class="tile__cap"><b data-i18n="h.m5">Blue-footed boobies up close</b></span>
-      </button>
-      <button class="tile tile--wide reveal" type="button" data-video="fA2r2_qjHhE">
-        <img src="https://i.ytimg.com/vi/fA2r2_qjHhE/hqdefault.jpg" alt="" loading="lazy">
-        <span class="tile__badge tile__badge--chi">Chiapas</span><span class="tile__play"><svg class="i"><use href="assets/img/icons.svg#play"/></svg></span>
-        <span class="tile__cap"><b data-i18n="h.m6">Crossing a river on wheels</b></span>
-      </button>
-      <button class="tile  reveal" type="button" data-video="YUBHNW9maCE">
-        <img data-sizes="tile" src="assets/img/bcs/fish-lunch.jpg" alt="" loading="lazy">
-        <span class="tile__badge tile__badge--bcs">Baja California Sur</span><span class="tile__play"><svg class="i"><use href="assets/img/icons.svg#play"/></svg></span>
-        <span class="tile__cap"><b data-i18n="h.m7">Fish lunch by a turquoise beach</b></span>
-      </button>
-    </div>
-    <p class="moments__more reveal"><a class="btn btn--outline" href="https://www.youtube.com/@alaiyom3967" target="_blank" rel="noopener" data-social="youtube"><svg class="i"><use href="assets/img/icons.svg#youtube"/></svg><span data-i18n="h.ytGo2">More videos on YouTube</span></a></p>
-  </div>
-</section>
-
-<!-- HOW -->
-<section class="section " id="fechas">
-  <div class="container">
-    <div class="section__head"><h2 data-i18n="f.title">Tour Dates</h2></div>
-    <ul class="fechas" data-fechas=""></ul>
-  </div>
-</section>
-
-<section class="section section--deep" id="how">
-  <div class="container">
-    <div class="section__head reveal">
-      <p class="eyebrow" data-i18n="h.nav.how">How it works</p>
-      <h2 data-i18n="h.how.title">From first message <em>to paradise</em> in four steps.</h2>
-      <p class="sub" data-i18n="h.how.sub">Travel for only a weekend or for a complete month. We plan it together over two Zoom meetings.</p>
-    </div>
-    <ol class="steps-h">
-      <li class="reveal"><h3 data-i18n="h.s1t">Reserve with €50</h3><p data-i18n="h.s1p">Send us a WhatsApp, pick your destination and dates, and secure your spot.</p></li>
-      <li class="reveal"><h3 data-i18n="h.s2t">1st Zoom meeting</h3><p data-i18n="h.s2p">Six weeks before: we design your route together. Second payment of €200.</p></li>
-      <li class="reveal"><h3 data-i18n="h.s3t">2nd Zoom meeting</h3><p data-i18n="h.s3p">Two weeks before: final details and the remaining payment (€300 Chiapas · €350 BCS).</p></li>
-      <li class="reveal"><h3 data-i18n="h.s4t">Live the spectacle</h3><p data-i18n="h.s4p">Waterfalls or islands, native hosts, real food — with common-sense flexibility.</p></li>
-    </ol>
-  </div>
-</section>
-
-<!-- COMPARE -->
-<section class="section section--tint" id="compare">
-  <div class="container">
-    <div class="section__head reveal">
-      <p class="eyebrow" data-i18n="h.nav.compare">Compare</p>
-      <h2 data-i18n="h.cmp.title">Jungle or ocean? <em>Compare side by side.</em></h2>
-    </div>
-    <div class="compare__wrap reveal">
-      <table class="compare">
-        <thead><tr><th></th><th>🌿 Chiapas</th><th>🌊 Baja California Sur</th></tr></thead>
-        <tbody>
-          <tr><th data-i18n="h.r1">Setting</th><td data-label="🌿 Chiapas" data-i18n="h.r1c">Paradise jungle, lakes &amp; waterfalls</td><td data-label="🌊 Baja California Sur" data-i18n="h.r1b">White-beach islands &amp; the Sea of Cortez</td></tr>
-          <tr><th data-i18n="h.r2">Highlights</th><td data-label="🌿 Chiapas" data-i18n="h.r2c">Natural pools, waterfall massages, jungle fruits, Mayan ruins</td><td data-label="🌊 Baja California Sur" data-i18n="h.r2b">Dolphins, sea lions, blue-footed boobies, snorkeling, missions</td></tr>
-          <tr><th data-i18n="h.r3">Lodging &amp; food</th><td data-label="🌿 Chiapas" data-i18n="h.r3c">Cabin lodges, family meals by the fire</td><td data-label="🌊 Baja California Sur" data-i18n="h.r3b">Family dining, fish &amp; seafood cooked by the beach</td></tr>
-          <tr><th data-i18n="h.r4">Package</th><td data-label="🌿 Chiapas"><b data-price="chiapas">€550</b></td><td data-label="🌊 Baja California Sur"><b data-price="bcs">€600</b></td></tr>
-          <tr><th data-i18n="h.r5">Payment plan</th><td data-label="🌿 Chiapas"><span data-pay="chiapas">€50 + €200 + €300</span></td><td data-label="🌊 Baja California Sur"><span data-pay="bcs">€50 + €200 + €350</span></td></tr>
-          <tr><th data-i18n="h.r6">VIP per day</th><td data-label="🌿 Chiapas"><span data-vipline="chiapas">Solo €250 · Couple €350</span></td><td data-label="🌊 Baja California Sur"><span data-vipline="bcs">Solo €300 · Couple €400</span></td></tr>
-          <tr><th data-i18n="h.r7">Always included</th><td colspan="2" data-i18n="h.r7v">Round domestic flights (Mexico) &amp; road transportation · travel insurance · trilingual guide · cultural explanations · last-minute flexibility</td></tr>
-          <tr><th></th><td data-label="🌿 Chiapas"><a class="btn btn--dark btn--sm" href="chiapas/"><span data-i18n="h.chi.cta">Explore Chiapas</span><svg class="i"><use href="assets/img/icons.svg#arrow"/></svg></a></td><td data-label="🌊 Baja California Sur"><a class="btn btn--dark btn--sm" href="baja-california-sur/"><span data-i18n="h.bcs.ctaShort">Explore BCS</span><svg class="i"><use href="assets/img/icons.svg#arrow"/></svg></a></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="t-cta section--tint" id="contact">
-  <div class="container">
-    <div class="t-cta__inner reveal">
-      <div>
-        <h2 data-i18n="h.cta.title">Not sure which one? <em>Ask us.</em></h2>
-        <p data-i18n="t.cta.sub">Send a message with your questions — or with the day and time for a phone call.</p>
-        <div class="t-cta__host"><img data-sizes="avatar" src="assets/img/host.jpg" alt=""><div><b data-host>Prof. Alaiyo Moreno</b><small data-i18n="t.cta.host">Your host · SpectaCulTours</small></div></div>
-      </div>
-      <div class="t-cta__actions">
-        <a class="btn btn--wa btn--lg" href="https://wa.me/525530071808" data-wa="general" target="_blank" rel="noopener"><svg class="i"><use href="assets/img/icons.svg#whatsapp"/></svg><span data-i18n="t.cta.wa">WhatsApp us!</span></a>
-        <a class="t-cta__phone" href="tel:+525530071808" data-tel><span data-i18n="t.cta.call">Or call:</span> <b data-phone>+52 55 3007 1808</b></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ENGLISH (secondary) -->
-<section class="section english-extra" id="english" data-wa-context="fast">
-  <div class="container english-extra__inner reveal">
-    <div class="english-extra__media">
-      <img data-sizes="extra" src="english/assets/img/hero/learn-headphones.jpg" alt="Student smiling in a live online English class" loading="lazy">
-      <span class="english-extra__logo"><img src="assets/img/logos/fast_color.svg" alt="FAST fluent English" width="130" height="26" loading="lazy"></span>
-    </div>
-    <div class="english-extra__copy">
-      <p class="eyebrow" data-i18n="h.en.eyebrow">Extra · From the same team</p>
-      <h2 data-i18n="h.en.title">Travel — and work — <em>speaking English.</em></h2>
-      <p class="sub" data-i18n="h.en.sub">FAST fluent English is our live English program for professionals: conversation classes on Zoom with 30 years of expert instruction behind them.</p>
-      <ul class="english-extra__list">
-        <li><svg class="i"><use href="assets/img/icons.svg#check"/></svg><span data-i18n="h.en.l1">You speak 80% of every class</span></li>
-        <li><svg class="i"><use href="assets/img/icons.svg#check"/></svg><span data-i18n="h.en.l2">Free level evaluation (CEFR A1–C2)</span></li>
-        <li><svg class="i"><use href="assets/img/icons.svg#check"/></svg><span data-i18n="h.en.l3">2 or 3 live classes a week, flexible schedule</span></li>
-        <li><svg class="i"><use href="assets/img/icons.svg#check"/></svg><span data-i18n="h.en.l4">Official invoices for companies</span></li>
-      </ul>
-      <a class="btn btn--dark btn--lg" href="/english/" data-fast><span data-i18n="h.en.cta">Discover English classes</span><svg class="i"><use href="assets/img/icons.svg#arrow"/></svg></a>
-    </div>
-  </div>
-</section>
+  <a class="menu-card menu-card--fast" href="/english/" data-fast>
+    <span class="menu-card__img"><img data-sizes="menu" src="english/assets/img/hero/learn-headphones.jpg" alt="Student smiling in a live online English class" data-i18n-alt="h.alt.en"><span class="menu-card__logo"><img src="assets/img/logos/fast_color.svg" alt="FAST fluent English" width="130" height="26"></span></span>
+    <h2 class="menu-card__ir"><span data-i18n="h.en.cta">Discover English classes</span><svg class="i"><use href="assets/img/icons.svg#arrow"/></svg></h2>
+  </a>
+</nav>
 
 </main>
 
@@ -268,7 +79,6 @@
       <ul>
         <!--destinos--><!--d:chiapas--><li><a href="chiapas/">Chiapas</a></li><!--/d:chiapas-->
         <!--d:bcs--><li><a href="baja-california-sur/">Baja California Sur</a></li><!--/d:bcs--><!--/destinos-->
-        <li><a href="#compare" data-i18n="h.nav.compare">Compare</a></li>
       </ul>
     </div>
     <div>
@@ -284,7 +94,6 @@
       <ul>
         <li><a href="https://wa.me/525530071808" data-wa="general" target="_blank" rel="noopener">WhatsApp</a></li>
         <li><a href="tel:+525530071808" data-tel data-phone>+52 55 3007 1808</a></li>
-        <li><a href="#contact" data-i18n="t.foot.plan">Plan your expedition</a></li>
       </ul>
     </div>
   </div>

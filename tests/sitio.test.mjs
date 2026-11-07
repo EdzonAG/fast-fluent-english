@@ -154,7 +154,7 @@ test("QR y WhatsApp no se enciman ni tapan botones, en todo el recorrido", async
 });
 
 test("el QR decodifica exactamente a qrUrl, compacto y ampliado", async () => {
-  assert.equal(config.qrUrl, "https://www.spectacultours.mx/?utm_source=qr&utm_medium=presencial");
+  assert.equal(config.qrUrl, "https://spectacultours.mx");
   for (const [width, height, dpr] of [[390, 844, 2], [1440, 900, 1]]) {
     await conPagina({ width, height, dpr }, async (p) => {
       for (const ruta of ["/", "/english/"]) {
@@ -191,16 +191,15 @@ test("WhatsApp lleva el mensaje correcto en cada contexto e idioma", async () =>
     await conPagina({ locale }, async (p) => {
       const caso = `${locale} ${qs}`;
       await ir(p, "/" + qs);
-      for (const [sel, clave] of [["#loreto", "loreto"], ["#ballena", "loreto"], ["#lagos", "lagos"], ["#fechas", "general"], ["#how", "general"], ["#english", "fast"]]) {
-        await centrar(p, sel);
-        assert.equal(await p.getAttribute(".wa-fab__btn", "href"), urlWa(WA[clave][idioma]), `${caso} ${sel}`);
-      }
+      assert.equal(await p.getAttribute(".wa-fab__btn", "href"), urlWa(WA.general[idioma]), `${caso} flotante del inicio`);
       assert.equal(await p.getAttribute(".t-nav__cta", "href"), urlWa(WA.general[idioma]), `${caso} encabezado`);
       for (const [ruta, clave] of [["/baja-california-sur/", "loreto"], ["/chiapas/", "lagos"]]) {
         await ir(p, ruta + qs);
         const hrefs = await p.evaluate(() => [...new Set([...document.querySelectorAll("[data-wa]")].map((a) => decodeURIComponent(a.href.split("text=")[1])))]);
         assert.deepEqual(hrefs, [WA[clave][idioma]], `${caso} ${ruta}`);
         assert.equal(await p.getAttribute(".wa-fab__btn", "href"), urlWa(WA[clave][idioma]), `${caso} ${ruta} flotante`);
+        await centrar(p, "#ballena, #how");
+        assert.equal(await p.getAttribute(".wa-fab__btn", "href"), urlWa(WA[clave][idioma]), `${caso} ${ruta} flotante a media página`);
       }
       await ir(p, "/english/" + qs);
       const hola = await p.evaluate(() => [...document.querySelectorAll("[data-wa='wa.hello']")].map((a) => decodeURIComponent(a.href.split("text=")[1])));
@@ -212,10 +211,10 @@ test("WhatsApp lleva el mensaje correcto en cada contexto e idioma", async () =>
 test("el botón de fecha manda el tour y el rango de esa fecha", async () => {
   await conPagina({ locale: "en-US" }, async (p) => {
     await p.clock.setFixedTime(new Date("2026-11-06T12:00:00"));
-    await ir(p, "/");
+    await ir(p, "/baja-california-sur/");
     const mensaje = () => p.evaluate(() => decodeURIComponent(document.querySelector(".fecha a").href.split("text=")[1]));
     assert.equal(await mensaje(), "Hi! I'm interested in the Blue Whales / Constitución tour, Thu, Jan 28 – Tue, Feb 2, 2027. Are there spots available?");
-    await ir(p, "/?lang=es");
+    await ir(p, "/baja-california-sur/?lang=es");
     assert.equal(await mensaje(), "Hola, me interesa el tour Ballena azul / Constitución del jue 28 ene – mar 2 feb 2027. ¿Hay lugares disponibles?");
   });
 });
@@ -255,7 +254,7 @@ test("los iframes de YouTube no existen hasta el clic", async () => {
       assert.equal(await p.locator("iframe").count(), 0, ruta);
     }
     assert.ok(!pedidos.some((u) => /youtube(-nocookie)?\.com/.test(u)), "ninguna petición a YouTube antes del clic");
-    await ir(p, "/");
+    await ir(p, "/baja-california-sur/");
     await p.locator("#ballena [data-video]").first().click();
     await p.waitForSelector("iframe");
     const src = await p.getAttribute("iframe", "src");
@@ -269,7 +268,7 @@ test("los iframes de YouTube no existen hasta el clic", async () => {
 test("el título de la portada se ve completo en móvil", async () => {
   for (const [width, height] of ANCHOS.slice(0, 2)) {
     await conPagina({ width, height }, async (p) => {
-      for (const ruta of TOURS) {
+      for (const ruta of TOURS.slice(1)) {
         await ir(p, ruta);
         const portadas = await p.evaluate(async () => {
           const salida = [];
@@ -297,6 +296,103 @@ test("el título de la portada se ve completo en móvil", async () => {
       }
     });
   }
+});
+
+test("el inicio es solo un menú de tres opciones del mismo nivel", async () => {
+  const destinos = ["/baja-california-sur/", "/chiapas/", "/english/"];
+  for (const [width, height] of ANCHOS) {
+    await conPagina({ width, height }, async (p) => {
+      await ir(p, "/");
+      await p.waitForTimeout(150);
+      const m = await p.evaluate(() => {
+        const tarjetas = [...document.querySelectorAll(".menu-card")];
+        return {
+          hijos: [...document.querySelector("main").children].filter((e) => !e.classList.contains("sr-only")).map((e) => e.className),
+          hrefs: tarjetas.map((a) => new URL(a.href).pathname),
+          anchos: tarjetas.map((a) => Math.round(a.getBoundingClientRect().width)),
+          altos: tarjetas.map((a) => Math.round(a.getBoundingClientRect().height)),
+          arriba: tarjetas.map((a) => Math.round(a.getBoundingClientRect().top)),
+          imagenes: tarjetas.map((a) => { const i = a.querySelector("picture img"); return i.currentSrc && i.complete && i.naturalWidth > 0; }),
+          videos: document.querySelectorAll("main [data-video]").length,
+        };
+      });
+      assert.deepEqual(m.hijos, ["menu__lista"], `a ${width}`);
+      assert.deepEqual(m.hrefs, destinos, `a ${width}`);
+      assert.equal(new Set(m.anchos).size, 1, `mismo ancho a ${width}: ${m.anchos}`);
+      assert.equal(new Set(m.altos).size, 1, `mismo alto a ${width}: ${m.altos}`);
+      assert.equal(m.videos, 0);
+      assert.ok(m.imagenes.every(Boolean), `imágenes cargadas a ${width}`);
+      if (width >= 700) assert.equal(new Set(m.arriba).size, 1, `en una fila a ${width}: ${m.arriba}`);
+    });
+  }
+  // Cada opción abre su página, y el mismo orden de tarjetas se mantiene al traducir.
+  await conPagina({ width: 1280, height: 800 }, async (p) => {
+    for (const [i, destino] of destinos.entries()) {
+      await ir(p, "/");
+      await p.locator(".menu-card").nth(i).click();
+      await p.waitForLoadState("networkidle");
+      assert.equal(new URL(p.url()).pathname, destino);
+    }
+  });
+});
+
+test("en el menú los títulos de portada quedan completos y el QR no tapa el texto", async () => {
+  for (const [width, height] of [...ANCHOS.slice(0, 2), ANCHOS[2]]) {
+    await conPagina({ width, height }, async (p) => {
+      for (const qs of ["", "?lang=es"]) {
+        await ir(p, "/" + qs);
+        const r = await p.evaluate(async () => {
+          const salida = { recortes: [], tapados: new Set() };
+          for (const i of document.querySelectorAll(".menu-card img[data-titulo]")) {
+            const c = i.getBoundingClientRect();
+            const escala = Math.max(c.width / i.naturalWidth, c.height / i.naturalHeight);
+            const ancho = i.naturalWidth * escala, alto = i.naturalHeight * escala;
+            const [x1, y1, x2] = i.dataset.titulo.split(",").map(Number);
+            // Recorte centrado a lo ancho y desde arriba a lo alto: fracción de la imagen que queda fuera.
+            const fueraArriba = (alto - c.height) / alto, fueraLado = (ancho - c.width) / 2 / ancho;
+            if (y1 < fueraArriba || x1 < fueraLado - 0.05 || x2 > 1 - fueraLado + 0.05) salida.recortes.push(i.alt.slice(0, 20));
+          }
+          const qr = document.querySelector("#qrAbrir"), wa = document.querySelector(".wa-fab__btn");
+          const cruza = (a, b) => a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
+          for (let y = 0; y < document.documentElement.scrollHeight; y += 40) {
+            scrollTo({ top: y, behavior: "instant" });
+            await new Promise((ok) => requestAnimationFrame(() => requestAnimationFrame(ok)));
+            for (const t of document.querySelectorAll(".menu-card__ir span")) {
+              const c = t.getBoundingClientRect();
+              if (!qr.classList.contains("qr--oculto") && cruza(qr.getBoundingClientRect(), c)) salida.tapados.add("QR: " + t.textContent);
+              if (cruza(wa.getBoundingClientRect(), c)) salida.tapados.add("WA: " + t.textContent);
+            }
+          }
+          salida.tapados = [...salida.tapados];
+          return salida;
+        });
+        assert.deepEqual(r.recortes, [], `título recortado a ${width}`);
+        assert.deepEqual(r.tapados, [], `texto tapado a ${width} ${qs}`);
+      }
+    });
+  }
+});
+
+test("las secciones generales y los videos quedaron en las páginas de destino", async () => {
+  const VIDEOS = {
+    "/baja-california-sur/": ["yHEhVtaQTCU", "u6-13JBzBnw", "Jfmey-9Bryg", "YUBHNW9maCE", "LyiDEUgSIAs"],
+    "/chiapas/": ["eMT7oFmcI5Y", "Jn5JNxnwb3E", "fA2r2_qjHhE"],
+  };
+  await conPagina({ width: 1280, height: 800 }, async (p) => {
+    for (const [ruta, ids] of Object.entries(VIDEOS)) {
+      await ir(p, ruta);
+      const r = await p.evaluate(() => ({
+        ids: [...document.querySelectorAll("[data-video]")].map((b) => b.dataset.video),
+        secciones: ["#why", "#how", "#compare", "#fechas", "#packages"].map((s) => document.querySelectorAll(s).length),
+        aSiMisma: [...document.querySelectorAll("#compare a")].filter((a) => a.pathname === location.pathname).length,
+        ballena: document.querySelectorAll("#ballena").length,
+      }));
+      for (const id of ids) assert.ok(r.ids.includes(id), `${ruta}: falta el video ${id}`);
+      assert.deepEqual(r.secciones, [1, 1, 1, 1, 1], ruta);
+      assert.equal(r.aSiMisma, 0, `${ruta}: la comparativa no enlaza a la misma página`);
+      assert.equal(r.ballena, ruta === "/baja-california-sur/" ? 1 : 0, `${ruta}: ballena`);
+    }
+  });
 });
 
 test("presupuesto de peso por imagen", () => {
@@ -335,13 +431,13 @@ test("las fechas vencidas desaparecen y la sección se oculta sin fechas", async
   await conPagina({ width: 1280, height: 800 }, async (p) => {
     const total = config.fechas.length;
     await p.clock.setFixedTime(new Date("2027-02-02T23:30:00"));
-    await ir(p, "/");
+    await ir(p, "/baja-california-sur/");
     assert.equal(await p.locator(".fecha").count(), total, "la fecha sigue visible su último día");
     await p.clock.setFixedTime(new Date("2027-02-03T00:30:00"));
-    await ir(p, "/");
+    await ir(p, "/baja-california-sur/");
     assert.equal(await p.locator(".fecha").count(), total - 1);
     await p.clock.setFixedTime(new Date("2030-01-01T12:00:00"));
-    await ir(p, "/");
+    await ir(p, "/baja-california-sur/");
     assert.equal(await p.locator("#fechas").isVisible(), false);
   });
 });

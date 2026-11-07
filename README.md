@@ -5,7 +5,7 @@ El dominio principal es **spectacultours.mx**: primero se presentan las expedici
 
 | Ruta | Página |
 |---|---|
-| `/` | SpectaCulTours — portada: elegir expedición, momentos reales, cómo funciona, comparativa y el extra de inglés |
+| `/` | Menú: tres opciones del mismo nivel que llevan a Baja California Sur, Chiapas y clases de inglés |
 | `/chiapas/` | Expedición Chiapas (selva, cascadas, ruinas mayas) |
 | `/baja-california-sur/` | Expedición Baja California Sur (islas, delfines, misiones) |
 | `/english/` | FAST fluent English — clases de inglés (sección secundaria) |
@@ -29,13 +29,13 @@ imagenes.manifest.json          ← generado: variantes de cada imagen
 scripts/
   optimizar-imagenes.mjs        ← originales → public/static/img (AVIF, WebP, JPG)
   optimizar-logos.mjs           ← SVGO + comparación píxel a píxel
-  build.mjs                     ← public/ → dist/ (<picture>, hashes, QR, orden de portadas)
+  build.mjs                     ← public/ → dist/ (<picture>, hashes, QR, orden del menú)
   generar-cv.mjs                ← sección del CV → PNG y PDF (public/english/assets/cv/)
   parciales/comun.css           ← estilos del QR y del visor, van en línea en cada página
   servir.mjs                    ← servidor local con Brotli y la misma caché que producción
 tests/sitio.test.mjs            ← pruebas automáticas (npm test)
 public/
-  index.html                    ← portada SpectaCulTours
+  index.html                    ← menú de inicio
   chiapas/, baja-california-sur/ ← páginas de cada expedición
   assets/css/tours.css          ← estilos de tours
   assets/fonts/                 ← Inter, Sora e Instrument Serif hospedadas aquí (SIL OFL)
@@ -128,11 +128,11 @@ La compresión Brotli la aplica Render sin configuración. Render no instala sha
 ## Editar contenido
 
 - **Archivo único de configuración:** `public/assets/js/tours-config.js`. Tras editarlo, vuelve a construir (Render lo hace al desplegar).
-  - `destinoDestacado`: `"bcs"` o `"chiapas"` cambia la portada que va primero, su `preload` y la tarjeta para redes. **Cambiar a `"chiapas"` en marzo.**
+  - `destinoDestacado`: `"bcs"` o `"chiapas"` cambia el destino que va primero en el menú, su `preload` y la tarjeta para redes. **Cambiar a `"chiapas"` en marzo.**
   - `fechas`: una fecha desaparece sola al pasar su día final. Con `destino: "[DESTINO]"` no se muestra destino; escribe el lugar cuando esté definido.
   - `ballena`: frase, fotos y videos (ID de YouTube y título) en inglés y español.
   - `mensajesWhatsApp`: mensajes por contexto. Se envían en español si el visitante eligió español o si su navegador está en español.
-  - `qrUrl` y `qrTextos`: el QR se genera en cada build.
+  - `qrUrl` y `qrTextos`: adónde lleva el QR y sus textos. El QR es el diseño del cliente (`public/assets/img/qr/`, original en `assets-originales/qr/`) y el enlace va dentro de la imagen: para cambiarlo hay que reemplazar el archivo. `npm test` falla si no coincide con `qrUrl`.
   - También: precios por etapa, tarifas VIP, número de WhatsApp y redes. El total del paquete se calcula solo (reserva + 1er pago + 2º pago).
 - **CV de FAST:** el texto está en la sección `#cv` de `public/english/index.html`. Si lo cambias, regenera el PNG y el PDF con `npm run build && npm run cv && npm run build` y sube el resultado.
 - **Clases de inglés** (WhatsApp, Calendly, precios, redes, email): `public/english/assets/js/config.js`.
@@ -145,7 +145,7 @@ La compresión Brotli la aplica Render sin configuración. Render no instala sha
 
 - Bilingüe EN/ES: abre en inglés si no hay una elección guardada. El botón está en el encabezado de todas las páginas
   y la elección se recuerda entre visitas (`localStorage`); también funciona `?lang=es`.
-- QR flotante, generado en el build, que se reduce o se quita al pasar sobre títulos y botones, con vista ampliada para escanear.
+- QR flotante, con el diseño del cliente, que se reduce o se quita al pasar sobre títulos y botones, con vista ampliada para escanear.
 - Sección de ballena azul, fechas de tours, mensajes de WhatsApp por contexto y CV de FAST con visor y descarga en PDF.
 - Hero con collage de fotos de aprendizaje en línea (licencia Unsplash) y tarjetas flotantes.
 - 6 videos del canal (incluye el testimonio de un médico, enlazado desde "Who it's for").
@@ -154,7 +154,7 @@ La compresión Brotli la aplica Render sin configuración. Render no instala sha
 - Widget de WhatsApp con mensajes rápidos prellenados; botones de planes con mensaje por plan.
 - Precios por mes / por clase, sección para empresas (facturas, cobro directo, constancias).
 - Videos de YouTube con carga diferida (privacy-enhanced, no cargan hasta dar clic).
-- Portada: selector Chiapas/BCS, "momentos reales" con 7 videos de ambos destinos, cómo funciona, comparativa y sección extra de inglés.
+- Inicio: solo el menú, con las portadas de BCS y Chiapas y una foto de FAST. Cada página tiene lo suyo: la ballena azul y sus videos en BCS, los videos de cada destino en su página; por qué viajar, cómo funciona y la comparativa en ambos destinos.
 - Páginas de expedición: mosaico de experiencias con los videos reales, destinos,
   calendario de pagos, calculadora de días VIP que arma el mensaje de WhatsApp, galería con visor,
   comparativa lado a lado y el idioma compartido con el sitio de FAST.
@@ -162,7 +162,7 @@ La compresión Brotli la aplica Render sin configuración. Render no instala sha
 
 ## Créditos de imágenes
 
-Fotos del hero de inglés (`public/english/assets/img/hero/`; `learn-headphones.jpg` también se usa en la sección de inglés de la portada), bajo la [Licencia Unsplash](https://unsplash.com/license)
+Fotos del hero de inglés (`public/english/assets/img/hero/`; `learn-headphones.jpg` también se usa en el menú de inicio), bajo la [Licencia Unsplash](https://unsplash.com/license)
 (uso comercial gratuito, sin atribución obligatoria):
 
 - `learn-headphones.jpg` — Soundtrap · https://unsplash.com/photos/C-2Wky-LT7k

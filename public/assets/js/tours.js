@@ -145,19 +145,6 @@
   /* ---------------- Config-driven links ---------------- */
   function waUrl(text) { return "https://wa.me/" + CFG.whatsapp + (text ? "?text=" + encodeURIComponent(text) : ""); }
   function updateWa() { $$("[data-wa]").forEach(function (a) { a.href = waUrl(SITIO.mensajeWhatsApp(a.dataset.wa, lang)); }); }
-  // El botón flotante usa el mensaje de la sección que está a media pantalla.
-  var waFlotante = $(".wa-fab__btn"), waBase = waFlotante ? waFlotante.dataset.wa : "general", waZonas = $$("[data-wa-context]");
-  function contextoWa() {
-    if (!waFlotante) return;
-    var mitad = window.innerHeight / 2, contexto = waBase;
-    waZonas.forEach(function (z) {
-      var r = z.getBoundingClientRect();
-      if (r.top <= mitad && r.bottom > mitad) contexto = z.dataset.waContext;
-    });
-    if (contexto === waFlotante.dataset.wa) return;
-    waFlotante.dataset.wa = contexto;
-    waFlotante.href = waUrl(SITIO.mensajeWhatsApp(contexto, lang));
-  }
   $$("[data-tel]").forEach(function (a) { a.href = "tel:" + CFG.phone; });
   $$("[data-phone]").forEach(function (el) { el.textContent = CFG.phoneDisplay; });
   $$("[data-host]").forEach(function (el) { el.textContent = CFG.host; });
@@ -170,21 +157,23 @@
   });
 
   /* ---------------- Nav ---------------- */
+  // El inicio es un menú y no lleva menú móvil.
   var burger = $("#burger"), menu = $("#mMenu");
-  function closeMenu() { menu.hidden = true; burger.setAttribute("aria-expanded", "false"); }
-  burger.addEventListener("click", function () {
-    var open = menu.hidden;
-    menu.hidden = !open;
-    burger.setAttribute("aria-expanded", String(open));
-  });
-  $$("a", menu).forEach(function (a) { a.addEventListener("click", closeMenu); });
+  if (burger && menu) {
+    var closeMenu = function () { menu.hidden = true; burger.setAttribute("aria-expanded", "false"); };
+    burger.addEventListener("click", function () {
+      var open = menu.hidden;
+      menu.hidden = !open;
+      burger.setAttribute("aria-expanded", String(open));
+    });
+    $$("a", menu).forEach(function (a) { a.addEventListener("click", closeMenu); });
+  }
 
   var navLinks = $$('.t-nav__links a[href^="#"]');
   var navSecs = navLinks.map(function (a) { return $(a.getAttribute("href")); });
   var tick = false;
   function markActive() {
     tick = false;
-    contextoWa();
     var mid = window.innerHeight / 2, cur = -1;
     navSecs.forEach(function (s, i) { if (!s) return; var r = s.getBoundingClientRect(); if (r.top <= mid && r.bottom > mid) cur = i; });
     navLinks.forEach(function (a, i) { a.classList.toggle("is-active", i === cur); });
@@ -248,7 +237,7 @@
     if (e.target.classList.contains("overlay__fin")) overlay.querySelector(".overlay__close").focus();
   });
   document.addEventListener("keydown", function (e) {
-    if (overlay.hidden) { if (e.key === "Escape" && !menu.hidden) closeMenu(); return; }
+    if (overlay.hidden) { if (e.key === "Escape" && menu && !menu.hidden) closeMenu(); return; }
     if (e.key === "Escape") closeOverlay();
     if (e.key === "Tab" && e.shiftKey && document.activeElement === overlay.querySelector(".overlay__close")) {
       e.preventDefault();

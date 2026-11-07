@@ -359,25 +359,38 @@ h1 em, h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; 
 /* ---------- Portadas ---------- */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 main { padding-top: var(--nav-h); }
-.portada { --p-bg: #032a3f; --p-btn-bg: #22d3ee; --p-btn: #032a3f; display: grid; grid-template-columns: 1fr; background: var(--p-bg); color: #fff; }
-.portada--chiapas { --p-bg: #0a2b20; --p-btn-bg: #f59e0b; --p-btn: #1b1203; }
+.portada { --p-bg: #032a3f; background: var(--p-bg); color: #fff; }
+.portada--chiapas { --p-bg: #0a2b20; }
 /* La imagen trae el título dentro: nunca se recorta. */
 .portada__img { display: block; }
 .portada__img img { width: 100%; height: auto; }
-.portada__info { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 28px 24px 36px; }
-.portada__info small { font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255, 255, 255, .8); }
-.portada__info h3 { font-size: clamp(2rem, 3.4vw, 3rem); margin: 8px 0 12px; color: #fff; }
-.portada__info h3 em { color: #fff; }
-.portada__info p { max-width: 440px; color: rgba(255, 255, 255, .85); font-size: 1.05rem; }
-.portada__meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 22px; }
-.portada__meta > span { font-size: .82rem; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: rgba(255, 255, 255, .14); }
-.portada__info .btn { background: var(--p-btn-bg); color: var(--p-btn); }
-@media (min-width: 900px) {
-  .portada { grid-template-columns: minmax(0, 3fr) minmax(320px, 2fr); }
-  .portada__info { padding: 40px clamp(32px, 4vw, 64px); }
+/* Inicio: menú de tres opciones del mismo nivel.
+   La imagen se recorta solo por arriba y los lados, para no perder el título que traen las portadas. */
+.theme-hub .t-nav__actions { margin-left: auto; }
+.menu { display: flex; align-items: center; min-height: 100vh; padding-bottom: 32px; }
+@supports (height: 100svh) { .menu { min-height: 100svh; } }
+.menu__lista { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; width: min(100%, 1560px); margin: 0 auto; padding: 24px clamp(16px, 3vw, 48px) 0; }
+.menu-card { --m-bg: #032a3f; --m-acento: #22d3ee; display: flex; flex-direction: column; overflow: hidden; border-radius: 20px; background: var(--m-bg); color: #fff; box-shadow: var(--shadow); transition: transform .2s ease; }
+.menu-card--chiapas { --m-bg: #0a2b20; --m-acento: #f59e0b; }
+.menu-card--fast { --m-bg: #0a1a4f; --m-acento: #ffb703; }
+.menu-card:hover { transform: translateY(-4px); }
+.menu-card:focus-visible { outline: 3px solid var(--m-acento); outline-offset: 3px; }
+.menu-card__img { position: relative; display: block; overflow: hidden; aspect-ratio: 5 / 4; }
+.menu-card__img > picture > img { width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
+.menu-card__logo { position: absolute; left: 14px; top: 14px; padding: 8px 12px; border-radius: 12px; background: #fff; box-shadow: var(--shadow); }
+.menu-card__logo img { display: block; width: auto; height: 22px; }
+.menu-card__ir { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0; padding: 16px; font-size: clamp(1rem, 1.5vw, 1.2rem); text-align: center; color: #fff; }
+.menu-card__ir .i { flex: none; width: 20px; height: 20px; color: var(--m-acento); }
+@media (max-width: 699px) {
+  .menu { display: block; min-height: 0; padding-bottom: 16px; }
+  .menu__lista { grid-template-columns: 1fr; gap: 12px; padding-top: 12px; }
+  .menu-card { border-radius: 16px; }
+  .menu-card__img { aspect-ratio: 16 / 9; }
+  /* A los lados quedan el QR mini y el botón de WhatsApp. */
+  .menu-card__ir { min-height: 64px; padding: 8px 68px; font-size: 1rem; }
 }
+
 /* Páginas de destino: la portada va sola y centrada, sin pasar de la altura de la pantalla. */
-.portada--solo { grid-template-columns: 1fr; }
 .portada--solo.portada--bcs { --ar: 1.2816; }
 .portada--solo.portada--chiapas { --ar: 1.1506; }
 .portada--solo .portada__img img { width: min(100%, calc((100vh - var(--nav-h)) * var(--ar))); margin: 0 auto; }
@@ -421,10 +434,6 @@ main { padding-top: var(--nav-h); }
   .ballena__fotos[data-n="3"] { grid-template-columns: repeat(3, 1fr); }
   .ballena__fotos[data-n="3"] button:first-child { grid-column: auto; }
 }
-
-.intro { padding: 56px 0 8px; text-align: center; }
-.intro__kicker { font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); }
-.intro__text { max-width: 640px; margin: 12px auto 0; font-size: 1.1rem; color: var(--ink-2); }
 
 .why { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .why__item { padding: 26px 22px; border-radius: var(--radius); background: #fff; border: 1px solid var(--line); transition: transform .35s var(--ease), box-shadow .35s; }
@@ -519,29 +528,8 @@ html[lang="en"] .lang-btn [data-lang="es"], html[lang="es"] .lang-btn [data-lang
 @media (max-width: 1280px) { .t-logo__place { display: none; } }
 
 /* ---------- spectacultours.mx home ---------- */
-.t-nav__extra { border: 1px solid rgba(140, 150, 160, .45); margin-left: 6px; }
-.t-nav__extra::before { content: "🎓"; margin-right: 6px; }
 .m-menu__extra { border-top: 1px solid var(--line); margin-top: 6px; padding-top: 16px !important; color: var(--ink-2); }
-.bento--moments { grid-auto-rows: 210px; }
-.tile__badge--chi { background: #a3e635; color: #0b2e1f; }
-.tile__badge--bcs { background: #22d3ee; color: #032a3f; }
-.moments__more { text-align: center; margin-top: 28px; }
-
-.english-extra__inner { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
-.english-extra__media { position: relative; }
-.english-extra__media img { width: 100%; aspect-ratio: 4 / 3.2; object-fit: cover; object-position: 62% center; border-radius: 28px; box-shadow: var(--shadow); }
-.english-extra__logo { position: absolute; left: 18px; bottom: 18px; background: #fff; border-radius: 14px; padding: 10px 14px; box-shadow: var(--shadow); }
-.english-extra__logo img { height: 26px; width: auto; display: block; }
-.english-extra .eyebrow { color: #b42318; }
-.english-extra h2 { font-size: clamp(1.9rem, 3.6vw, 2.8rem); }
-.english-extra h2 em { color: #1d4ed8; }
-.english-extra__list { list-style: none; padding: 0; margin: 24px 0 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; }
-.english-extra__list li { display: flex; gap: 10px; align-items: flex-start; color: var(--ink-2); }
-.english-extra__list .i { width: 20px; height: 20px; color: #1d4ed8; margin-top: 2px; }
-.english-extra .btn--dark { background: #0a1a4f; }
-@media (max-width: 900px) { .english-extra__inner { grid-template-columns: 1fr; gap: 36px; } }
-@media (max-width: 520px) { .english-extra__list { grid-template-columns: 1fr; } }
 /* Destination pages have more links: there "English classes" lives in the mobile menu, footer and cross-sell,
    and the breadcrumb (not the logo) names the destination. */
-body:not(.theme-hub) .t-nav__extra, body:not(.theme-hub) .t-logo__place { display: none; }
+body:not(.theme-hub) .t-logo__place { display: none; }
 .t-nav__links a { padding: 8px 11px; }

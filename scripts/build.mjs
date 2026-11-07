@@ -10,7 +10,6 @@ import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, write
 import { basename, dirname, extname, join, posix, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import vm from "node:vm";
-import QRCode from "qrcode";
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), "..");
 const PUBLICO = join(RAIZ, "public");
@@ -27,7 +26,7 @@ const OG_DESTINO = { bcs: "loreto-mulege", chiapas: "lagos-de-colon" };
 // Ancho aproximado que ocupa cada imagen, para que el navegador elija la variante correcta.
 const COL = "calc(100vw - 48px)";
 const TAMANOS = {
-  portada: "(max-width: 899px) 100vw, 60vw",
+  menu: "(max-width: 699px) calc(100vw - 32px), 33vw",
   "portada-solo": "(max-width: 899px) 100vw, 80vw",
   ballena: "(max-width: 1099px) calc(100vw - 48px), 380px",
   tile: `(max-width: 560px) ${COL}, (max-width: 1000px) calc(50vw - 32px), 290px`,
@@ -78,6 +77,7 @@ const todos = listar(DIST);
 todos.filter((f) => f.endsWith(".woff2")).forEach((f) => publicarConHash(f));
 todos.filter((f) => /[\\/]assets[\\/]img[\\/]logos[\\/].+\.svg$/.test(f)).forEach((f) => publicarConHash(f));
 todos.filter((f) => /[\\/]assets[\\/]img[\\/]icons\.svg$/.test(f)).forEach((f) => publicarConHash(f));
+todos.filter((f) => /[\\/]assets[\\/]img[\\/]qr[\\/].+\.svg$/.test(f)).forEach((f) => publicarConHash(f));
 todos.filter((f) => /[\\/]assets[\\/]js[\\/].+\.js$/.test(f)).forEach((f) => publicarConHash(f));
 todos.filter((f) => /[\\/]assets[\\/]cv[\\/]/.test(f)).forEach((f) => publicarConHash(f));
 todos.filter((f) => /[\\/]assets[\\/]css[\\/].+\.css$/.test(f)).forEach((f) => {
@@ -167,7 +167,7 @@ function seccionBallena() {
     `<li><button class="vcard" type="button" data-video="${v.id}"><span class="vcard__thumb"><img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt=""><span class="tile__play"><svg class="i"><use href="/assets/img/icons.svg#play"/></svg></span></span>` +
     `<span class="vcard__body"><span class="sr-only" data-i18n="w.play">Play video:</span> <span data-i18n="w.video.${i}">${textoHtml(v.titulo.en)}</span></span></button></li>`
   ).join("\n      ");
-  return `<section class="ballena" id="ballena" data-wa-context="loreto" aria-labelledby="ballena-frase">
+  return `<section class="ballena" id="ballena" aria-labelledby="ballena-frase">
   <div class="container">
     <h2 class="ballena__frase" id="ballena-frase" data-i18n="w.frase">${textoHtml(frase.en)}</h2>
     <div class="ballena__fotos" data-gallery data-n="${fotos.length}" role="group" aria-label="Blue whale photos" data-i18n-aria="w.fotos">
@@ -180,10 +180,9 @@ function seccionBallena() {
 </section>`;
 }
 
-/* ---------- 4. QR flotante: SVG local, nivel M, zona de silencio de 4 módulos ---------- */
-const qrSvg = await QRCode.toString(config.qrUrl, { type: "svg", errorCorrectionLevel: "M", margin: 4, color: { dark: "#000000", light: "#ffffff" } });
-const rutaQr = `/static/a/qr.${conHash(qrSvg)}.svg`;
-writeFileSync(join(DIST, rutaQr), qrSvg);
+/* ---------- 4. QR flotante: el diseño del cliente, en public/assets/img/qr ---------- */
+const rutaQr = "/assets/img/qr/qr_logo-spectacultours.svg";
+if (!mapa.has(rutaQr)) throw new Error(`Falta ${rutaQr}`);
 const estiloQr = readFileSync(join(RAIZ, "scripts", "parciales", "comun.css"), "utf8").replace(/\/\*[\s\S]*?\*\//g, "").replace(/\n+/g, "\n").trim();
 const { en: qrEn } = config.qrTextos;
 const bloqueQr = `<style>${estiloQr}</style>
@@ -191,7 +190,6 @@ const bloqueQr = `<style>${estiloQr}</style>
 <div class="qr-modal" id="qrModal" role="dialog" aria-modal="true" aria-label="${textoHtml(qrEn.modal)}" hidden>
   <button class="qr-modal__cerrar" type="button" aria-label="${textoHtml(qrEn.cerrar)}"><span aria-hidden="true">×</span></button>
   <div class="qr-modal__caja">
-    <img class="qr-modal__logo" src="/assets/img/logos/spectacultours_color.svg" alt="SpectaCulTours" width="149" height="34" loading="lazy">
     <img class="qr-modal__codigo" src="${rutaQr}" alt="${textoHtml(qrEn.alt)}" width="420" height="420">
     <p class="qr-modal__texto">${textoHtml(qrEn.modal)}</p>
   </div>

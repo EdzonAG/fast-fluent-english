@@ -7,11 +7,11 @@
  *   - a full URL if it ever moves to its own domain.
  */
 window.TOURS_CONFIG = {
-  // Destino que va primero en la portada: "bcs" (Loreto y Mulegé) o "chiapas" (Lagos de Colón).
+  // Destino que va primero en el menú del inicio: "bcs" (Loreto y Mulegé) o "chiapas" (Lagos de Colón).
   // A partir de marzo, cambiar a "chiapas" y volver a desplegar.
   destinoDestacado: "bcs",
 
-  // Sección de ballena azul (inicio y página de BCS). Va justo debajo de la portada de Loreto y Mulegé.
+  // Sección de ballena azul (página de BCS). Va justo debajo de la portada de Loreto y Mulegé.
   // fotos: rutas de assets-originales ya procesadas con "npm run imagenes". videos: id de YouTube.
   ballena: {
     frase: {
@@ -52,8 +52,9 @@ window.TOURS_CONFIG = {
     ]
   },
 
-  // Destino del QR flotante. Al cambiarlo, el QR se vuelve a generar en el build.
-  qrUrl: "https://www.spectacultours.mx/?utm_source=qr&utm_medium=presencial",
+  // Adónde lleva el QR flotante. El diseño es del cliente y el enlace va dentro de la imagen
+  // (public/assets/img/qr/): para cambiarlo hay que reemplazar el archivo. "npm test" comprueba que coincidan.
+  qrUrl: "https://spectacultours.mx",
   qrTextos: {
     en: { escanea: "Scan me", ampliar: "Show the QR code larger", modal: "Scan to save SpectaCulTours", cerrar: "Close", alt: "QR code for the SpectaCulTours website" },
     es: { escanea: "Escanéame", ampliar: "Mostrar el código QR más grande", modal: "Escanea para guardar SpectaCulTours", cerrar: "Cerrar", alt: "Código QR del sitio de SpectaCulTours" }
