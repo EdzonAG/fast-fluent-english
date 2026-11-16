@@ -10,6 +10,9 @@ window.TOURS_I18N = {
     "w.fotos": "Fotos de ballena azul",
     "w.videos": "Videos de ballena azul",
     "w.play": "Reproducir video:",
+    "w.prev": "Videos anteriores",
+    "w.next": "Más videos",
+    "t.port.aria": "Más de SpectaCulTours",
     "h.alt.bcs": "Loreto y Mulegé, Baja California Sur: playa de arena blanca y agua turquesa bajo un cielo azul",
     "h.menu": "Destinos",
     "h.alt.en": "Estudiante sonriendo en una clase de inglés en vivo por internet",
@@ -261,6 +264,8 @@ window.TOURS_I18N = {
   dynamic: {
     en: {
       close: "Close",
+      authenticVideo: "Authentic video — filmed on our own tours",
+      authenticPhoto: "Authentic photo — taken on our own tours",
       reservar: "Reserve on WhatsApp",
       vipMsg: "Hi! I'm interested in VIP days for the {tour} expedition: {type}, {days} day(s) (estimate {total}).",
       tourName: { chiapas: "Chiapas", bcs: "Baja California Sur" },
@@ -277,6 +282,8 @@ window.TOURS_I18N = {
     },
     es: {
       close: "Cerrar",
+      authenticVideo: "Video auténtico — grabado en nuestros propios tours",
+      authenticPhoto: "Foto auténtica — tomada en nuestros propios tours",
       reservar: "Reservar por WhatsApp",
       vipMsg: "¡Hola! Me interesan días VIP para la expedición de {tour}: {type}, {days} día(s) (estimado {total}).",
       tourName: { chiapas: "Chiapas", bcs: "Baja California Sur" },
