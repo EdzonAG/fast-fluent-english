@@ -221,8 +221,9 @@
     lastFocus = document.activeElement;
     overlay.setAttribute("aria-label", title);
     overlay.innerHTML = '<button class="overlay__close" type="button" aria-label="' + t("close") + '">' + icon("close") + "</button>" +
-      '<div class="overlay__frame"><iframe src="https://www.youtube-nocookie.com/embed/' + id +
+      '<figure class="overlay__caja"><div class="overlay__frame"><iframe src="https://www.youtube-nocookie.com/embed/' + id +
       '?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>' +
+      '<figcaption class="overlay__nota">' + icon("camera") + "<span>" + t("authenticVideo") + "</span></figcaption></figure>" +
       '<span class="overlay__fin" tabindex="0"></span>';
     overlay.querySelector("iframe").title = title;
     overlay.hidden = false;
@@ -246,25 +247,26 @@
   });
   $$("[data-video]").forEach(function (b) {
     b.addEventListener("click", function () {
-      var cap = b.querySelector("[data-i18n^='w.video']") || b.querySelector(".tile__cap b, .vcard__body");
+      var cap = b.querySelector("[data-i18n^='w.video']") || b.querySelector(".tile__cap b, .vcard__body, .clip b");
       showVideo(b.dataset.video, cap ? cap.textContent.trim() : "SpectaCulTours video");
     });
   });
 
   /* ---------------- Visor de fotos ---------------- */
+  function verFotos(items, i, conNota) { SITIO.abrirVisor(items, i, conNota === false ? null : { nota: t("authenticPhoto") }); }
   function itemDe(im) {
     return { src: im.dataset.full || im.currentSrc || im.src, width: +im.dataset.fullW || im.naturalWidth, height: +im.dataset.fullH || im.naturalHeight, alt: im.alt };
   }
   $$("[data-photo]").forEach(function (b) {
     b.addEventListener("click", function () {
-      SITIO.abrirVisor([{ src: b.dataset.photo, width: +b.dataset.fullW, height: +b.dataset.fullH, alt: (b.querySelector(".tile__cap b") || {}).textContent || "" }], 0);
+      verFotos([{ src: b.dataset.photo, width: +b.dataset.fullW, height: +b.dataset.fullH, alt: (b.querySelector(".tile__cap b") || {}).textContent || "" }], 0);
     });
   });
   $$("[data-gallery]").forEach(function (g) {
     var items = $$("button", g);
     items.forEach(function (b, i) {
       b.addEventListener("click", function () {
-        SITIO.abrirVisor(items.map(function (x) { return itemDe(x.querySelector("img")); }), i);
+        verFotos(items.map(function (x) { return itemDe(x.querySelector("img")); }), i);
       });
     });
   });
@@ -278,12 +280,36 @@
     if (!im.alt) im.setAttribute("aria-label", "Open photo");
     function open() {
       var group = zoomable.filter(function (x) { return x.closest("section") === im.closest("section"); });
-      SITIO.abrirVisor(group.map(itemDe), group.indexOf(im));
+      verFotos(group.map(itemDe), group.indexOf(im), !im.closest(".t-cta__host"));
     }
     im.addEventListener("click", open);
     im.addEventListener("keydown", function (e) {
       if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
     });
+  });
+
+  /* ---------------- Carruseles de videos ---------------- */
+  $$(".rail-nav").forEach(function (nav) {
+    var rail = document.getElementById(nav.dataset.rail);
+    if (!rail) return;
+    var prev = $("[data-rail-prev]", nav), next = $("[data-rail-next]", nav);
+    function estado() {
+      var max = rail.scrollWidth - rail.clientWidth;
+      nav.hidden = max < 4;
+      prev.disabled = rail.scrollLeft < 4;
+      next.disabled = rail.scrollLeft > max - 4;
+    }
+    // Avanza los videos que caben completos (al menos uno).
+    function mover(dir) {
+      var gap = parseFloat(getComputedStyle(rail).columnGap) || 0;
+      var paso = rail.firstElementChild.getBoundingClientRect().width + gap;
+      rail.scrollBy({ left: dir * paso * Math.max(1, Math.floor((rail.clientWidth + gap + 1) / paso)), behavior: reduceMotion ? "auto" : "smooth" });
+    }
+    prev.addEventListener("click", function () { mover(-1); });
+    next.addEventListener("click", function () { mover(1); });
+    rail.addEventListener("scroll", function () { requestAnimationFrame(estado); }, { passive: true });
+    window.addEventListener("resize", estado);
+    estado();
   });
 
   /* ---------------- WhatsApp tip ---------------- */

@@ -21,5 +21,6 @@
 /* Visor de imágenes (PhotoSwipe) */
 .pswp__pie { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 20px calc(14px + env(safe-area-inset-bottom)); text-align: center; color: #dfe7ea; font: 400 .95rem/1.4 Inter, system-ui, sans-serif; background: linear-gradient(transparent, rgba(0, 0, 0, .55)); pointer-events: none; }
 .pswp__pie:empty { display: none; }
+.pswp__nota { display: block; margin-top: 4px; font-size: .8rem; color: #a9b8be; }
 .pswp.pswp--touch .pswp__button--arrow { visibility: visible; }
 .pswp__button--descarga { display: grid; place-items: center; }

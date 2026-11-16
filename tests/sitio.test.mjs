@@ -395,6 +395,57 @@ test("las secciones generales y los videos quedaron en las páginas de destino",
   });
 });
 
+test("portadas enlazadas entre sí, leyenda de autenticidad y videos sin repetir", async () => {
+  const OTRO = { "/baja-california-sur/": "/chiapas/", "/chiapas/": "/baja-california-sur/" };
+  await conPagina({ width: 1280, height: 800 }, async (p) => {
+    for (const [ruta, otro] of Object.entries(OTRO)) {
+      await ir(p, ruta);
+      const r = await p.evaluate(() => {
+        const portada = document.querySelector(".portada__img img").getBoundingClientRect();
+        const enlaces = [...document.querySelectorAll(".portada__links a")];
+        return {
+          hrefs: enlaces.map((a) => new URL(a.href).pathname),
+          dentro: enlaces.every((a) => {
+            const c = a.getBoundingClientRect();
+            return c.width > 0 && c.left >= portada.left && c.right <= portada.right && c.top >= portada.top && c.bottom <= portada.bottom;
+          }),
+          leyendas: [...document.querySelectorAll(".autentico")].map((e) => e.closest("section")?.id),
+          ids: [...document.querySelectorAll("[data-video]")].map((b) => b.dataset.video),
+        };
+      });
+      assert.deepEqual(r.hrefs, [otro, "/english/"], ruta);
+      assert.ok(r.dentro, `${ruta}: los enlaces deben quedar sobre la imagen de portada`);
+      for (const s of ["experience", "gallery"]) assert.ok(r.leyendas.includes(s), `${ruta}: falta la leyenda en #${s}`);
+      assert.equal(new Set(r.ids).size, r.ids.length, `${ruta}: video repetido`);
+    }
+
+    // Ballena: leyenda, carrusel de tres en tres y la leyenda también dentro del reproductor.
+    await ir(p, "/baja-california-sur/");
+    const c = await p.evaluate(async () => {
+      const lista = document.querySelector("#ballena-lista");
+      const prev = document.querySelector("[data-rail-prev]");
+      const antes = { prev: prev.disabled, nav: document.querySelector(".rail-nav").hidden };
+      const paso = lista.firstElementChild.getBoundingClientRect().width + parseFloat(getComputedStyle(lista).columnGap);
+      document.querySelector("[data-rail-next]").click();
+      await new Promise((ok) => setTimeout(ok, 900));
+      return { ...antes, avance: lista.scrollLeft / paso, prevDespues: prev.disabled, leyenda: !!document.querySelector("#ballena .autentico") };
+    });
+    assert.equal(c.nav, false, "flechas visibles");
+    assert.equal(c.prev, true, "al inicio no se puede ir atrás");
+    assert.ok(Math.abs(c.avance - 3) < 0.05, `avanza tres videos (${c.avance})`);
+    assert.equal(c.prevDespues, false);
+    assert.ok(c.leyenda, "leyenda en la sección de ballena");
+    await p.locator("#experience [data-video]").first().click();
+    await p.waitForSelector(".overlay__nota");
+    assert.match(await p.textContent(".overlay__nota"), /Authentic video/);
+    await p.keyboard.press("Escape");
+  });
+
+  // Inglés: el video del médico solo una vez (en la lista de videos).
+  const html = readFileSync(join(RAIZ, "dist/english/index.html"), "utf8");
+  assert.equal(html.match(/data-(play-)?video="1OD9G-BJtQ0"/g)?.length, 1, "video del médico repetido");
+});
+
 test("presupuesto de peso por imagen", () => {
   const manifiesto = JSON.parse(readFileSync(join(RAIZ, "imagenes.manifest.json"), "utf8"));
   const excedidas = [];

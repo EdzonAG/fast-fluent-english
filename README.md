@@ -146,7 +146,10 @@ La compresión Brotli la aplica Render sin configuración. Render no instala sha
 - Bilingüe EN/ES: abre en inglés si no hay una elección guardada. El botón está en el encabezado de todas las páginas
   y la elección se recuerda entre visitas (`localStorage`); también funciona `?lang=es`.
 - QR flotante, con el diseño del cliente, que se reduce o se quita al pasar sobre títulos y botones, con vista ampliada para escanear.
-- Sección de ballena azul, fechas de tours, mensajes de WhatsApp por contexto y CV de FAST con visor y descarga en PDF.
+- Sección de ballena azul (videos en carrusel con flechas), fechas de tours, mensajes de WhatsApp por contexto y CV de FAST con visor y descarga en PDF.
+- Leyenda de autenticidad ("todas las fotos y videos son auténticos") bajo cada grupo de fotos y videos de los tours, y al pie del visor de fotos y del reproductor.
+- Videos de los tours repartidos por tema: en "La experiencia" quedan los principales y los demás van junto a su sección (aves junto a la fauna, comida en "Comida", frutas junto a la lista de frutas).
+- En la portada de cada destino, enlaces discretos al otro destino y a las clases de inglés.
 - Hero con collage de fotos de aprendizaje en línea (licencia Unsplash) y tarjetas flotantes.
 - 6 videos del canal (incluye el testimonio de un médico, enlazado desde "Who it's for").
 - Test de nivel MCER (A1–C2) de 6 preguntas que envía el resultado por WhatsApp.

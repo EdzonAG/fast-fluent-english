@@ -244,15 +244,6 @@
       if (window.innerWidth < 980) player.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
     });
   });
-  // Buttons elsewhere on the page (e.g. the testimonial) that open a video in the player
-  $$("[data-play-video]").forEach(function (b) {
-    b.addEventListener("click", function () {
-      var id = b.dataset.playVideo;
-      $$(".vlist__item").forEach(function (x) { x.classList.toggle("is-active", x.dataset.video === id); });
-      loadVideo(id, true);
-      player.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
-    });
-  });
 
   /* ---------------- Level quiz ---------------- */
   var quizEl = $("#quiz");

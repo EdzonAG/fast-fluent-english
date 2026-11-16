@@ -39,6 +39,7 @@ const TAMANOS = {
   avatar: "48px",
   thumb: "44px",
   cross: `(max-width: 760px) ${COL}, 590px`,
+  clip: "(max-width: 860px) calc(100vw - 88px), 300px",
   extra: `(max-width: 980px) ${COL}, 560px`,
   "collage-main": "(max-width: 980px) 56vw, 340px",
   "collage-side": "(max-width: 980px) 42vw, 250px",
@@ -170,10 +171,18 @@ function seccionBallena() {
   return `<section class="ballena" id="ballena" aria-labelledby="ballena-frase">
   <div class="container">
     <h2 class="ballena__frase" id="ballena-frase" data-i18n="w.frase">${textoHtml(frase.en)}</h2>
+    <p class="autentico"><svg class="i"><use href="/assets/img/icons.svg#camera"/></svg><span data-i18n="t.authentic"><b>All pictures and videos are authentic</b> — taken on our own tours.</span></p>
     <div class="ballena__fotos" data-gallery data-n="${fotos.length}" role="group" aria-label="Blue whale photos" data-i18n-aria="w.fotos">
       ${listaFotos}
     </div>
-    <ul class="ballena__videos" aria-label="Blue whale videos" data-i18n-aria="w.videos">
+    <div class="ballena__vhead">
+      <h3 id="ballena-videos" data-i18n="w.videos">Blue whale videos</h3>
+      <div class="rail-nav" data-rail="ballena-lista" hidden>
+        <button class="rail-nav__btn" type="button" data-rail-prev aria-controls="ballena-lista" aria-label="Previous videos" data-i18n-aria="w.prev"><svg class="i"><use href="/assets/img/icons.svg#arrow"/></svg></button>
+        <button class="rail-nav__btn" type="button" data-rail-next aria-controls="ballena-lista" aria-label="Next videos" data-i18n-aria="w.next"><svg class="i"><use href="/assets/img/icons.svg#arrow"/></svg></button>
+      </div>
+    </div>
+    <ul class="ballena__videos" id="ballena-lista" aria-labelledby="ballena-videos">
       ${listaVideos}
     </ul>
   </div>

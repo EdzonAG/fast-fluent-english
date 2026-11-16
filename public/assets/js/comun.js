@@ -90,8 +90,10 @@ window.SITIO = (function () {
     return visor;
   }
   // items: [{ src, width, height, alt }]. opciones.descarga: { href, nombre, texto } agrega un botón de descarga.
+  // opciones.nota: texto pequeño bajo la descripción de cada foto.
   function abrirVisor(items, i, opciones) {
     var descarga = opciones && opciones.descarga;
+    var nota = opciones && opciones.nota;
     cargarVisor().then(function (PhotoSwipe) {
       var v = VISOR[document.documentElement.lang === "es" ? "es" : "en"];
       var sinMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -113,7 +115,16 @@ window.SITIO = (function () {
           name: "pie",
           className: "pswp__pie",
           appendTo: "root",
-          onInit: function (el) { pswp.on("change", function () { el.textContent = pswp.currSlide.data.alt || ""; }); }
+          onInit: function (el) {
+            pswp.on("change", function () {
+              el.textContent = pswp.currSlide.data.alt || "";
+              if (!nota) return;
+              var s = document.createElement("small");
+              s.className = "pswp__nota";
+              s.textContent = nota;
+              el.appendChild(s);
+            });
+          }
         });
         if (descarga) {
           pswp.ui.registerElement({
@@ -177,21 +188,31 @@ window.SITIO = (function () {
       carta = { izq: r.left, abajo: window.innerHeight - r.bottom, ancho: r.width, alto: r.height };
     }
     function cruza(a, b) { return a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top; }
+    // Durante la animación de entrada (.reveal sube unos píxeles) se toma todo el recorrido,
+    // de donde está a donde va a quedar: así el QR no termina encima de un botón que sigue subiendo.
+    function cajaFinal(el) {
+      var r = el.getBoundingClientRect();
+      var rev = el.closest(".reveal");
+      var m = rev ? getComputedStyle(rev).transform : "none";
+      var dy = m && m !== "none" ? parseFloat(m.split(",")[5]) || 0 : 0;
+      if (!dy) return r;
+      return { left: r.left, right: r.right, top: Math.min(r.top, r.top - dy), bottom: Math.max(r.bottom, r.bottom - dy), width: r.width };
+    }
     function actualizar() {
       pendiente = false;
       if (!carta) medir();
       var H = window.innerHeight;
       var caja = { left: carta.izq, right: carta.izq + carta.ancho, top: H - carta.abajo - carta.alto, bottom: H - carta.abajo };
-      var objetivos = document.querySelectorAll(".btn, .linkbtn, .seg button, input[type=range], .cv, .menu-card");
+      var objetivos = document.querySelectorAll(".btn, .linkbtn, .seg button, input[type=range], .cv, .menu-card, .portada__links a, .rail-nav__btn");
       var mini = H < 560;
       var i, r;
       for (i = 0; !mini && i < objetivos.length; i++) {
-        r = objetivos[i].getBoundingClientRect();
+        r = cajaFinal(objetivos[i]);
         if (r.width && cruza(caja, r)) mini = true;
       }
       // Al abrir la página el QR se ve completo; al desplazarse deja leer la frase de la ballena y el título de la página.
       if (!mini && window.scrollY > 0) {
-        var frases = document.querySelectorAll(".ballena__frase, .t-hero h2");
+        var frases = document.querySelectorAll(".ballena__frase, .t-hero h2, .autentico");
         for (i = 0; !mini && i < frases.length; i++) mini = cruza(caja, frases[i].getBoundingClientRect());
       }
       // data-titulo: dónde está el título dentro de la portada, en fracciones (x1,y1,x2,y2).
@@ -209,7 +230,7 @@ window.SITIO = (function () {
         var m = btn.getBoundingClientRect();
         var cajaMini = { left: carta.izq, right: carta.izq + m.width, top: caja.bottom - m.height, bottom: caja.bottom };
         for (i = 0; !oculto && i < objetivos.length; i++) {
-          r = objetivos[i].getBoundingClientRect();
+          r = cajaFinal(objetivos[i]);
           oculto = r.width > 0 && !objetivos[i].matches(".cv, .menu-card") && cruza(cajaMini, r);
         }
       }
