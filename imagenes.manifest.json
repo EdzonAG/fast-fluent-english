@@ -1860,59 +1860,71 @@
    "ruta": "/static/img/english/hero/hello-class-800.fb1defff3d.webp"
   }
  },
- "english/assets/img/hero/learn-headphones": {
-  "huella": "a5347bafd9187c5d",
-  "width": 1100,
-  "height": 733,
+ "english/assets/img/hero/home-office": {
+  "huella": "276559d0a986b0b1",
+  "width": 1672,
+  "height": 941,
   "variantes": {
    "avif": [
     {
      "w": 480,
-     "h": 320,
-     "bytes": 10749,
-     "ruta": "/static/img/english/hero/learn-headphones-480.5f308f31c0.avif"
+     "h": 270,
+     "bytes": 11730,
+     "ruta": "/static/img/english/hero/home-office-480.173d799664.avif"
     },
     {
      "w": 768,
-     "h": 512,
-     "bytes": 21210,
-     "ruta": "/static/img/english/hero/learn-headphones-768.52f955e031.avif"
+     "h": 432,
+     "bytes": 22755,
+     "ruta": "/static/img/english/hero/home-office-768.b4320de76b.avif"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 44725,
+     "ruta": "/static/img/english/hero/home-office-1280.c02dcebf3b.avif"
     }
    ],
    "webp": [
     {
      "w": 480,
-     "h": 320,
-     "bytes": 17942,
-     "ruta": "/static/img/english/hero/learn-headphones-480.87e3579f02.webp"
+     "h": 270,
+     "bytes": 21634,
+     "ruta": "/static/img/english/hero/home-office-480.040f1ec349.webp"
     },
     {
      "w": 768,
-     "h": 512,
-     "bytes": 33036,
-     "ruta": "/static/img/english/hero/learn-headphones-768.8082a6a031.webp"
+     "h": 432,
+     "bytes": 41888,
+     "ruta": "/static/img/english/hero/home-office-768.97b901eeb9.webp"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 79280,
+     "ruta": "/static/img/english/hero/home-office-1280.c890369d5f.webp"
     }
    ],
    "jpg": [
     {
      "w": 480,
-     "h": 320,
-     "bytes": 24331,
-     "ruta": "/static/img/english/hero/learn-headphones-480.3244cef8f2.jpg"
+     "h": 270,
+     "bytes": 26799,
+     "ruta": "/static/img/english/hero/home-office-480.c96171cce3.jpg"
     },
     {
      "w": 768,
-     "h": 512,
-     "bytes": 49852,
-     "ruta": "/static/img/english/hero/learn-headphones-768.ab5f136f87.jpg"
+     "h": 432,
+     "bytes": 55089,
+     "ruta": "/static/img/english/hero/home-office-768.8b00bc6d73.jpg"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 117233,
+     "ruta": "/static/img/english/hero/home-office-1280.91d285c088.jpg"
     }
    ]
-  },
-  "visor": {
-   "w": 1100,
-   "h": 733,
-   "bytes": 54276,
-   "ruta": "/static/img/english/hero/learn-headphones-1100.dd71b7e052.webp"
   }
  },
  "english/assets/img/hero/notes": {
