@@ -167,10 +167,10 @@ La compresión Brotli la aplica Render sin configuración. Render no instala sha
 
 ## Créditos de imágenes
 
-Fotos del hero de inglés (`public/english/assets/img/hero/`; `learn-headphones.jpg` también se usa en el menú de inicio), bajo la [Licencia Unsplash](https://unsplash.com/license)
+La foto principal de inglés (`home-office.webp`, también en el menú de inicio y en la vista previa al compartir) la eligió el cliente.
+Las demás fotos del hero de inglés (`public/english/assets/img/hero/`) están bajo la [Licencia Unsplash](https://unsplash.com/license)
 (uso comercial gratuito, sin atribución obligatoria):
 
-- `learn-headphones.jpg` — Soundtrap · https://unsplash.com/photos/C-2Wky-LT7k
 - `video-call.jpg` — LinkedIn Sales Solutions · https://unsplash.com/photos/Be5aVKFv9ho
 - `hello-class.jpg` — Windows · https://unsplash.com/photos/6G6akT8biLg
 - `notes.jpg` — veera Batlu · https://unsplash.com/photos/rqJfN6F-j8s
