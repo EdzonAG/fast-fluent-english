@@ -81,6 +81,8 @@ Construye `dist/` y lo prueba con el Chrome instalado: sin scroll horizontal a 3
 
 Las imágenes generadas se suben al repositorio, así que Render no necesita sharp.
 
+El mismo comando genera las vistas previas al compartir (1200×630) en `public/assets/img/og/`: las de cada destino salen de su portada y la de inglés (`fast-english.jpg`) de la foto principal de `/english/` (`assets-originales/english/assets/img/hero/home-office.webp`) con el logo de FAST. WhatsApp y Facebook guardan la vista previa de cada enlace: si cambias la imagen, cambia también el nombre del archivo y su `og:image` para que la vuelvan a leer.
+
 ## Desplegar en Render
 
 El servicio actual (`fast-fluent-english`) se creó a mano y no aplica `render.yaml`. **El orden importa:** sin el build, `dist/` no existe y las páginas no encuentran sus fotos.

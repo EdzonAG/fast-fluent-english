@@ -137,6 +137,25 @@ for (const nombre of ["loreto-mulege", "lagos-de-colon"]) {
     .jpeg({ quality: 80, mozjpeg: true })
     .toFile(join(OG, `${nombre}.jpg`));
 }
+// Inglés: la foto que eligió el cliente (la misma de la portada de /english/), sin oscurecer,
+// con el logo de FAST en una placa blanca arriba a la izquierda.
+{
+  const W = 1200, H = 630, alto = 56, padX = 26, padY = 16, x = 36, y = 34;
+  const logo = await sharp(join(RAIZ, "public", "assets", "img", "logos", "fast_color.svg"), { density: 600 }).resize({ height: alto }).png().toBuffer();
+  const ancho = (await sharp(logo).metadata()).width;
+  const bw = ancho + padX * 2, bh = alto + padY * 2;
+  const svg = (s) => Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" ${s}</svg>`);
+  const sombra = await sharp(svg(`width="${bw + 40}" height="${bh + 40}"><rect x="20" y="24" width="${bw}" height="${bh}" rx="18" fill="#0a1a4f" opacity=".22"/>`)).blur(8).png().toBuffer();
+  await sharp(join(ORIGINALES, "english", "assets", "img", "hero", "home-office.webp"))
+    .resize(W, H, { fit: "cover", position: "centre" })
+    .composite([
+      { input: sombra, left: x - 20, top: y - 20 },
+      { input: svg(`width="${bw}" height="${bh}"><rect width="${bw}" height="${bh}" rx="18" fill="#fff"/>`), left: x, top: y },
+      { input: logo, left: x + padX, top: y + padY },
+    ])
+    .jpeg({ quality: 84, mozjpeg: true })
+    .toFile(join(OG, "fast-english.jpg"));
+}
 
 const kb = (b) => (b / 1024).toFixed(0).padStart(4);
 const filas = Object.entries(nuevo).map(([clave, d]) => {

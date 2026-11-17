@@ -41,7 +41,8 @@ const TAMANOS = {
   cross: `(max-width: 760px) ${COL}, 590px`,
   clip: "(max-width: 860px) calc(100vw - 88px), 300px",
   extra: `(max-width: 980px) ${COL}, 560px`,
-  "collage-main": "(max-width: 980px) 56vw, 340px",
+  // La foto (16:9) llena a lo alto un recuadro vertical de 414 px (290 px en móvil): se ve así de ancha.
+  "collage-main": "(max-width: 560px) 516px, 736px",
   "collage-side": "(max-width: 980px) 42vw, 250px",
   about: `(max-width: 980px) min(560px, calc(100vw - 72px)), 568px`,
   cefr: `(max-width: 980px) ${COL}, 500px`,
