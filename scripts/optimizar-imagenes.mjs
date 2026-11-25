@@ -138,10 +138,10 @@ for (const nombre of ["loreto-mulege", "lagos-de-colon"]) {
     .toFile(join(OG, `${nombre}.jpg`));
 }
 // Inglés: la foto que eligió el cliente (la misma de la portada de /english/), sin oscurecer,
-// con el logo de FAST en una placa blanca arriba a la izquierda.
+// con el logo 3D de FAST en una placa blanca arriba a la izquierda. Si cambia, cambia el nombre (caché de WhatsApp).
 {
-  const W = 1200, H = 630, alto = 56, padX = 26, padY = 16, x = 36, y = 34;
-  const logo = await sharp(join(RAIZ, "public", "assets", "img", "logos", "fast_color.svg"), { density: 600 }).resize({ height: alto }).png().toBuffer();
+  const W = 1200, H = 630, alto = 66, padX = 24, padY = 14, x = 36, y = 34;
+  const logo = await sharp(join(RAIZ, "public", "assets", "img", "logos", "fast_3d.webp")).resize({ height: alto }).png().toBuffer();
   const ancho = (await sharp(logo).metadata()).width;
   const bw = ancho + padX * 2, bh = alto + padY * 2;
   const svg = (s) => Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" ${s}</svg>`);
@@ -154,7 +154,7 @@ for (const nombre of ["loreto-mulege", "lagos-de-colon"]) {
       { input: logo, left: x + padX, top: y + padY },
     ])
     .jpeg({ quality: 84, mozjpeg: true })
-    .toFile(join(OG, "fast-english.jpg"));
+    .toFile(join(OG, "fast-english-3d.jpg"));
 }
 
 const kb = (b) => (b / 1024).toFixed(0).padStart(4);

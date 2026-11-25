@@ -77,7 +77,7 @@ function publicarConHash(archivo, contenido) {
 
 const todos = listar(DIST);
 todos.filter((f) => f.endsWith(".woff2")).forEach((f) => publicarConHash(f));
-todos.filter((f) => /[\\/]assets[\\/]img[\\/]logos[\\/].+\.svg$/.test(f)).forEach((f) => publicarConHash(f));
+todos.filter((f) => /[\\/]assets[\\/]img[\\/]logos[\\/].+\.(svg|webp)$/.test(f)).forEach((f) => publicarConHash(f));
 todos.filter((f) => /[\\/]assets[\\/]img[\\/]icons\.svg$/.test(f)).forEach((f) => publicarConHash(f));
 todos.filter((f) => /[\\/]assets[\\/]img[\\/]qr[\\/].+\.svg$/.test(f)).forEach((f) => publicarConHash(f));
 todos.filter((f) => /[\\/]assets[\\/]js[\\/].+\.js$/.test(f)).forEach((f) => publicarConHash(f));
