@@ -112,7 +112,7 @@ h2 em, h1 em { font-family: var(--serif); font-style: italic; font-weight: 400; 
 .nav__inner { height: 100%; display: flex; align-items: center; gap: 24px; }
 .logo { display: inline-flex; align-items: center; gap: 10px; font-family: var(--display); }
 .logo__chip { display: inline-flex; align-items: center; background: #fff; border-radius: 12px; padding: 7px 12px; box-shadow: 0 6px 18px -8px rgba(0, 0, 0, .35); }
-.logo__chip img { height: 24px; width: auto; display: block; }
+.logo__chip img { height: 26px; width: auto; display: block; }
 .logo__text { font-size: 1rem; font-weight: 600; letter-spacing: -.01em; white-space: nowrap; opacity: .9; }
 .nav__links { display: flex; gap: 4px; margin-left: auto; }
 .nav__links a { white-space: nowrap; padding: 8px 14px; border-radius: 999px; font-size: .93rem; font-weight: 500; opacity: .85; transition: background .2s, opacity .2s; }
@@ -518,8 +518,8 @@ h2 em, h1 em { font-family: var(--serif); font-style: italic; font-weight: 400; 
 .footer ul a:hover { color: #fff; }
 .footer__brand p { margin: 18px 0 22px; max-width: 320px; }
 .logo--light { color: #fff; }
-.logo--light .logo__chip { background: none; box-shadow: none; padding: 0; }
-.logo--light .logo__chip img { height: 26px; }
+/* Pie oscuro: el logo 3D conserva su placa blanca. */
+.logo--light .logo__chip img { height: 28px; }
 .social { display: flex; flex-wrap: wrap; gap: 8px; }
 .social a { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: rgba(255, 255, 255, .06); color: #dbe3fb; transition: background .2s, transform .2s; }
 .social a:hover { background: var(--blue-600); transform: translateY(-3px); color: #fff; }
@@ -595,6 +595,7 @@ body:has(.calendly-overlay) .wa { display: none; }
   box-shadow: var(--shadow-lg); transition: transform .4s var(--ease); }
 .tours-portal:hover { transform: translateY(-4px); }
 .tours-portal__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+.tours-portal__logo { display: inline-flex; align-self: flex-start; background: #fff; border-radius: 12px; padding: 8px 14px; box-shadow: 0 6px 18px -8px rgba(0, 0, 0, .45); }
 .tours-portal__logo img { height: 30px; width: auto; display: block; }
 .tours-portal .eyebrow { margin: 6px 0 0; color: #fbbf24; }
 .tours-portal__title { font-family: var(--display); font-weight: 700; font-size: clamp(1.9rem, 3.6vw, 2.8rem); line-height: 1.1; letter-spacing: -.02em; }
@@ -620,6 +621,40 @@ body:has(.calendly-overlay) .wa { display: none; }
 .vlist__item b { font-size: .9rem; line-height: 1.3; }
 .vlist__item small { font-size: .8rem; }
 @media (max-width: 420px) { .vlist { grid-template-columns: 1fr; } }
+/* 7 videos: the last one takes the full row, thumbnail beside the text. */
+.vlist__item:last-child:nth-child(odd) { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 14px; }
+.vlist__item:last-child:nth-child(odd) img { width: calc(50% - 12px); }
+
+/* Shorts (vertical videos): right column, under the main player */
+.video { grid-template-areas: "copy player" "copy shorts"; row-gap: 44px; }
+.video__copy { grid-area: copy; }
+.player { grid-area: player; align-self: end; }
+.shorts { grid-area: shorts; align-self: start; }
+.shorts__copy { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 14px; margin-bottom: 18px; }
+.shorts__copy .eyebrow { margin: 0; }
+.shorts__copy h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); margin: 0; }
+.shorts__copy p:last-child { flex-basis: 100%; color: var(--ink-2); margin: 6px 0 0; }
+.shorts__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.short { display: flex; flex-direction: column; gap: 10px; text-align: left; padding: 0; background: none; border: 0; cursor: pointer; }
+.short__media { position: relative; display: block; aspect-ratio: 9 / 16; border-radius: 20px; overflow: hidden; background: #000; box-shadow: var(--shadow); }
+.short__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.short:hover .short__media img { transform: scale(1.04); }
+.short__media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.short__play { position: absolute; left: 50%; top: 50%; width: 60px; height: 60px; margin: -30px 0 0 -30px; display: grid; place-items: center; border-radius: 50%; background: var(--red-500); color: #fff; box-shadow: 0 10px 30px -8px rgba(229, 23, 47, .6); transition: transform .2s; }
+.short__play .i { width: 24px; height: 24px; margin-left: 3px; }
+.short:hover .short__play { transform: scale(1.08); }
+.short__cap b { display: block; font-size: .95rem; line-height: 1.3; }
+.short__cap small { color: var(--ink-3); font-size: .82rem; }
+.short:focus-visible { outline: none; }
+.short:focus-visible .short__media { outline: 3px solid var(--blue-500); outline-offset: 3px; }
+@media (max-width: 980px) {
+  .video { grid-template-areas: "player" "copy" "shorts"; row-gap: 40px; }
+}
+@media (max-width: 420px) {
+  .shorts__list { gap: 12px; }
+  .vlist__item:last-child:nth-child(odd) { flex-direction: column; align-items: stretch; gap: 8px; }
+  .vlist__item:last-child:nth-child(odd) img { width: 100%; }
+}
 
 .cefr-chart { margin: 28px 0 0; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 12px; box-shadow: var(--shadow-sm); }
 .cefr-chart img { width: 100%; height: auto; border-radius: 10px; }

@@ -28,7 +28,7 @@ assets-originales/              ← originales, no se publican. "pendientes/" y 
 imagenes.manifest.json          ← generado: variantes de cada imagen
 scripts/
   optimizar-imagenes.mjs        ← originales → public/static/img (AVIF, WebP, JPG)
-  optimizar-logos.mjs           ← SVGO + comparación píxel a píxel
+  optimizar-logos.mjs           ← logos 3D del cliente: fondo blanco → transparente (npm run logos)
   build.mjs                     ← public/ → dist/ (<picture>, hashes, QR, orden del menú)
   generar-cv.mjs                ← sección del CV → PNG y PDF (public/english/assets/cv/)
   parciales/comun.css           ← estilos del QR y del visor, van en línea en cada página
@@ -81,7 +81,11 @@ Construye `dist/` y lo prueba con el Chrome instalado: sin scroll horizontal a 3
 
 Las imágenes generadas se suben al repositorio, así que Render no necesita sharp.
 
-El mismo comando genera las vistas previas al compartir (1200×630) en `public/assets/img/og/`: las de cada destino salen de su portada y la de inglés (`fast-english.jpg`) de la foto principal de `/english/` (`assets-originales/english/assets/img/hero/home-office.webp`) con el logo de FAST. WhatsApp y Facebook guardan la vista previa de cada enlace: si cambias la imagen, cambia también el nombre del archivo y su `og:image` para que la vuelvan a leer.
+El mismo comando genera las vistas previas al compartir (1200×630) en `public/assets/img/og/`: las de cada destino salen de su portada y la de inglés (`fast-english-3d.jpg`) de la foto principal de `/english/` (`assets-originales/english/assets/img/hero/home-office.webp`) con el logo 3D de FAST. WhatsApp y Facebook guardan la vista previa de cada enlace: si cambias la imagen, cambia también el nombre del archivo y su `og:image` para que la vuelvan a leer.
+
+## Logos
+
+Los logos son los 3D que eligió el cliente (`assets-originales/logos/spectacultours_3d.webp` y `fast_3d.webp`, con fondo blanco). `npm run logos` les quita el fondo (el blanco pasa a transparente y la sombra queda suave), los recorta y los deja en `public/assets/img/logos/`. Sobre fondos oscuros (pies de página, banda de expediciones) van en una placa blanca para que se lean. Si cambias el de FAST, corre también `npm run imagenes` (vista previa al compartir, con otro nombre de archivo) y regenera el CV.
 
 ## Desplegar en Render
 
@@ -153,7 +157,7 @@ La compresión Brotli la aplica Render sin configuración. Render no instala sha
 - Videos de los tours repartidos por tema: en "La experiencia" quedan los principales y los demás van junto a su sección (aves junto a la fauna, comida en "Comida", frutas junto a la lista de frutas).
 - En la portada de cada destino, enlaces discretos al otro destino y a las clases de inglés.
 - Hero con collage de fotos de aprendizaje en línea (licencia Unsplash) y tarjetas flotantes.
-- 6 videos del canal (incluye el testimonio de un médico, enlazado desde "Who it's for").
+- 7 videos del canal en la lista del reproductor y 2 shorts verticales debajo de él, que se reproducen en su propia tarjeta 9:16.
 - Test de nivel MCER (A1–C2) de 6 preguntas que envía el resultado por WhatsApp.
 - Agenda de Calendly en ventana emergente (sin salir del sitio).
 - Widget de WhatsApp con mensajes rápidos prellenados; botones de planes con mensaje por plan.

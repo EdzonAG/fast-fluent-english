@@ -245,6 +245,18 @@
     });
   });
 
+  // Shorts: vertical videos play in place, inside their own 9:16 card.
+  $$(".short").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var media = b.querySelector(".short__media");
+      if (media.querySelector("iframe")) return;
+      media.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + b.dataset.short +
+        '?autoplay=1&rel=0&playsinline=1" title="' + b.querySelector(".short__cap b").textContent.replace(/"/g, "&quot;") +
+        '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+      b.classList.add("is-playing");
+    });
+  });
+
   /* ---------------- Level quiz ---------------- */
   var quizEl = $("#quiz");
   var answers = [];
